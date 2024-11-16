@@ -155,6 +155,7 @@ a:hover,
 .header a:hover,
 .footer a:hover{
     all: revert-layer;
+    color:chartreuse;
   }
 }
 
