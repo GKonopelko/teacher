@@ -150,11 +150,10 @@ a:hover,
   opacity: 0.7;
 }
 
-@media (pointer: coarse) {
+@media (pointer: fine) and (hover:hover) {
   a:hover,
 .header a:hover,
 .footer a:hover{
-    all: revert-layer;
     color:chartreuse;
     background-color: chocolate;
   }
