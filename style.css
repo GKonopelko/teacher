@@ -148,13 +148,15 @@ a:hover,
 .footer a:hover
  {
   opacity: 0.7;
+  color:red;
 }
 
 @media (pointer: coarse) {
   a:hover,
-.header a:hover,
-.footer a:hover{
+  .header a:hover,
+  .footer a:hover{
     all: revert-layer;
+    color:green;
   }
 }
 
