@@ -1,0 +1,7 @@
+:root {
+  --color-primary: #2e86ab;
+  --color-accent: #f9c784;
+  --font-heading: Georgia, serif;
+  --font-body: 'Inter', sans-serif;
+  --border-radius: 8px;
+}
