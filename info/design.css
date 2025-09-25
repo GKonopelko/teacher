@@ -1,0 +1,33 @@
+/* src/styles/design-system.css */
+:root {
+  /* Цвета */
+  --primary: #2E86AB;     /* Финский синий */
+  --primary-light: #5BAAC6;
+  --accent: #F9C784;      /* Теплый акцент */
+  --success: #4CAF50;     /* Правильные ответы */
+  --error: #F44336;       /* Ошибки */
+  
+  /* Типографика */
+  --font-heading: 'Georgia', serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Размеры */
+  --border-radius: 8px;
+  --shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Компоненты */
+.card {
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+}
+
+.exercise-correct {
+  border-left: 4px solid var(--success);
+}
+
+.exercise-incorrect {
+  border-left: 4px solid var(--error);
+}
