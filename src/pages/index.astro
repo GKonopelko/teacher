@@ -1,12 +1,10 @@
 ---
-// pages/index.astro
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
 ---
 
 <BaseLayout>
-  <!-- Hero секция -->
   <section class="hero">
     <div class="hero-content">
       <h1>Opetellaan Suomea Yhdessä!</h1>
@@ -18,14 +16,12 @@ import Card from '../components/ui/Card.astro';
       </div>
     </div>
     <div class="hero-image">
-      <!-- Moomin-inspired illustration -->
       <div class="hero-illustration">
         <span>🎓📚🇫🇮</span>
       </div>
     </div>
   </section>
 
-  <!-- Навигационные карточки -->
   <section class="features">
     <div class="feature-grid">
       <Card href="/lessons" class="feature-card">

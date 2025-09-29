@@ -1,7 +1,8 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: "https://grigori.konopelko.com/",
-  trailingSlash: "always",
+  site: 'https://grigori.konopelko.com/',
+  base: '/',
+  trailingSlash: 'always',
 });
