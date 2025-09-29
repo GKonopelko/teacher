@@ -1,0 +1,33 @@
+---
+export interface ButtonTestProps {
+  text: string;
+  text2?: string;
+  href?: string;
+}
+
+const { text, href } = Astro.props as ButtonTestProps;
+---
+
+{href ? <a href={href}> Content </a> : <button>{text}</button>}
+
+<div class="palette-info">
+  <div class="color-grid">
+    <div class="color-swatch" style="background: #1a1a1a">--text-primary<br />#1a1a1a</div>
+    <div class="color-swatch" style="background: #0066cc">--accent-primary<br />#0066cc</div>
+    <div class="color-swatch" style="background: #f8fafc; color: #333">
+      --background-light<br />#f8fafc
+    </div>
+    <div class="color-swatch" style="background: #ffffff; color: #333; border: 2px solid #e2e8f0">
+      --background-white<br />#ffffff
+    </div>
+  </div>
+  <div class="palette-description">
+    <h4>Характеристики:</h4>
+    <ul>
+      <li>⚡ Современный и технологичный</li>
+      <li>🎯 Высокая контрастность</li>
+      <li>📱 Отлично для образовательной платформы</li>
+      <li>🎨 Минималистичная палитра</li>
+    </ul>
+  </div>
+</div>

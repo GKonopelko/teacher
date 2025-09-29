@@ -1,0 +1,106 @@
+---
+export interface Props {
+  href?: string;
+  variant?: 'primary' | 'filled' | 'minimal';
+  size?: 'small' | 'medium' | 'large';
+  class?: string;
+}
+
+const { href, variant = 'primary', size = 'medium', class: className = '' } = Astro.props;
+
+const baseClass = 'button';
+const variantClass = `button-${variant}`;
+const sizeClass = `button--${size}`;
+---
+
+{
+  href ? (
+    <a href={href} class={`${baseClass} ${variantClass} ${sizeClass} ${className}`}>
+      <slot />
+    </a>
+  ) : (
+    <button class={`${baseClass} ${variantClass} ${sizeClass} ${className}`}>
+      <slot />
+    </button>
+  )
+}
+
+<style>
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    font-family: inherit;
+    font-size: 0.875rem;
+    cursor: pointer;
+    gap: 0.5rem;
+    white-space: nowrap;
+  }
+
+  .button-primary {
+    background: transparent;
+    color: var(--link-color);
+    border-color: var(--accent-light);
+  }
+
+  .button-primary:hover {
+    background: var(--hover-bg);
+    color: var(--link-color);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--hover-bg);
+  }
+
+  .button-filled {
+    background: var(--link-color);
+    color: var(--background-white);
+    border-color: var(--link-color);
+  }
+
+  .button-filled:hover {
+    background: var(--hover-bg);
+    color: var(--background-white);
+    border-color: var(--hover-bg);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(77, 166, 255, 0.3);
+  }
+
+  .button-minimal {
+    background: transparent;
+    color: var(--link-color);
+    border-color: transparent;
+  }
+
+  .button-minimal:hover {
+    background: var(--accent-soft);
+    color: var(--link-color);
+    transform: translateY(-1px);
+  }
+
+  /* Размеры кнопок */
+  .button--small {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  .button--medium {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .button--large {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  .button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+</style>

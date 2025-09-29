@@ -1,0 +1,49 @@
+---
+import Header from '../components/ui/Header.astro';
+import Footer from '../components/ui/Footer.astro';
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Финский язык с репетитором</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+
+    <style>
+      @import url('/src/styles/global.css');
+      @import url('/src/styles/components.css');
+    </style>
+  </body>
+</html>
+
+<style>
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--background-white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1;
+  }
+</style>

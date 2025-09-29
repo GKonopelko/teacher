@@ -1,0 +1,101 @@
+---
+export interface Props {
+  href?: string;
+  class?: string;
+}
+
+const { href, class: className = '' } = Astro.props;
+---
+
+{
+  href ? (
+    <a href={href} class={`card feature-card ${className}`}>
+      <div class="feature-card-content">
+        <slot />
+      </div>
+    </a>
+  ) : (
+    <div class={`card feature-card ${className}`}>
+      <div class="feature-card-content">
+        <slot />
+      </div>
+    </div>
+  )
+}
+
+<style>
+  .card {
+    background: var(--background-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    border: 1px solid var(--border-light);
+    transition: var(--transition);
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+  }
+
+  .card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .feature-card {
+    background: var(--background-white);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    transition: var(--transition);
+    border: 2px solid var(--border-light);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--background-light), transparent);
+    transition: left 0.6s ease;
+    z-index: 0;
+  }
+
+  .feature-card:hover::before {
+    left: 100%;
+  }
+
+  .feature-card:hover {
+    border-color: var(--link-color);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .feature-card-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .exercise-correct {
+    border-left: 4px solid var(--success);
+    background: linear-gradient(90deg, rgba(16, 185, 129, 0.05) 0%, transparent 100%);
+  }
+
+  .exercise-incorrect {
+    border-left: 4px solid var(--error);
+    background: linear-gradient(90deg, rgba(239, 68, 68, 0.05) 0%, transparent 100%);
+  }
+
+  @media (max-width: 768px) {
+    .feature-card {
+      padding: 1.5rem;
+    }
+  }
+</style>

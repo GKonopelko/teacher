@@ -1,0 +1,105 @@
+---
+import Button from './Button.astro';
+---
+
+<header class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a href="/" class="logo-link">Suomen Opetus</a>
+      <span class="logo-subtitle">Финский с современным подходом</span>
+    </div>
+
+    <div class="nav-links">
+      <a href="/lessons" class="nav-link">Уроки</a>
+      <a href="/grammar" class="nav-link">Грамматика</a>
+      <a href="/dictionary" class="nav-link">Словарь</a>
+      <a href="/blog" class="nav-link">Блог</a>
+      <a href="/contact" class="nav-link">Контакты</a>
+    </div>
+
+    <Button href="/contact" variant="filled" size="small">Начать учиться</Button>
+  </nav>
+</header>
+
+<style>
+  .header {
+    background: var(--background-white);
+    border-bottom: 1px solid var(--border-light);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: var(--transition);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    gap: 2rem;
+  }
+
+  .logo-link {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+
+  .logo-link:hover {
+    color: var(--link-color);
+  }
+
+  .logo-subtitle {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    font-weight: 400;
+    margin-top: 0.125rem;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    font-size: 0.875rem;
+  }
+
+  .nav-link:hover {
+    background-color: var(--background-light);
+    color: var(--link-color);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 768px) {
+    .nav {
+      padding: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      order: 3;
+      width: 100%;
+      justify-content: center;
+      margin-top: 1rem;
+      gap: 1rem;
+    }
+
+    .logo {
+      text-align: center;
+    }
+  }
+</style>
