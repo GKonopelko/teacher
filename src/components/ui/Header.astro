@@ -5,19 +5,28 @@ import Button from './Button.astro';
 <header class="header">
   <nav class="nav">
     <div class="logo">
-      <a href="/" class="logo-link">Suomen Opetus</a>
-      <span class="logo-subtitle">Финский с современным подходом</span>
+      <a href="/" class="logo-link">
+        <div class="logo-img">
+          <img src="/src/assets/images/parrotsvg.svg" alt="logo" width="40" height="40" />
+        </div>
+        <div class="logo-text">
+          <span class="logo-title">Преподаватель финского языка</span>
+          <span class="logo-subtitle">Конопелько Григорий Викторович</span>
+        </div>
+      </a>
     </div>
 
     <div class="nav-links">
-      <a href="/lessons" class="nav-link">Уроки</a>
-      <a href="/grammar" class="nav-link">Грамматика</a>
-      <a href="/dictionary" class="nav-link">Словарь</a>
-      <a href="/blog" class="nav-link">Блог</a>
-      <a href="/contact" class="nav-link">Контакты</a>
+      <a href="/" class="nav-item">Главная</a>
+      <a href="/about/" class="nav-item">Обо мне</a>
+      <a href="/lessons/" class="nav-item">Уроки</a>
+      <a href="/grammar/" class="nav-item">Грамматика</a>
+      <a href="/dictionary/" class="nav-item">Словарь</a>
+      <a href="/level-test/" class="nav-item">Тест уровня</a>
+      <a href="/contact/" class="nav-item">Контакты</a>
     </div>
 
-    <Button href="/contact" variant="filled" size="small">Начать учиться</Button>
+    <Button href="/contact/" variant="filled" size="small">Записаться на урок</Button>
   </nav>
 </header>
 
@@ -42,20 +51,31 @@ import Button from './Button.astro';
   }
 
   .logo-link {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     text-decoration: none;
-    transition: var(--transition);
+    color: inherit;
   }
 
-  .logo-link:hover {
-    color: var(--link-color);
+  .logo-img {
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
   }
 
   .logo-subtitle {
-    display: block;
     font-size: 0.75rem;
     color: var(--text-tertiary);
     font-weight: 400;
@@ -64,24 +84,8 @@ import Button from './Button.astro';
 
   .nav-links {
     display: flex;
-    gap: 1.5rem;
+    gap: 0.5rem;
     align-items: center;
-  }
-
-  .nav-link {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border-radius: var(--border-radius);
-    transition: var(--transition);
-    font-size: 0.875rem;
-  }
-
-  .nav-link:hover {
-    background-color: var(--background-light);
-    color: var(--link-color);
-    transform: translateY(-1px);
   }
 
   @media (max-width: 768px) {
@@ -95,11 +99,12 @@ import Button from './Button.astro';
       width: 100%;
       justify-content: center;
       margin-top: 1rem;
-      gap: 1rem;
+      gap: 0.5rem;
+      flex-wrap: wrap;
     }
 
-    .logo {
-      text-align: center;
+    .logo-title {
+      font-size: 1rem;
     }
   }
 </style>

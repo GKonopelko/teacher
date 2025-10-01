@@ -5,24 +5,34 @@
 <footer class="footer">
   <div class="footer-content">
     <div class="footer-section">
-      <h3>Suomen Opetus</h3>
-      <p>Финский язык с современным подходом</p>
+      <div class="footer-logo">
+        <img src="/src/assets/images/parrotsvg.svg" alt="logo" width="30" height="30" />
+        <h3>Преподаватель финского языка</h3>
+      </div>
+      <p>Конопелько Григорий Викторович</p>
+      <p>Опытный профессиональный репетитор с 15-летним стажем</p>
     </div>
-    <div class="footer-section">
-      <h4>Разделы</h4>
-      <a href="/lessons" class="footer-link">Уроки</a>
-      <a href="/grammar" class="footer-link">Грамматика</a>
-      <a href="/dictionary" class="footer-link">Словарь</a>
-      <a href="/blog" class="footer-link">Блог</a>
-    </div>
+
     <div class="footer-section">
       <h4>Контакты</h4>
-      <a href="/contact" class="footer-link">Записаться на урок</a>
-      <a href="mailto:hello@example.com" class="footer-link">Email</a>
+      <a href="tel:+79117770297" class="text-link">+7 911 777 02 97</a>
+      <a href="mailto:grigori.konopelko@mail.ru" class="text-link">grigori.konopelko@mail.ru</a>
+      <a href="/contact/" class="text-link text-link--emphasis">Записаться на урок</a>
+    </div>
+
+    <div class="footer-section">
+      <h4>Разделы</h4>
+      <a href="/" class="text-link">Главная</a>
+      <a href="/about/" class="text-link">Обо мне</a>
+      <a href="/lessons/" class="text-link">Уроки</a>
+      <a href="/grammar/" class="text-link">Грамматика</a>
+      <a href="/dictionary/" class="text-link">Словарь</a>
+      <a href="/level-test/" class="text-link">Тест уровня</a>
     </div>
   </div>
+
   <div class="footer-bottom">
-    <p>&copy; 2024 Suomen Opetus. Все права защищены.</p>
+    <p>© Конопелько Григорий Викторович, 2024</p>
   </div>
 </footer>
 
@@ -42,10 +52,17 @@
     margin: 0 auto;
   }
 
-  .footer-section h3 {
-    margin-bottom: 1rem;
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-logo h3 {
+    margin: 0;
     color: var(--background-white);
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: 700;
   }
 
@@ -59,20 +76,7 @@
   .footer-section p {
     color: color-mix(in srgb, var(--background-white) 80%, transparent);
     line-height: 1.5;
-  }
-
-  .footer-link {
-    display: block;
-    color: color-mix(in srgb, var(--background-white) 80%, transparent);
-    text-decoration: none;
-    margin-bottom: 0.5rem;
-    transition: var(--transition);
-    padding: 0.25rem 0;
-  }
-
-  .footer-link:hover {
-    color: var(--background-white);
-    transform: translateX(4px);
+    margin: 0.25rem 0;
   }
 
   .footer-bottom {

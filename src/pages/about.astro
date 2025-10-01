@@ -1,0 +1,216 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+  <section class="about-section">
+    <div class="container">
+      <h1>Обо мне</h1>
+
+      <div class="about-content">
+        <div class="about-text">
+          <div class="promo">
+            <h3>
+              Здравствуйте! <br />
+              Меня зовут Конопелько Григорий Викторович. Я работаю преподавателем/репетитором финского
+              языка уже более 15 лет и даю уроки для взроcлых и подростков, мотивиpoванныx нa пoлучeниe
+              peзультaтa.<br />
+              Научу вас понимать, читать, говорить и думать по-фински.<br />
+              Добро пожаловать на занятия! <br />
+              Tervetuloa opiskelemaan!
+            </h3>
+          </div>
+
+          <h2>Образование и опыт</h2>
+          <div class="text-content">
+            <p>
+              <strong>Опыт преподавания:</strong> в СПбГУ, в ФИНЭКе (Санкт-Петербургский государственный
+              экономический университет), на курсах финского языка, в компаниях и с частными учениками.
+            </p>
+
+            <p><strong>Образование:</strong></p>
+            <ul>
+              <li>
+                Санкт-Петербургский государственый университет, Филологический факультет,
+                спeциальнoсть «Финcкий язык и литeратуpa»
+              </li>
+              <li>
+                Хельсинский университет, Гуманитарный факультет, спeциальнoсть «Финский язык и
+                культура»
+              </li>
+            </ul>
+          </div>
+
+          <h2>Методика преподавания</h2>
+          <div class="text-content">
+            <p>В основе методики лежит:</p>
+            <ul>
+              <li>Учебник Suomen Mestari</li>
+              <li>Авторские наработки и материалы</li>
+              <li>Индивидуальный подход к каждому ученику</li>
+              <li>Акцент на разговорную практику</li>
+              <li>Систематизация грамматики</li>
+            </ul>
+          </div>
+
+          <div class="motivation">
+            <p class="center">Мотивация + регулярные занятия = отличный результат!</p>
+          </div>
+        </div>
+
+        <div class="about-sidebar">
+          <div class="contact-card">
+            <h3>Контакты</h3>
+            <p>
+              <strong>Телефон:</strong><br />
+              <a href="tel:+79117770297">+7 911 777 02 97</a>
+            </p>
+            <p>
+              <strong>Email:</strong><br />
+              <a href="mailto:grigori.konopelko@mail.ru">grigori.konopelko@mail.ru</a>
+            </p>
+            <a href="/contact/" class="cta-button">Записаться на урок</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about-section {
+    padding: 4rem 2rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .about-section h1 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--link-color);
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .about-text h2 {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    color: var(--text-primary);
+    margin: 2rem 0 1rem;
+  }
+
+  .promo h3 {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--background-light);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--link-color);
+  }
+
+  .text-content {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  .text-content ul {
+    padding-left: 1.5rem;
+  }
+
+  .text-content li {
+    margin-bottom: 0.5rem;
+  }
+
+  .motivation {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--accent-soft);
+    border-radius: var(--border-radius);
+    text-align: center;
+  }
+
+  .center {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--link-color);
+    margin: 0;
+  }
+
+  .contact-card {
+    background: var(--background-white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 2rem;
+  }
+
+  .contact-card h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+  }
+
+  .contact-card p {
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .contact-card a {
+    color: var(--link-color);
+    text-decoration: none;
+  }
+
+  .cta-button {
+    display: block;
+    background: var(--link-color);
+    color: var(--background-white);
+    text-align: center;
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    margin-top: 1rem;
+  }
+
+  .cta-button:hover {
+    background: var(--hover-bg);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .about-section {
+      padding: 2rem 1rem;
+    }
+
+    .about-section h1 {
+      font-size: 2rem;
+    }
+
+    .about-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .contact-card {
+      position: static;
+    }
+  }
+</style>

@@ -5,45 +5,128 @@ import Card from '../components/ui/Card.astro';
 ---
 
 <BaseLayout>
+  <!-- Hero секция -->
   <section class="hero">
     <div class="hero-content">
-      <h1>Opetellaan Suomea Yhdessä!</h1>
-      <p>Изучайте финский язык с заботой и вниманием, как в долине Муми-троллей</p>
+      <h1>Обучение финскому языку</h1>
+      <div class="promo">
+        <h3>
+          Здравствуйте! <br />
+          Меня зовут Конопелько Григорий Викторович. Я работаю преподавателем/репетитором финского языка
+          уже более 15 лет и даю уроки для взроcлых и подростков, мотивиpoванныx нa пoлучeниe peзультaтa.<br
+          />
+          Научу вас понимать, читать, говорить и думать по-фински.<br />
+          Добро пожаловать на занятия! <br />
+          Tervetuloa opiskelemaan!
+        </h3>
+      </div>
       <div class="hero-buttons">
-        <Button href="/lessons" variant="filled">Начать учиться</Button>
-        <Button href="/contact" variant="primary">Бесплатный урок</Button>
-        <Button href="/about" variant="minimal">Узнать больше</Button>
+        <Button href="/contact/" variant="filled" size="large">Записаться на пробный урок</Button>
+        <Button href="/about/" variant="primary" size="large">Узнать больше</Button>
       </div>
     </div>
     <div class="hero-image">
       <div class="hero-illustration">
-        <span>🎓📚🇫🇮</span>
+        <img src="/src/assets/images/parrotsvg.svg" alt="Логотип" width="200" height="200" />
       </div>
     </div>
   </section>
 
+  <!-- Features -->
   <section class="features">
-    <div class="feature-grid">
-      <Card href="/lessons" class="feature-card">
-        <div class="card-icon">📚</div>
-        <h3>Интерактивные уроки</h3>
-        <p>Пошаговые курсы от A1 до B2</p>
-        <span class="card-link">Изучать →</span>
-      </Card>
+    <div class="container">
+      <h2 class="text-center mb-5">Возможности обучения</h2>
+      <div class="feature-grid">
+        <Card href="/lessons/" class="feature-card">
+          <div class="card-icon">📚</div>
+          <h3>Интерактивные уроки</h3>
+          <p>Пошаговые курсы от A1 до B2 с практическими заданиями</p>
+          <span class="card-link">Изучать →</span>
+        </Card>
 
-      <Card href="/grammar" class="feature-card">
-        <div class="card-icon">🔍</div>
-        <h3>Грамматика</h3>
-        <p>15 падежей и спряжения глаголов</p>
-        <span class="card-link">Изучать →</span>
-      </Card>
+        <Card href="/grammar/" class="feature-card">
+          <div class="card-icon">🔍</div>
+          <h3>Грамматика</h3>
+          <p>15 падежей, спряжения глаголов, чередование согласных</p>
+          <span class="card-link">Изучать →</span>
+        </Card>
 
-      <Card href="/dictionary" class="feature-card">
-        <div class="card-icon">📖</div>
-        <h3>Словарь</h3>
-        <p>Тематические подборки слов</p>
-        <span class="card-link">Изучать →</span>
-      </Card>
+        <Card href="/dictionary/" class="feature-card">
+          <div class="card-icon">📖</div>
+          <h3>Словарь</h3>
+          <p>Тематические подборки слов и выражений</p>
+          <span class="card-link">Изучать →</span>
+        </Card>
+
+        <Card href="/level-test/" class="feature-card">
+          <div class="card-icon">🎯</div>
+          <h3>Тест уровня</h3>
+          <p>Определите ваш уровень финского языка A1-C2</p>
+          <span class="card-link">Пройти тест →</span>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Обучение -->
+  <section class="content-section">
+    <div class="container">
+      <h2>Обучение</h2>
+      <div class="text-content">
+        <p>- онлайн (Zооm, Тelеgrаm, Google Docs), 60 мин - 1500р</p>
+        <p>- возможно очное обучение в Санкт-Петербурге у Вас дома/в офисе.</p>
+        <p>- индивидуальныe зaнятия или занятия в пaре</p>
+        <p>- мeтодикa прeподавания нa ocнoвe Suomen Меstаri + автopские нарабoтки</p>
+        <p>- индивидуальная программа обучения для каждого ученика</p>
+        <p>- постановка/улучшение произношения</p>
+        <p>- устранение пробелов в грамматике</p>
+        <p>- расширения словарного запаса</p>
+        <p>- наработка навыков письменного и устного перевода</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Для кого -->
+  <section class="content-section bg-light">
+    <div class="container">
+      <h2>Для кого</h2>
+      <div class="text-content">
+        <p>- адаптации живущих в Финляндии</p>
+        <p>- пеpеезда и проживaния в Финляндии</p>
+        <p>- подготовки к экзамену YКI / поступлению в финский колледж/вуз</p>
+        <p>- подготовки к собеседованию на работу</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Преподаватель -->
+  <section class="content-section">
+    <div class="container">
+      <h2>Преподаватель</h2>
+      <div class="text-content">
+        <p>
+          Опыт преподавания в СПбГУ, в ФИНЭКе (Санкт-Петербургский государственный экономический
+          университет), на курсах финского языка, в компаниях и с частными учениками.
+        </p>
+        <p><strong>Образование:</strong></p>
+        <p>
+          - Санкт-Петербургский государственый университет, Филологический факультет, спeциальнoсть
+          «Финcкий язык и литeратуpa»
+        </p>
+        <p>
+          - Хельсинский университет, Гуманитарный факультет, спeциальнoсть «Финский язык и культура»
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA секция -->
+  <section class="cta-section">
+    <div class="container text-center">
+      <h2>Мотивация + регулярные занятия = отличный результат!</h2>
+      <div class="mt-4">
+        <Button href="/contact/" variant="filled" size="large">Начать обучение</Button>
+      </div>
     </div>
   </section>
 </BaseLayout>
@@ -61,17 +144,18 @@ import Card from '../components/ui/Card.astro';
 
   .hero-content h1 {
     font-family: var(--font-heading);
-    font-size: 3rem;
-    color: var(--accent-primary);
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    color: var(--link-color);
+    margin-bottom: 2rem;
     font-weight: 700;
   }
 
-  .hero-content p {
+  .promo h3 {
     font-size: 1.25rem;
     color: var(--text-secondary);
     margin-bottom: 2rem;
     line-height: 1.6;
+    font-weight: 500;
   }
 
   .hero-buttons {
@@ -94,7 +178,6 @@ import Card from '../components/ui/Card.astro';
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 4rem;
     border: 2px solid var(--accent-light);
   }
 
@@ -103,12 +186,15 @@ import Card from '../components/ui/Card.astro';
     background: var(--background-light);
   }
 
-  .feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+  .container {
     max-width: 1200px;
     margin: 0 auto;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
   }
 
   .card-icon {
@@ -129,15 +215,58 @@ import Card from '../components/ui/Card.astro';
     line-height: 1.5;
   }
 
+  .content-section {
+    padding: 4rem 2rem;
+  }
+
+  .bg-light {
+    background: var(--background-light);
+  }
+
+  .content-section h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    font-weight: 700;
+  }
+
+  .text-content {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  .text-content p {
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-section {
+    background: var(--link-color);
+    color: var(--background-white);
+    padding: 4rem 2rem;
+  }
+
+  .cta-section h2 {
+    color: var(--background-white);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+
   @media (max-width: 768px) {
     .hero {
       grid-template-columns: 1fr;
       text-align: center;
       padding: 2rem 1rem;
+      gap: 2rem;
     }
 
     .hero-content h1 {
       font-size: 2rem;
+    }
+
+    .promo h3 {
+      font-size: 1.1rem;
     }
 
     .hero-buttons {
@@ -146,11 +275,22 @@ import Card from '../components/ui/Card.astro';
 
     .hero-illustration {
       height: 200px;
-      font-size: 3rem;
     }
 
     .features {
       padding: 2rem 1rem;
+    }
+
+    .content-section {
+      padding: 2rem 1rem;
+    }
+
+    .content-section h2 {
+      font-size: 1.75rem;
+    }
+
+    .feature-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
