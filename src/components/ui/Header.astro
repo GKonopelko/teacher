@@ -35,80 +35,59 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
 </header>
 
 <script>
-  function assertElement<T extends Element>(
-    element: Element | null,
-    constructor: { new (): T },
-    message?: string
-  ): T {
-    if (!element) {
-      throw new Error(message ?? `Element not found`);
-    }
-    if (!(element instanceof constructor)) {
-      throw new Error(message ?? `Expected ${constructor.name}`);
-    }
-    return element;
-  }
-
   document.addEventListener('DOMContentLoaded', () => {
-    try {
-      // Получаем элементы с гарантированными типами
-      const button = assertElement(
-        document.getElementById('headerBurger'),
-        HTMLButtonElement,
-        'Menu button not found'
-      );
+    const button = document.getElementById('headerBurger');
+    const menu = document.getElementById('mobileMenu');
 
-      const menu = assertElement(
-        document.getElementById('mobileMenu'),
-        HTMLElement,
-        'Menu container not found'
-      );
-
-      // Дальше используем button и menu как обычно
-      let isOpen = false;
-
-      function toggleMenu() {
-        isOpen = !isOpen;
-        button.setAttribute('aria-expanded', isOpen.toString());
-        button.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
-        menu.setAttribute('aria-hidden', (!isOpen).toString());
-        button.classList.toggle('active', isOpen);
-        menu.classList.toggle('active', isOpen);
-
-        if (isOpen) {
-          document.body.classList.add('menu-open');
-        } else {
-          document.body.classList.remove('menu-open');
-        }
-      }
-
-      function closeMenu() {
-        if (isOpen) {
-          isOpen = false;
-          button.setAttribute('aria-expanded', 'false');
-          button.setAttribute('aria-label', 'Открыть меню');
-          menu.setAttribute('aria-hidden', 'true');
-          button.classList.remove('active');
-          menu.classList.remove('active');
-          document.body.classList.remove('menu-open');
-        }
-      }
-
-      button.addEventListener('click', toggleMenu);
-      menu.querySelectorAll('.nav-item').forEach((link) => {
-        link.addEventListener('click', closeMenu);
-      });
-
-      window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) closeMenu();
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && isOpen) closeMenu();
-      });
-    } catch (error) {
-      console.error('Header menu initialization failed:', error);
+    if (!button || !menu) {
+      console.warn('Menu elements not found');
+      return;
     }
+
+    const btn = button as HTMLButtonElement;
+    const mnu = menu as HTMLElement;
+
+    let isOpen = false;
+
+    function toggleMenu() {
+      isOpen = !isOpen;
+      btn.setAttribute('aria-expanded', isOpen.toString());
+      btn.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+      mnu.setAttribute('aria-hidden', (!isOpen).toString());
+      btn.classList.toggle('active', isOpen);
+      mnu.classList.toggle('active', isOpen);
+
+      if (isOpen) {
+        document.body.classList.add('menu-open');
+      } else {
+        document.body.classList.remove('menu-open');
+      }
+    }
+
+    function closeMenu() {
+      if (isOpen) {
+        isOpen = false;
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Открыть меню');
+        mnu.setAttribute('aria-hidden', 'true');
+        btn.classList.remove('active');
+        mnu.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      }
+    }
+
+    btn.addEventListener('click', toggleMenu);
+    mnu.querySelectorAll('.nav-item').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) closeMenu();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen) closeMenu();
+    });
   });
 </script>
 

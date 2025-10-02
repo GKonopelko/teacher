@@ -9,7 +9,6 @@ export default [
     ignores: ['**/.astro/**', '**/dist/**', '**/node_modules/**'],
   },
 
-  // TypeScript файлы
   {
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
@@ -28,7 +27,6 @@ export default [
     },
   },
 
-  // JavaScript файлы
   {
     files: ['**/*.js', '**/*.jsx'],
     rules: {
@@ -37,7 +35,6 @@ export default [
     },
   },
 
-  // Скрипты внутри Astro файлов
   {
     files: ['**/*.astro/*.js', '**/*.astro/*.ts'],
     rules: {

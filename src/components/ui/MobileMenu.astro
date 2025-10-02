@@ -1,4 +1,5 @@
 ---
+import { navigationLinks } from '../../data/navigation';
 interface Props {
   menuId: string;
 }
@@ -8,13 +9,13 @@ const { menuId } = Astro.props;
 
 <nav class="nav-mobile" id={menuId} aria-label="Мобильная навигация" aria-hidden="true">
   <div class="mobile-links">
-    <a href="/" class="nav-item">Главная</a>
-    <a href="/about/" class="nav-item">Обо мне</a>
-    <a href="/lessons/" class="nav-item">Уроки</a>
-    <a href="/grammar/" class="nav-item">Грамматика</a>
-    <a href="/dictionary/" class="nav-item">Словарь</a>
-    <a href="/level-test/" class="nav-item">Тест уровня</a>
-    <a href="/contact/" class="nav-item">Контакты</a>
+    {
+      navigationLinks.map((link) => (
+        <a href={link.href} class="nav-item">
+          {link.label}
+        </a>
+      ))
+    }
     <slot />
   </div>
 </nav>
