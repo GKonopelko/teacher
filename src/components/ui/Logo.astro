@@ -1,31 +1,26 @@
 ---
 import favicon from '../../assets/images/parrotsvg.svg';
-interface Props {
-  showText?: boolean;
-}
-
-const { showText = true } = Astro.props;
 ---
 
 <div class="logo">
-  <a href="/" class="logo-link">
+  <a
+    href="/"
+    class="logo-link"
+    aria-label="На главную страницу - Преподаватель финского языка Конопелько Григорий Викторович"
+  >
     <div class="logo-img">
       <img
         src={favicon.src}
-        alt="Логотип - Преподаватель финского языка"
+        alt="Логотип - Преподаватель финского языка Конопелько Григорий Викторович"
         width="40"
         height="40"
         loading="lazy"
       />
     </div>
-    {
-      showText && (
-        <div class="logo-text">
-          <span class="logo-title">Преподаватель финского языка</span>
-          <span class="logo-subtitle">Конопелько Григорий Викторович</span>
-        </div>
-      )
-    }
+    <div class="logo-text">
+      <span class="logo-title">Преподаватель финского языка</span>
+      <span class="logo-subtitle">Конопелько Григорий Викторович</span>
+    </div>
   </a>
 </div>
 
@@ -62,8 +57,18 @@ const { showText = true } = Astro.props;
   }
 
   @media (max-width: 768px) {
+    .logo-title {
+      font-size: 1rem;
+    }
+
+    .logo-subtitle {
+      font-size: 0.7rem;
+    }
+  }
+
+  @media (max-width: 385px) {
     .logo-text {
-      display: none;
+      display: none; /* На очень маленьких скрываем текст */
     }
   }
 </style>

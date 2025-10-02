@@ -8,20 +8,19 @@ const { buttonId, menuId } = Astro.props;
 ---
 
 <button
-  class="burger-menu"
+  class="burger-button"
   id={buttonId}
-  type="button"
   aria-controls={menuId}
   aria-expanded="false"
   aria-label="Открыть меню"
 >
-  <span></span>
-  <span></span>
-  <span></span>
+  <span class="burger-line"></span>
+  <span class="burger-line"></span>
+  <span class="burger-line"></span>
 </button>
 
 <style>
-  .burger-menu {
+  .burger-button {
     display: none;
     flex-direction: column;
     justify-content: space-between;
@@ -31,35 +30,32 @@ const { buttonId, menuId } = Astro.props;
     border: none;
     cursor: pointer;
     padding: 0;
+    z-index: 1003;
     position: relative;
-    min-width: 24px;
-    min-height: 18px;
   }
 
-  .burger-menu span {
-    display: block;
-    height: 2px;
+  .burger-line {
     width: 100%;
-    background-color: var(--text-primary);
+    height: 2px;
+    background: var(--text-primary);
     transition: all 0.3s ease;
     transform-origin: center;
   }
 
-  .burger-menu.active span:nth-child(1) {
+  .burger-button.active .burger-line:nth-child(1) {
     transform: rotate(45deg) translate(6px, 6px);
   }
 
-  .burger-menu.active span:nth-child(2) {
+  .burger-button.active .burger-line:nth-child(2) {
     opacity: 0;
-    transform: scale(0);
   }
 
-  .burger-menu.active span:nth-child(3) {
+  .burger-button.active .burger-line:nth-child(3) {
     transform: rotate(-45deg) translate(6px, -6px);
   }
 
   @media (max-width: 768px) {
-    .burger-menu {
+    .burger-button {
       display: flex;
     }
   }

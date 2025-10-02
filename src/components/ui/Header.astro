@@ -1,9 +1,8 @@
 ---
-import Button from './Button.astro';
-import BurgerButton from './BurgerButton.astro';
 import MobileMenu from './MobileMenu.astro';
 import Logo from './Logo.astro';
 import DesktopNav from './DesktopNav.astro';
+import BurgerButton from './BurgerButton.astro';
 
 interface Props {
   buttonId?: string;
@@ -15,47 +14,43 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
 
 <header class="header">
   <div class="header-container">
-    <Logo showText={true} />
+    <div class="header-left">
+      <a
+        href="/"
+        class="logo-home-link"
+        aria-label="На главную страницу - Преподаватель финского языка Конопелько Григорий Викторович"
+      >
+        <Logo />
+      </a>
+      <DesktopNav />
+    </div>
 
-    <DesktopNav />
-
-    <div class="header-actions">
-      <Button href="/contact/" variant="filled" size="small" class="cta-button">
-        Записаться на урок
-      </Button>
+    <div class="header-right">
       <BurgerButton {buttonId} {menuId} />
     </div>
   </div>
 
-  <MobileMenu {menuId}>
-    <Button href="/contact/" variant="filled" size="small" class="mobile-cta">
-      Записаться на урок
-    </Button>
-  </MobileMenu>
+  <MobileMenu {menuId} />
 </header>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const button = document.getElementById('headerBurger');
-    const menu = document.getElementById('mobileMenu');
+    const button = document.getElementById('headerBurger') as HTMLButtonElement;
+    const menu = document.getElementById('mobileMenu') as HTMLElement;
 
     if (!button || !menu) {
-      console.warn('Menu elements not found');
       return;
     }
-
-    const btn = button as HTMLButtonElement;
-    const mnu = menu as HTMLElement;
 
     let isOpen = false;
 
     function toggleMenu() {
       isOpen = !isOpen;
-      btn.setAttribute('aria-expanded', isOpen.toString());
-      btn.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
-      mnu.setAttribute('aria-hidden', (!isOpen).toString());
-      btn.classList.toggle('active', isOpen);
-      mnu.classList.toggle('active', isOpen);
+      button.setAttribute('aria-expanded', isOpen.toString());
+      button.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+      menu.setAttribute('aria-hidden', (!isOpen).toString());
+      button.classList.toggle('active', isOpen);
+      menu.classList.toggle('active', isOpen);
 
       if (isOpen) {
         document.body.classList.add('menu-open');
@@ -67,17 +62,18 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
     function closeMenu() {
       if (isOpen) {
         isOpen = false;
-        btn.setAttribute('aria-expanded', 'false');
-        btn.setAttribute('aria-label', 'Открыть меню');
-        mnu.setAttribute('aria-hidden', 'true');
-        btn.classList.remove('active');
-        mnu.classList.remove('active');
+        button.setAttribute('aria-expanded', 'false');
+        button.setAttribute('aria-label', 'Открыть меню');
+        menu.setAttribute('aria-hidden', 'true');
+        button.classList.remove('active');
+        menu.classList.remove('active');
         document.body.classList.remove('menu-open');
       }
     }
 
-    btn.addEventListener('click', toggleMenu);
-    mnu.querySelectorAll('.nav-item').forEach((link) => {
+    button.addEventListener('click', toggleMenu);
+
+    menu.querySelectorAll('.nav-item').forEach((link) => {
       link.addEventListener('click', closeMenu);
     });
 
@@ -97,7 +93,7 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
     border-bottom: 1px solid var(--border-light);
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 1002;
     backdrop-filter: blur(10px);
     width: 100%;
   }
@@ -113,22 +109,22 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
     gap: 2rem;
   }
 
-  .header-actions {
+  .header-left {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 3rem;
+    flex: 1;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
     flex-shrink: 0;
   }
 
-  .cta-button,
-  .mobile-cta {
-    white-space: nowrap;
-  }
-
-  .mobile-cta {
-    margin-top: 1rem;
-    width: 100%;
-    justify-content: center;
+  .logo-home-link {
+    text-decoration: none;
+    flex-shrink: 0;
   }
 
   @media (max-width: 1024px) {
@@ -142,12 +138,12 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
       gap: 1rem;
       padding: 1rem;
     }
+    .header-left {
+      gap: 1rem;
+    }
   }
 
   @media (max-width: 480px) {
-    .cta-button {
-      display: none;
-    }
     .header-container {
       padding: 0.75rem;
     }
