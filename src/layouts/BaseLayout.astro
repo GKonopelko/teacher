@@ -1,6 +1,7 @@
 ---
 import Header from '../components/ui/Header.astro';
 import Footer from '../components/ui/Footer.astro';
+import favicon from '../assets/images/parrotsvg.svg';
 import '../styles/global.css';
 import '../styles/components.css';
 ---
@@ -19,7 +20,8 @@ import '../styles/components.css';
       content="преподаватель финского языка, репетитор финского языка, репетитор, финский язык, ищу репетитора по финскому языку, Санкт-Петербург, частный преподаватель, отзывы, уроки, цена, стоимость, посоветуйте, подбор"
     />
     <title>Преподаватель финского языка онлайн - Конопелько Григорий Викторович</title>
-    <link rel="icon" href="/src/assets/images/parrotsvg.svg" />
+
+    <link rel="icon" href={favicon.src} type="image/svg+xml" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
