@@ -1,44 +1,48 @@
 import js from '@eslint/js';
 import astro from 'eslint-plugin-astro';
-import prettier from 'eslint-plugin-prettier';
+import tseslint from 'typescript-eslint';
 
 export default [
   js.configs.recommended,
-
-  ...astro.configs.recommended,
-
+  ...astro.configs['flat/recommended'],
   {
-    ignores: ['**/.astro/**', '**/dist/**', '**/node_modules/**', '**/*.copy.*', '**/*-copy.*'],
+    ignores: ['**/.astro/**', '**/dist/**', '**/node_modules/**'],
   },
 
+  // TypeScript файлы
   {
-    files: ['**/*.js', '**/*.ts', '**/*.jsx', '**/*.tsx', '**/*.astro'],
+    files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
+      parser: tseslint.parser,
     },
     plugins: {
-      prettier,
+      '@typescript-eslint': tseslint.plugin,
     },
     rules: {
-      'prefer-const': 'error',
+      '@typescript-eslint/no-unused-vars': 'warn',
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-inferrable-types': 'warn',
+      '@typescript-eslint/consistent-type-definitions': ['warn', 'interface'],
+      '@typescript-eslint/prefer-as-const': 'warn',
+      'prefer-const': 'warn',
+    },
+  },
+
+  // JavaScript файлы
+  {
+    files: ['**/*.js', '**/*.jsx'],
+    rules: {
+      'prefer-const': 'warn',
       'no-unused-vars': 'warn',
-      'prettier/prettier': 'error',
-      indent: 'off',
-      quotes: 'off',
-      semi: 'off',
-      'comma-dangle': 'off',
-      'space-before-function-paren': 'off',
-      'keyword-spacing': 'off',
-      'space-infix-ops': 'off',
-      'object-curly-spacing': 'off',
-      'array-bracket-spacing': 'off',
-      'arrow-spacing': 'off',
-      'block-spacing': 'off',
-      'comma-spacing': 'off',
-      'key-spacing': 'off',
-      'no-multiple-empty-lines': 'off',
-      'no-trailing-spaces': 'off',
+    },
+  },
+
+  // Скрипты внутри Astro файлов
+  {
+    files: ['**/*.astro/*.js', '**/*.astro/*.ts'],
+    rules: {
+      'prefer-const': 'warn',
+      'no-unused-vars': 'warn',
     },
   },
 ];

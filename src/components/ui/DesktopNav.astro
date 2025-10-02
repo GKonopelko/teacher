@@ -1,0 +1,67 @@
+<nav class="nav-desktop" aria-label="Основная навигация">
+  <div class="nav-links">
+    <a href="/" class="nav-item">Главная</a>
+    <a href="/about/" class="nav-item">Обо мне</a>
+    <a href="/lessons/" class="nav-item">Уроки</a>
+    <a href="/grammar/" class="nav-item">Грамматика</a>
+    <a href="/dictionary/" class="nav-item">Словарь</a>
+    <a href="/level-test/" class="nav-item">Тест уровня</a>
+    <a href="/contact/" class="nav-item">Контакты</a>
+  </div>
+</nav>
+
+<style>
+  .nav-desktop {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .nav-item {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .nav-item:hover {
+    color: var(--text-primary);
+  }
+
+  .nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-primary);
+    transition: width 0.3s ease;
+  }
+
+  .nav-item:hover::after {
+    width: 100%;
+  }
+
+  @media (max-width: 1024px) {
+    .nav-links {
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-desktop {
+      display: none;
+    }
+  }
+</style>

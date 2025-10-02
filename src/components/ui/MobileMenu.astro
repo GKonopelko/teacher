@@ -1,0 +1,68 @@
+---
+interface Props {
+  menuId: string;
+}
+
+const { menuId } = Astro.props;
+---
+
+<nav class="nav-mobile" id={menuId} aria-label="Мобильная навигация" aria-hidden="true">
+  <div class="mobile-links">
+    <a href="/" class="nav-item">Главная</a>
+    <a href="/about/" class="nav-item">Обо мне</a>
+    <a href="/lessons/" class="nav-item">Уроки</a>
+    <a href="/grammar/" class="nav-item">Грамматика</a>
+    <a href="/dictionary/" class="nav-item">Словарь</a>
+    <a href="/level-test/" class="nav-item">Тест уровня</a>
+    <a href="/contact/" class="nav-item">Контакты</a>
+    <slot />
+  </div>
+</nav>
+
+<style>
+  .nav-mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--background-white);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    transform: translateX(100%);
+    opacity: 1;
+    visibility: visible;
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+    z-index: 1001;
+  }
+
+  .nav-mobile.active {
+    transform: translateX(0);
+  }
+
+  .mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 80px;
+  }
+
+  .mobile-links .nav-item {
+    padding: 0.75rem 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  @media (max-width: 480px) {
+    .nav-mobile {
+      padding: 1.5rem;
+    }
+
+    .mobile-links {
+      padding-top: 70px;
+    }
+  }
+</style>

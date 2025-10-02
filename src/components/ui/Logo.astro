@@ -1,0 +1,68 @@
+---
+interface Props {
+  showText?: boolean;
+}
+
+const { showText = true } = Astro.props;
+---
+
+<div class="logo">
+  <a href="/" class="logo-link">
+    <div class="logo-img">
+      <img
+        src="/src/assets/images/parrotsvg.svg"
+        alt="Логотип - Преподаватель финского языка"
+        width="40"
+        height="40"
+        loading="lazy"
+      />
+    </div>
+    {
+      showText && (
+        <div class="logo-text">
+          <span class="logo-title">Преподаватель финского языка</span>
+          <span class="logo-subtitle">Конопелько Григорий Викторович</span>
+        </div>
+      )
+    }
+  </a>
+</div>
+
+<style>
+  .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: inherit;
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .logo-subtitle {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    font-weight: 400;
+    margin-top: 0.125rem;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .logo-text {
+      display: none;
+    }
+  }
+</style>
