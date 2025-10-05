@@ -4,29 +4,23 @@ import favicon from '@assets/images/parrotsvg.svg';
 ---
 
 <div class="logo">
-  <a
-    href="/"
-    class="logo-link"
-    aria-label="На главную страницу - Преподаватель финского языка Конопелько Григорий Викторович"
-  >
-    <div class="logo-img">
-      <Image
-        src={favicon}
-        alt="Логотип - Преподаватель финского языка Конопелько Григорий Викторович"
-        width={40}
-        height={40}
-        loading="lazy"
-      />
-    </div>
-    <div class="logo-text">
-      <span class="logo-title">Преподаватель финского языка</span>
-      <span class="logo-subtitle">Конопелько Григорий Викторович</span>
-    </div>
-  </a>
+  <div class="logo-img">
+    <Image
+      src={favicon}
+      alt="Логотип - Преподаватель финского языка Конопелько Григорий Викторович"
+      width={40}
+      height={40}
+      loading="lazy"
+    />
+  </div>
+  <div class="logo-text">
+    <span class="logo-title">Преподаватель финского языка</span>
+    <span class="logo-subtitle">Конопелько Григорий Викторович</span>
+  </div>
 </div>
 
 <style>
-  .logo-link {
+  .logo {
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -44,17 +38,22 @@ import favicon from '@assets/images/parrotsvg.svg';
     font-family: var(--font-heading);
     font-size: 1.1rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--link-color);
     line-height: 1.2;
     white-space: nowrap;
   }
 
   .logo-subtitle {
     font-size: 0.75rem;
-    color: var(--text-tertiary);
+    color: var(--link-color);
     font-weight: 400;
     margin-top: 0.125rem;
     white-space: nowrap;
+  }
+
+  .logo:hover .logo-subtitle,
+  .logo-home-link:hover .logo-subtitle {
+    color: var(--text-primary);
   }
 
   @media (max-width: 768px) {
@@ -67,9 +66,12 @@ import favicon from '@assets/images/parrotsvg.svg';
     }
   }
 
-  @media (max-width: 385px) {
-    .logo-text {
-      display: none; /* На очень маленьких скрываем текст */
+  @media (width < 25rem) {
+    .logo {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0rem;
     }
   }
 </style>

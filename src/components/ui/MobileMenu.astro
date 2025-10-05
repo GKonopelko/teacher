@@ -11,13 +11,13 @@ const { menuId } = Astro.props;
   <div class="mobile-links">
     {
       navigationLinks.map((link) => (
-        <a href={link.href} class="nav-item">
+        <a href={link.href} class="nav-item radius-link">
           {link.label}
         </a>
       ))
     }
 
-    <a href="/contact/" class="nav-item nav-item--cta">Записаться на урок</a>
+    <a href="/contact/" class="nav-item radius-link nav-item--cta">Записаться на урок</a>
   </div>
 </nav>
 
@@ -25,28 +25,32 @@ const { menuId } = Astro.props;
   .nav-mobile {
     position: fixed;
     top: 0;
-    right: 0; /* ← ИЗМЕНИТЬ С right НА left */
-    width: 0;
-    height: 0;
-    background: var(--hover-bg);
-    padding: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 2rem;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
     overflow: hidden;
     z-index: 1;
-    border-bottom-left-radius: 150rem; /* ← ИЗМЕНИТЬ НА right */
-    box-shadow: 0.25rem 0 1.25rem rgba(0, 0, 0, 0.1); /* ← ИЗМЕНИТЬ ТЕНЬ */
+    display: none;
+    transform: scale(0);
+    transform-origin: top right;
+    border-bottom-left-radius: 50rem;
+    box-shadow: -0.25rem 0 1.25rem rgba(0, 0, 0, 0.1);
   }
 
   .nav-mobile.active {
     background: var(--background-white);
-    width: 100vw;
-    height: 100vh;
-    padding: 2rem;
     opacity: 1;
     visibility: visible;
-    border-bottom-left-radius: 2rem; /* ← ИЗМЕНИТЬ НА right */
+    display: block;
+    width: 100%;
+    height: 100vh;
+    border-bottom-left-radius: 0rem;
+    transform: scale(1);
+    transition: all 0.4s;
   }
 
   .mobile-links {
@@ -57,43 +61,26 @@ const { menuId } = Astro.props;
     padding-top: 5rem;
     max-width: 17.5rem;
     opacity: 0;
-    transform: translate(5rem, -15rem); /* ← ИЗМЕНИТЬ НА ОТРИЦАТЕЛЬНОЕ */
-    transition: all 0.4s ease 0.1s;
+    transform: scale(0.7);
+    transition: all 0.3s ease 0.2s;
   }
 
   .nav-mobile.active .mobile-links {
     opacity: 1;
-    transform: translate(0, 0);
-    transition: all 0.3s ease;
+    transform: scale(1);
   }
 
   .mobile-links .nav-item {
     padding: 1rem 0;
     font-size: 1.1rem;
-    border-bottom: 0.0625rem solid var(--border-light);
     text-decoration: none;
-    color: var(--text-secondary);
     transition: color 0.2s ease;
     text-align: center;
   }
 
-  .mobile-links .nav-item:hover {
-    color: var(--text-primary);
-  }
-
   .nav-item--cta {
-    background: var(--link-color);
-    color: white !important;
-    border-radius: var(--border-radius);
-    margin-top: 1rem;
-    border: none !important;
+    border: 1px solid var(--hover-bg);
     font-weight: 600;
-  }
-
-  /* РЕШЕНИЕ ПРОБЛЕМЫ СКРОЛЛБАРА */
-  body.menu-open {
-    overflow: hidden;
-    padding-right: 0; /* Убираем смещение от скроллбара */
   }
 
   @media (max-width: 48rem) {

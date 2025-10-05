@@ -6,7 +6,7 @@ import { navigationLinks } from '../../data/navigation';
   <div class="nav-links">
     {
       navigationLinks.map((link) => (
-        <a href={link.href} class="nav-item">
+        <a href={link.href} class="nav-item  radius-link">
           {link.label}
         </a>
       ))
@@ -21,43 +21,24 @@ import { navigationLinks } from '../../data/navigation';
 
   .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     align-items: center;
   }
 
   .nav-item {
     text-decoration: none;
-    color: var(--text-secondary);
+    color: var(--link-color);
     font-weight: 500;
     font-size: 1rem;
-    padding: 0.5rem 0;
+    padding: 1rem;
     position: relative;
     transition: color 0.2s ease;
     white-space: nowrap;
+    border-radius: 2rem;
   }
-
-  .nav-item:hover {
-    color: var(--text-primary);
-  }
-
-  .nav-item::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--accent-primary);
-    transition: width 0.3s ease;
-  }
-
-  .nav-item:hover::after {
-    width: 100%;
-  }
-
   @media (max-width: 1024px) {
     .nav-links {
-      gap: 1.5rem;
+      gap: 0rem;
     }
   }
 

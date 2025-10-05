@@ -17,7 +17,7 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
     <div class="header-left">
       <a
         href="/"
-        class="logo-home-link"
+        class="logo-home-link radius-link"
         aria-label="На главную страницу - Преподаватель финского языка Конопелько Григорий Викторович"
       >
         <Logo />
@@ -112,6 +112,7 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
   .header-left {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 3rem;
     flex: 1;
   }
@@ -119,12 +120,15 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
   .header-right {
     display: flex;
     align-items: center;
-    flex-shrink: 0;
+    width: 0;
+    height: 3rem;
+    border-radius: 100%;
   }
 
   .logo-home-link {
     text-decoration: none;
     flex-shrink: 0;
+    padding: 0 1rem;
   }
 
   @media (max-width: 64rem) {
@@ -142,6 +146,10 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
     }
     .header-left {
       gap: 1rem;
+    }
+
+    .header-right {
+      width: 3rem;
     }
   }
 

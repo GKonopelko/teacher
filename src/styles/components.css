@@ -25,28 +25,6 @@
   color: var(--link-color);
 }
 
-.nav-item {
-  padding: 0.75rem 1rem;
-  border-radius: var(--border-radius);
-  font-weight: 500;
-  cursor: pointer;
-  transition: var(--transition);
-  color: var(--text-secondary);
-  text-decoration: none;
-  display: inline-block;
-}
-
-.nav-item.active {
-  background: var(--link-color);
-  color: var(--background-white);
-  font-weight: 600;
-}
-
-.nav-item:hover:not(.active) {
-  background: var(--background-light);
-  color: var(--link-color);
-}
-
 .input {
   width: 100%;
   padding: 0.75rem 1rem;
@@ -129,10 +107,5 @@
   .card-link {
     padding: 0.5rem 0.75rem;
     font-size: 0.8rem;
-  }
-
-  .nav-item {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
   }
 }

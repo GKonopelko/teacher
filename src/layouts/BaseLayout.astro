@@ -46,7 +46,14 @@ import '../styles/components.css';
         flex-direction: column;
         margin: 0 auto;
         padding: 0 1rem;
+        width: 100%;
         max-width: 75rem;
+      }
+
+      @media (width < 430px) {
+        .body-wrapper {
+          padding: 0 0.3rem;
+        }
       }
     </style>
   </head>
