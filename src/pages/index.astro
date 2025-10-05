@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
+import favicon from '@assets/images/parrotsvg.svg';
+import { Image } from 'astro:assets';
 ---
 
 <BaseLayout>
@@ -27,12 +29,11 @@ import Card from '../components/ui/Card.astro';
     </div>
     <div class="hero-image">
       <div class="hero-illustration">
-        <img src="/src/assets/images/parrotsvg.svg" alt="Логотип" width="200" height="200" />
+        <Image src={favicon} alt="Логотип" width={200} height={200} />
       </div>
     </div>
   </section>
 
-  <!-- Features -->
   <section class="features">
     <div class="container">
       <h2 class="text-center mb-5">Возможности обучения</h2>

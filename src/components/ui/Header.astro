@@ -90,11 +90,11 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
 <style>
   .header {
     background: var(--background-white);
-    border-bottom: 1px solid var(--border-light);
+    border-bottom: 0.0625rem solid var(--border-light);
     position: sticky;
     top: 0;
     z-index: 1002;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(0.625rem);
     width: 100%;
   }
 
@@ -103,7 +103,7 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 1200px;
+    max-width: 75rem; /* 1200px */
     margin: 0 auto;
     padding: 1rem 2rem;
     gap: 2rem;
@@ -127,13 +127,15 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
     flex-shrink: 0;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 64rem) {
+    /* 1024px */
     .header-container {
       padding: 1rem;
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 48rem) {
+    /* 768px */
     .header-container {
       gap: 1rem;
       padding: 1rem;
@@ -143,7 +145,8 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
     }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 30rem) {
+    /* 480px */
     .header-container {
       padding: 0.75rem;
     }

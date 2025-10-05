@@ -11,7 +11,9 @@
     "lint": "eslint . --ext .js,.ts,.jsx,.tsx,.astro",
     "lint:fix": "eslint . --ext .js,.ts,.jsx,.tsx,.astro --fix",
     "type-check": "astro check",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "stylelint": "stylelint \"**/*.{css,scss}\"",
+    "stylelint:fix": "stylelint \"**/*.{css,scss}\" --fix"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx}": [
@@ -20,6 +22,9 @@
     ],
     "*.{astro,css,md,json}": [
       "prettier --write"
+    ],
+    "*.{css,scss}": [
+      "stylelint --fix"
     ]
   },
   "dependencies": {

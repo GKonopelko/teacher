@@ -1,7 +1,7 @@
 ---
 import Header from '../components/ui/Header.astro';
 import Footer from '../components/ui/Footer.astro';
-import favicon from '../assets/images/parrotsvg.svg';
+import favicon from '@assets/images/parrotsvg.svg';
 import '../styles/global.css';
 import '../styles/components.css';
 ---
@@ -37,20 +37,26 @@ import '../styles/components.css';
         color: var(--text-primary);
         background: var(--background-white);
         min-height: 100vh;
-        display: flex;
-        flex-direction: column;
       }
 
-      main {
-        flex: 1;
+      .body-wrapper {
+        background: var(--background-white);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        padding: 0 1rem;
+        max-width: 75rem;
       }
     </style>
   </head>
   <body>
-    <Header />
-    <main>
-      <slot />
-    </main>
-    <Footer />
+    <div class="body-wrapper">
+      <Header />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
   </body>
 </html>

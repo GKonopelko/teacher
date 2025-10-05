@@ -1,12 +1,13 @@
 ---
-
+import { Image } from 'astro:assets';
+import favicon from '@assets/images/parrotsvg.svg';
 ---
 
 <footer class="footer">
   <div class="footer-content">
     <div class="footer-section">
       <div class="footer-logo">
-        <img src="/src/assets/images/parrotsvg.svg" alt="logo" width="30" height="30" />
+        <Image src={favicon} alt="Логотип" width={40} height={40} />
         <h3>Преподаватель финского языка</h3>
       </div>
       <p>Конопелько Григорий Викторович</p>
@@ -17,7 +18,7 @@
       <h4>Контакты</h4>
       <a href="tel:+79117770297" class="text-link">+7 911 777 02 97</a>
       <a href="mailto:grigori.konopelko@mail.ru" class="text-link">grigori.konopelko@mail.ru</a>
-      <a href="/contact/" class="text-link text-link--emphasis">Записаться на урок</a>
+      <a href="/contact/" class="text-link text-link-emphasis">Записаться на урок</a>
     </div>
 
     <div class="footer-section">

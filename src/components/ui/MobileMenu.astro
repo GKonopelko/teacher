@@ -25,37 +25,52 @@ const { menuId } = Astro.props;
   .nav-mobile {
     position: fixed;
     top: 0;
-    right: 0;
-    width: 100%;
-    height: 100vh;
-    background: var(--background-white);
-    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    transform: translateX(100%);
-    opacity: 1;
-    visibility: visible;
-    transition: transform 0.3s ease;
-    overflow-y: auto;
-    z-index: 1001;
+    right: 0; /* ← ИЗМЕНИТЬ С right НА left */
+    width: 0;
+    height: 0;
+    background: var(--hover-bg);
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    z-index: 1;
+    border-bottom-left-radius: 150rem; /* ← ИЗМЕНИТЬ НА right */
+    box-shadow: 0.25rem 0 1.25rem rgba(0, 0, 0, 0.1); /* ← ИЗМЕНИТЬ ТЕНЬ */
   }
 
   .nav-mobile.active {
-    transform: translateX(0);
+    background: var(--background-white);
+    width: 100vw;
+    height: 100vh;
+    padding: 2rem;
+    opacity: 1;
+    visibility: visible;
+    border-bottom-left-radius: 2rem; /* ← ИЗМЕНИТЬ НА right */
   }
 
   .mobile-links {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    max-width: 1200px;
     margin: 0 auto;
-    padding-top: 80px;
+    padding-top: 5rem;
+    max-width: 17.5rem;
+    opacity: 0;
+    transform: translate(5rem, -15rem); /* ← ИЗМЕНИТЬ НА ОТРИЦАТЕЛЬНОЕ */
+    transition: all 0.4s ease 0.1s;
+  }
+
+  .nav-mobile.active .mobile-links {
+    opacity: 1;
+    transform: translate(0, 0);
+    transition: all 0.3s ease;
   }
 
   .mobile-links .nav-item {
     padding: 1rem 0;
     font-size: 1.1rem;
-    border-bottom: 1px solid var(--border-light);
+    border-bottom: 0.0625rem solid var(--border-light);
     text-decoration: none;
     color: var(--text-secondary);
     transition: color 0.2s ease;
@@ -67,7 +82,7 @@ const { menuId } = Astro.props;
   }
 
   .nav-item--cta {
-    background: var(--accent-primary);
+    background: var(--link-color);
     color: white !important;
     border-radius: var(--border-radius);
     margin-top: 1rem;
@@ -75,13 +90,37 @@ const { menuId } = Astro.props;
     font-weight: 600;
   }
 
-  @media (max-width: 480px) {
+  /* РЕШЕНИЕ ПРОБЛЕМЫ СКРОЛЛБАРА */
+  body.menu-open {
+    overflow: hidden;
+    padding-right: 0; /* Убираем смещение от скроллбара */
+  }
+
+  @media (max-width: 48rem) {
+    .nav-mobile {
+      display: block;
+    }
+  }
+
+  @media (max-width: 30rem) {
     .nav-mobile {
       padding: 1.5rem;
     }
 
     .mobile-links {
-      padding-top: 70px;
+      padding-top: 4.375rem;
+      max-width: 16.25rem;
+    }
+  }
+
+  @media (max-width: 22.5rem) {
+    .nav-mobile {
+      padding: 1rem;
+    }
+
+    .mobile-links {
+      max-width: 15rem;
+      padding-top: 3.75rem;
     }
   }
 </style>

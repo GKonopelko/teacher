@@ -17,7 +17,7 @@
   background: var(--hover-bg);
   color: var(--link-color);
   transform: translateX(4px);
-  box-shadow: 0 2px 8px rgba(77, 166, 255, 0.3);
+  box-shadow: 0 2px 8px rgb(77 166 255 / 30%);
 }
 
 .feature-card:hover .card-link {
@@ -62,7 +62,7 @@
 .input:focus {
   outline: none;
   border-color: var(--link-color);
-  box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+  box-shadow: 0 0 0 3px rgb(0 51 102 / 10%);
 }
 
 .input:hover {
@@ -114,18 +114,18 @@
   border-bottom-color: var(--link-color);
 }
 
-.text-link--emphasis {
+.text-link-emphasis {
   font-weight: 600;
   border-bottom-width: 2px;
   background: var(--accent-soft);
 }
 
-.text-link--emphasis:hover {
+.text-link-emphasis:hover {
   background: var(--accent-light);
   transform: translateY(-1px);
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .card-link {
     padding: 0.5rem 0.75rem;
     font-size: 0.8rem;
