@@ -115,24 +115,23 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
     align-items: center;
     gap: 3rem;
     flex: 1;
-    min-width: 0; /* Позволяет контенту сжиматься */
+    min-width: 0;
   }
 
   .header-right {
     display: flex;
     align-items: center;
-    flex-shrink: 0; /* Запрещает сжимание */
+    flex-shrink: 0;
   }
 
   .logo-home-link {
     text-decoration: none;
     padding: 0 1rem;
-    width: 100%;
-    flex-shrink: 1; /* Разрешаем сжатие */
-    min-width: 0; /* Ключевое для сжатия */
+
+    flex-shrink: 1;
+    min-width: 0;
   }
 
-  /* Адаптивность */
   @media (max-width: 64rem) {
     .header-container {
       padding: 1rem;
@@ -162,6 +161,9 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
     }
     .header-left {
       gap: 0.5rem;
+    }
+    .logo-home-link {
+      padding: 0;
     }
   }
 </style>
