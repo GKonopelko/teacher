@@ -34,12 +34,16 @@ const { menuId } = Astro.props;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    /* display: none; */
     visibility: hidden;
+    pointer-events: none;
   }
 
   .nav-mobile.active {
     transform: translateX(0);
+    display: block;
     visibility: visible;
+    pointer-events: auto;
   }
 
   .mobile-links {
@@ -49,6 +53,7 @@ const { menuId } = Astro.props;
     margin: 0 auto;
     padding-top: 5rem;
     max-width: 17.5rem;
+    min-height: calc(100vh - 2rem);
     opacity: 0;
     transform: translateY(10px);
     transition: all 0.3s ease 0.2s;
@@ -74,7 +79,7 @@ const { menuId } = Astro.props;
 
   @media (max-width: 48rem) {
     .nav-mobile {
-      display: block;
+      /* display: none; */
     }
   }
 
