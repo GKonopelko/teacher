@@ -19,10 +19,8 @@ export function initMobileMenu(options: MobileMenuOptions = {}): void {
 
   const toggleBodyScroll = (disable: boolean): void => {
     if (disable) {
-      document.body.style.overflow = 'hidden';
       document.body.classList.add('menu-open');
     } else {
-      document.body.style.overflow = '';
       document.body.classList.remove('menu-open');
     }
   };
@@ -94,9 +92,7 @@ export function initMobileMenu(options: MobileMenuOptions = {}): void {
     button.classList.remove('active');
     menu.classList.remove('active');
 
-    setTimeout(() => {
-      toggleBodyScroll(false);
-    }, 400);
+    toggleBodyScroll(false);
 
     removeTrapFocus?.();
     removeTrapFocus = null;
