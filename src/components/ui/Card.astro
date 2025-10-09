@@ -2,21 +2,22 @@
 export interface Props {
   href?: string;
   class?: string;
+  variant?: 'default' | 'feature' | 'method' | 'audience' | 'review';
 }
 
-const { href, class: className = '' } = Astro.props;
+const { href, class: className = '', variant = 'default' } = Astro.props;
 ---
 
 {
   href ? (
-    <a href={href} class={`card feature-card ${className}`}>
-      <div class="feature-card-content">
+    <a href={href} class={`card card--${variant} ${className}`}>
+      <div class="card-content">
         <slot />
       </div>
     </a>
   ) : (
-    <div class={`card feature-card ${className}`}>
-      <div class="feature-card-content">
+    <div class={`card card--${variant} ${className}`}>
+      <div class="card-content">
         <slot />
       </div>
     </div>
@@ -28,32 +29,37 @@ const { href, class: className = '' } = Astro.props;
     background: var(--background-white);
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow);
-    padding: 1.5rem;
+    padding: 2rem;
     border: 1px solid var(--border-light);
     transition: var(--transition);
-    display: block;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     text-decoration: none;
     color: inherit;
-    height: 100%;
+    flex: 1 1 300px;
+    max-width: 400px;
   }
 
   .card:hover {
+    transform: translateY(-5px);
     box-shadow: var(--shadow-hover);
-    transform: translateY(-2px);
   }
 
-  .feature-card {
-    background: var(--background-white);
-    border-radius: var(--border-radius-lg);
-    padding: 2rem;
-    transition: var(--transition);
-    border: 2px solid var(--border-light);
+  .card-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Варианты карточек */
+  .card--feature {
     position: relative;
     overflow: hidden;
-    height: 100%;
+    border: 2px solid var(--border-light);
   }
 
-  .feature-card::before {
+  .card--feature::before {
     content: '';
     position: absolute;
     top: 0;
@@ -65,26 +71,30 @@ const { href, class: className = '' } = Astro.props;
     z-index: 0;
   }
 
-  .feature-card:hover::before {
+  .card--feature:hover::before {
     left: 100%;
   }
 
-  .feature-card:hover {
+  .card--feature:hover {
     border-color: var(--link-color);
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
   }
 
-  .feature-card-content {
-    position: relative;
-    z-index: 1;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+  .card--method,
+  .card--audience,
+  .card--review {
+    /* Базовые стили уже в .card */
   }
 
+  /* Адаптивность */
   @media (max-width: 768px) {
-    .feature-card {
+    .card {
+      padding: 1.5rem;
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .card {
       padding: 1.5rem;
     }
   }

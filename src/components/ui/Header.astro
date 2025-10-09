@@ -70,7 +70,7 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
     width: 100%;
     max-width: 75rem;
     margin: 0 auto;
-    padding: 1rem 2rem;
+    padding: 1rem 0rem;
     gap: 2rem;
   }
 
@@ -99,7 +99,7 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
 
   @media (max-width: 64rem) {
     .header-container {
-      padding: 1rem;
+      padding: 1rem 0;
       gap: 1.5rem;
     }
     .header-left {
@@ -110,7 +110,7 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
   @media (max-width: 48rem) {
     .header-container {
       gap: 0rem;
-      padding: 1rem;
+      padding: 1rem 0;
     }
     .header-left {
       gap: 1rem;
@@ -122,7 +122,7 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
 
   @media (max-width: 30rem) {
     .header-container {
-      padding: 0.75rem 1rem;
+      padding: 0.75rem 0rem;
     }
     .header-left {
       gap: 0.5rem;

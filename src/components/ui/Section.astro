@@ -1,0 +1,64 @@
+---
+export interface Props {
+  class?: string;
+  background?: 'white' | 'light';
+  padding?: 'default' | 'small' | 'large' | 'none';
+}
+
+const { class: className = '', background = 'white', padding = 'default' } = Astro.props;
+---
+
+<section
+  class={`
+    section
+    section--${background}
+    section--${padding}
+    ${className}
+  `}
+>
+  <slot />
+</section>
+
+<style>
+  .section {
+    width: 100%;
+  }
+
+  .section--white {
+    background: var(--background-white);
+  }
+
+  .section--light {
+    background: var(--background-light);
+  }
+
+  .section--default {
+    padding: 4rem 0;
+  }
+
+  .section--small {
+    padding: 2rem 0;
+  }
+
+  .section--large {
+    padding: 6rem 0;
+  }
+
+  .section--none {
+    padding: 0;
+  }
+
+  @media (max-width: 768px) {
+    .section--default {
+      padding: 2rem 0;
+    }
+
+    .section--large {
+      padding: 4rem 0;
+    }
+
+    .section--small {
+      padding: 1rem 0;
+    }
+  }
+</style>
