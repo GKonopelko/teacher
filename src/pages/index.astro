@@ -1,51 +1,164 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
 import grigori from '@assets/images/grigori.jpg';
 import { Image } from 'astro:assets';
+
+const TEACHER_INFO = {
+  name: 'Конопелько Григорий Викторович',
+  experience: '15+ лет',
+  phone: '+7 911 777 02 97',
+  email: 'grigori.konopelko@mail.ru',
+};
 ---
 
 <BaseLayout>
   <!-- Hero секция -->
   <section class="hero">
     <div class="hero-content">
-      <h1>Обучение финскому языку</h1>
+      <h1>Финский язык перестанет быть проблемой. Пора говорить свободно!</h1>
       <div class="promo">
-        <h3>
-          Здравствуйте! <br />
-          Меня зовут Конопелько Григорий Викторович. Я работаю преподавателем/репетитором финского языка
-          уже более 15 лет и даю уроки для взроcлых и подростков, мотивиpoванныx нa пoлучeниe peзультaтa.<br
+        <p class="intro-text">
+          Здравствуйте! Меня зовут <strong>{TEACHER_INFO.name}</strong>. Я профессиональный
+          преподаватель финского языка с опытом работы более {TEACHER_INFO.experience}.
+        </p>
+        <p class="benefits">
+          Помогаю взрослым и детям достигать целей: от переезда в Финляндию до карьерного роста.
+          Готовлю к экзамену YKI (98% успешной сдачи), поступлению в вузы и колледжи Финляндии.<br
           />
-          Научу вас понимать, читать, говорить и думать по-фински.<br />
-          Добро пожаловать на занятия! <br />
-          Tervetuloa opiskelemaan!
-        </h3>
+          Делаю упор на практику - первые диалоги уже через 2-3 недели!
+        </p>
+        <p class="benefits">
+          На уроках добиваюсь понимания структуры языка, а не простого заучивания правил. 80%
+          времени — это практика понимания и живого общения.
+        </p>
+        <p class="welcome">
+          <em>Tervetuloa opiskelemaan! — Добро пожаловать на занятия!</em>
+        </p>
       </div>
+
+      <!-- Статистика для доверия -->
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-number">15+</span>
+          <span class="stat-label">лет преподавания</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">98%</span>
+          <span class="stat-label">успешной сдачи YKI</span>
+        </div>
+      </div>
+
       <div class="hero-buttons">
-        <Button href="/contact/" variant="primary" size="large">Записаться на пробный урок</Button>
-        <Button href="/about/" variant="primary" size="large">Узнать больше</Button>
+        <Button href="/contact/" variant="primary" size="large">
+          🗓️ Записаться на пробный урок
+        </Button>
+        <Button href="/about/" variant="filled" size="large"> 📚 Узнать больше </Button>
       </div>
     </div>
+
     <div class="hero-image">
-      <div class="hero-illustration">
-        <Image src={grigori} alt="Григорий" width={400} height={400} class="hero-photo" />
+      <div class="image-container">
+        <Image
+          src={grigori}
+          alt="{TEACHER_INFO.name} - репетитор финского языка"
+          width={400}
+          height={400}
+          class="hero-photo"
+          loading="eager"
+        />
+        <div class="image-badge">
+          <span>Опыт работы {TEACHER_INFO.experience}</span>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Почему выбирают меня -->
   <section class="content-section">
     <div class="container">
-      <h2>Обучение</h2>
-      <div class="text-content">
-        <p>- онлайн (Zооm, Тelеgrаm, Google Docs), 60 мин - 1500р</p>
-        <p>- возможно очное обучение в Санкт-Петербурге у Вас дома/в офисе.</p>
-        <p>- индивидуальныe зaнятия или занятия в пaре</p>
-        <p>- мeтодикa прeподавания нa ocнoвe Suomen Меstаri + автopские нарабoтки</p>
-        <p>- индивидуальная программа обучения для каждого ученика</p>
-        <p>- постановка/улучшение произношения</p>
-        <p>- устранение пробелов в грамматике</p>
-        <p>- расширения словарного запаса</p>
-        <p>- наработка навыков письменного и устного перевода</p>
+      <h2 class="section-title">Почему выбирают меня</h2>
+      <div class="features-grid">
+        <Card class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>Индивидуальный подход</h3>
+          <p>
+            Учебный процесс строится под ваши цели. Бесплатные учебные материалы предоставляются в
+            соответствии с учебным планом.
+          </p>
+        </Card>
+        <Card class="feature-card">
+          <div class="feature-icon">💻</div>
+          <h3>Гибкий график онлайн</h3>
+          <p>
+            Занимайтесь из любой точки мира. Сами формируете расписание. Не тратьте время на дорогу.
+          </p>
+        </Card>
+        <Card class="feature-card">
+          <div class="feature-icon">🗣️</div>
+          <h3>Языковая практика с опытным преподавателем</h3>
+          <p>
+            На каждом уроке тренируем разговорную речь и восприятие на слух. Доступно объясняю
+            грамматику и тонкости языка.
+          </p>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Форматы обучения -->
+  <section class="content-section bg-light">
+    <div class="container">
+      <h2 class="section-title">Форматы и стоимость обучения</h2>
+      <div class="features-grid">
+        <Card class="feature-card">
+          <div class="feature-icon">💻</div>
+          <h3>Онлайн-уроки</h3>
+          <p>Удобно из любого города<br />Google Meet, Zoom, интерактивные материалы</p>
+          <div class="price">1600₽ / 60 мин</div>
+        </Card>
+
+        <Card class="feature-card">
+          <div class="feature-icon">🏠</div>
+          <h3>Очно в Санкт-Петербурге</h3>
+          <p>Занятия у вас дома или в офисе<br />Индивидуальный подход и полное погружение</p>
+          <div class="price">Стоимость рассчитывается индивидуально</div>
+        </Card>
+
+        <Card class="feature-card">
+          <div class="feature-icon">👥</div>
+          <h3>Занятия в паре</h3>
+          <p>Экономия до 30% для вас и друга/коллеги<br />Идеально для совместной мотивации</p>
+          <div class="price">1100₽ / 60 мин с человека</div>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Методика -->
+  <section class="content-section">
+    <div class="container">
+      <h2 class="section-title">Почему мои ученики начинают говорить?</h2>
+      <div class="methodology-grid">
+        <Card class="method-item">
+          <h3>🎯 Индивидуальная программа</h3>
+          <p>Уроки строятся под ваши цели: работа, учеба, переезд или путешествия.</p>
+        </Card>
+        <Card class="method-item">
+          <h3>📚 Живые современные материалы</h3>
+          <p>Использую учебник "Suomen Mestari", авторские упражнения, статьи, видео и подкасты.</p>
+        </Card>
+        <Card class="method-item">
+          <h3>🗣️ Упор на разговорную практику</h3>
+          <p>Преодолеваем языковой барьер через диалоги и обсуждения с первого занятия.</p>
+        </Card>
+        <Card class="method-item">
+          <h3>📈 Ощутимый прогресс</h3>
+          <p>
+            Вы сами заметите, что начинаете понимать финскую речь и строить предложения по-фински.
+          </p>
+        </Card>
       </div>
     </div>
   </section>
@@ -53,33 +166,67 @@ import { Image } from 'astro:assets';
   <!-- Для кого -->
   <section class="content-section bg-light">
     <div class="container">
-      <h2>Для кого</h2>
-      <div class="text-content">
-        <p>- адаптации живущих в Финляндии</p>
-        <p>- пеpеезда и проживaния в Финляндии</p>
-        <p>- подготовки к экзамену YКI / поступлению в финский колледж/вуз</p>
-        <p>- подготовки к собеседованию на работу</p>
+      <h2 class="section-title">Вам ко мне, если вы...</h2>
+      <div class="audience-grid">
+        <Card class="audience-group">
+          <h3>🎓 Строите карьеру или учитесь</h3>
+          <ul>
+            <li>Готовитесь к собеседованию в финскую компанию</li>
+            <li>Нужен язык для работы и делового общения</li>
+            <li>Поступаете в вуз или колледж Финляндии</li>
+          </ul>
+        </Card>
+
+        <Card class="audience-group">
+          <h3>🏠 Переезжаете или живете в Финляндии</h3>
+          <ul>
+            <li>Хотите комфортно общаться в магазине, у врача, с соседями</li>
+            <li>Готовитесь к интервью в миграционной службе (Maahanmuuttovirasto)</li>
+            <li>Помогаете ребенку-школьнику адаптироваться и подтянуть язык</li>
+          </ul>
+        </Card>
+
+        <Card class="audience-group">
+          <h3>📈 Школьник или студент</h3>
+          <ul>
+            <li>Нужно подтянуть успеваемость по финскому и английскому в школе или вузе</li>
+            <li>Готовитесь к выпускным или вступительным экзаменам</li>
+            <li>Хотите знать язык глубже школьной программы</li>
+          </ul>
+        </Card>
       </div>
     </div>
   </section>
 
-  <!-- Преподаватель -->
+  <!-- Отзывы -->
   <section class="content-section">
     <div class="container">
-      <h2>Преподаватель</h2>
-      <div class="text-content">
-        <p>
-          Опыт преподавания в СПбГУ, в ФИНЭКе (Санкт-Петербургский государственный экономический
-          университет), на курсах финского языка, в компаниях и с частными учениками.
-        </p>
-        <p><strong>Образование:</strong></p>
-        <p>
-          - Санкт-Петербургский государственый университет, Филологический факультет, спeциальнoсть
-          «Финcкий язык и литeратуpa»
-        </p>
-        <p>
-          - Хельсинский университет, Гуманитарный факультет, спeциальнoсть «Финский язык и культура»
-        </p>
+      <h2 class="section-title">Отзывы студентов</h2>
+      <div class="reviews-grid">
+        <Card class="review-card">
+          <div class="review-content">
+            <p>
+              <strong>Сергей</strong> (сдал YKI на B1): "Занимались с Григорием интенсивно целый год,
+              практически ежедневно. Зато и результат потрясающий. Сдал YKI на уровень В1. Очень доволен!"
+            </p>
+          </div>
+        </Card>
+        <Card class="review-card">
+          <div class="review-content">
+            <p>
+              <strong>Алина</strong> (живет в Финляндии): "Структура уроков очень продуманная. Объясняет
+              доступно темы, которые нужны в повседневной жизни. Стала лучше понимать мужа-финна и окружающих."
+            </p>
+          </div>
+        </Card>
+        <Card class="review-card">
+          <div class="review-content">
+            <p>
+              <strong>Мария</strong> (начала с нуля): "Несколько месяцев назад не знала ни слова. Начинали
+              с алфавита, сейчас уже могу поддержать беседу. Обучение комфортное и эффективное!"
+            </p>
+          </div>
+        </Card>
       </div>
     </div>
   </section>
@@ -87,20 +234,28 @@ import { Image } from 'astro:assets';
   <!-- CTA секция -->
   <section class="cta-section">
     <div class="container text-center">
-      <h2>Мотивация + регулярные занятия = отличный результат!</h2>
-      <div class="mt-4">
-        <Button href="/contact/" variant="filled" size="large">Начать обучение</Button>
+      <div class="cta-badge">Идет набор в новые группы</div>
+      <h2>Готовы сделать первый шаг к свободному финскому?</h2>
+      <p class="cta-subtitle">
+        Первый урок — это диагностика вашего уровня и подробный план обучения.
+      </p>
+      <p class="cta-subtitle">
+        Запишитесь сейчас и получите подборку учебных материалов в подарок!
+      </p>
+      <div class="cta-buttons">
+        <Button href="/contact/" variant="filled" size="large"> 🗓️ Начать обучение </Button>
       </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
+  /* Hero секция */
   .hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    align-items: center;
+    align-items: start;
     padding: 4rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -108,25 +263,74 @@ import { Image } from 'astro:assets';
 
   .hero-content h1 {
     color: var(--text-primary);
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--link-color), #4da6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  .promo h3 {
-    font-size: 1.25rem;
-    color: var(--text-primary);
+  .promo {
     margin-bottom: 2rem;
+  }
+
+  .intro-text {
+    font-size: 1.3rem;
     line-height: 1.6;
-    font-weight: 500;
-    opacity: 0.95;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  .benefits {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+  }
+
+  .welcome {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--link-color);
+    margin-top: 1.5rem;
+  }
+
+  .stats {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--background-light);
+    border-radius: var(--border-radius-lg);
+  }
+
+  .stat {
+    text-align: center;
+    flex: 1;
+  }
+
+  .stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--link-color);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
   }
 
   .hero-buttons {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    margin-top: 2rem;
   }
 
   .hero-image {
@@ -136,25 +340,161 @@ import { Image } from 'astro:assets';
     height: 100%;
   }
 
-  .hero-illustration {
+  .image-container {
+    position: relative;
     background: var(--accent-soft);
     border-radius: var(--border-radius-lg);
-    width: 100%;
-    max-width: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 1rem;
     border: 2px solid var(--accent-light);
+    box-shadow: var(--shadow);
   }
 
   .hero-photo {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: var(--border-radius-lg);
+    max-width: 350px;
+    height: auto;
+    border-radius: var(--border-radius);
   }
 
+  .image-badge {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--link-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* Сетки и карточки */
+  .features-grid,
+  .methodology-grid,
+  .audience-grid,
+  .reviews-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .methodology-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .audience-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .reviews-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+
+  .feature-card,
+  .method-item,
+  .audience-group,
+  .review-card {
+    background: var(--background-white);
+    padding: 2rem;
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .feature-card:hover,
+  .method-item:hover,
+  .audience-group:hover,
+  .review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-card h3,
+  .method-item h3,
+  .audience-group h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  .audience-group ul {
+    padding-left: 1.5rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .audience-group li {
+    margin-bottom: 0.5rem;
+  }
+
+  .price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--link-color);
+    margin-top: auto;
+    padding-top: 1rem;
+  }
+
+  .review-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .review-content p {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  /* CTA секция */
+  .cta-section {
+    background: linear-gradient(135deg, var(--link-color), #4da6ff);
+    color: var(--background-white);
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .cta-badge {
+    background: #ff4444;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .cta-section h2 {
+    color: var(--background-white);
+    margin-bottom: 1rem;
+    font-size: 2.2rem;
+    font-weight: 600;
+  }
+
+  .cta-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+  }
+
+  /* Общие стили */
   .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -168,43 +508,20 @@ import { Image } from 'astro:assets';
     background: var(--background-light);
   }
 
-  .content-section h2 {
+  .section-title {
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: var(--text-primary);
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
     font-weight: 700;
   }
 
-  .text-content {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--text-primary);
-    opacity: 0.9;
+  .text-center {
+    text-align: center;
   }
 
-  .text-content p {
-    margin-bottom: 0.75rem;
-  }
-
-  .text-content strong {
-    color: var(--text-primary);
-    font-weight: 600;
-  }
-
-  .cta-section {
-    background: var(--link-color);
-    color: var(--background-white);
-    padding: 4rem 2rem;
-  }
-
-  .cta-section h2 {
-    color: var(--background-white);
-    margin-bottom: 2rem;
-    font-size: 2rem;
-    font-weight: 600;
-  }
-
+  /* Адаптивность */
   @media (max-width: 768px) {
     .hero {
       grid-template-columns: 1fr;
@@ -214,27 +531,12 @@ import { Image } from 'astro:assets';
     }
 
     .hero-content h1 {
-      font-size: 2rem;
+      font-size: 2.2rem;
     }
 
-    .promo h3 {
-      font-size: 1.1rem;
-    }
-
-    .hero-buttons {
-      justify-content: center;
-    }
-
-    .hero-illustration {
-      max-width: 200px;
-    }
-
-    .content-section {
-      padding: 2rem 1rem;
-    }
-
-    .content-section h2 {
-      font-size: 1.75rem;
+    .stats {
+      flex-direction: column;
+      gap: 1rem;
     }
 
     .hero-buttons {
@@ -245,6 +547,34 @@ import { Image } from 'astro:assets';
     .hero-buttons > * {
       width: 100%;
       max-width: 300px;
+    }
+
+    .content-section {
+      padding: 2rem 1rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+    }
+
+    .cta-section h2 {
+      font-size: 1.8rem;
+    }
+
+    .features-grid,
+    .methodology-grid,
+    .audience-grid,
+    .reviews-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .feature-card,
+    .method-item,
+    .audience-group,
+    .review-card {
+      padding: 1.5rem;
     }
   }
 </style>

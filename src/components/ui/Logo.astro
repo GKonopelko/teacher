@@ -67,7 +67,15 @@ import favicon from '@assets/images/parrotsvg.svg';
     color: var(--text-primary);
   }
 
-  /* Медиа-запросы для маленьких экранов */
+  @media (max-width: 800px) {
+    .logo-title {
+      font-size: 1rem;
+    }
+    .logo-subtitle {
+      font-size: 0.7rem;
+    }
+  }
+
   @media (max-width: 450px) {
     .logo {
       gap: 0.4rem;

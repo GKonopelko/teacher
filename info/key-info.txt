@@ -22,46 +22,18 @@ src/
 │   │   └── Footer.astro
 │   ├── layout/          # Компоненты макета
 │   │   ├── BaseLayout.astro
-│   │   ├── LessonLayout.astro
-│   │   └── BlogLayout.astro
 │   └── sections/        # Секции страниц
 │       ├── Hero.astro
 │       ├── Pricing.astro
 │       └── ContactForm.astro
 ├── layouts/             # Шаблоны страниц
 │   ├── Layout.astro
-│   ├── BlogPost.astro
-│   └── Lesson.astro
 ├── pages/               # Страницы сайта
 │   ├── index.astro              # Главная
 │   ├── about.astro              # Обо мне
-│   ├── lessons/                 # Уроки
-│   │   ├── index.astro          # Список уроков
-│   │   ├── beginner/            # Уроки для начинающих
-│   │   │   ├── index.astro
-│   │   │   ├── 1-alphabet.astro
-│   │   │   └── 2-greetings.astro
-│   │   └── advanced/            # Продвинутые уроки
-│   ├── grammar/                 # Грамматика
-│   │   ├── index.astro
-│   │   ├── cases/               # Падежи
-│   │   └── verbs/               # Глаголы
-│   ├── dictionary/              # Словарь
-│   │   ├── index.astro
-│   │   └── [letter].astro       # Динамические страницы по буквам
-│   ├── blog/                    # Блог
-│   │   ├── index.astro
-│   │   └── [slug].astro         # Динамические посты
 │   └── contact.astro            # Контакты
 ├── content/             # Контент в Markdown/JSON
-│   ├── lessons/         # Уроки в .md
-│   ├── grammar/         # Статьи по грамматике
-│   ├── blog/            # Посты блога
-│   └── dictionary/      # Словарные статьи
-├── utils/               # Вспомогательные функции
-│   ├── formatDate.js
-│   ├── generateTOC.js
-│   └── search.js
+
 ├── styles/              # Глобальные стили
 │   ├── global.css
 │   └── components.css
@@ -70,8 +42,4 @@ src/
     ├── audio/           # Аудио для уроков
     └── pdf/             # PDF материалы
 
-## КЛЮЧЕВЫЕ КОМПОНЕНТЫ:
-- Translator - интерактивный переводчик (React)
-- VocabularyQuiz - упражнения (React)
-- GrammarCard - статические карточки (Astro)
-- LessonLayout - макет уроков (Astro)
+На первом текущем этапе реализуем Главную страницу, Обо мне и Контакты. Остальное позже.
