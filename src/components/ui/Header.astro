@@ -3,6 +3,7 @@ import MobileMenu from './MobileMenu.astro';
 import Logo from './Logo.astro';
 import DesktopNav from './DesktopNav.astro';
 import BurgerButton from './BurgerButton.astro';
+import Button from './Button.astro';
 
 interface Props {
   buttonId?: string;
@@ -15,13 +16,16 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
 <header class="header">
   <div class="header-container">
     <div class="header-left">
-      <a
+      <Button
         href="/"
-        class="logo-home-link radius-link"
+        variant="button-link"
+        size="medium"
+        class="logo-home-link"
         aria-label="На главную страницу - Преподаватель финского языка Конопелько Григорий Викторович"
       >
         <Logo />
-      </a>
+      </Button>
+
       <DesktopNav />
     </div>
 
@@ -70,7 +74,7 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
     width: 100%;
     max-width: 75rem;
     margin: 0 auto;
-    padding: 1rem 0rem;
+    padding: 0.5rem 0rem;
     gap: 2rem;
   }
 
@@ -99,7 +103,7 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
 
   @media (max-width: 64rem) {
     .header-container {
-      padding: 1rem 0;
+      padding: 0;
       gap: 1.5rem;
     }
     .header-left {
@@ -110,7 +114,6 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
   @media (max-width: 48rem) {
     .header-container {
       gap: 0rem;
-      padding: 1rem 0;
     }
     .header-left {
       gap: 1rem;
@@ -122,7 +125,6 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
 
   @media (max-width: 30rem) {
     .header-container {
-      padding: 0.75rem 0rem;
     }
     .header-left {
       gap: 0.5rem;

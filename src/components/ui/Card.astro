@@ -2,7 +2,7 @@
 export interface Props {
   href?: string;
   class?: string;
-  variant?: 'default' | 'feature' | 'method' | 'audience' | 'review';
+  variant?: 'default' | 'wide';
 }
 
 const { href, class: className = '', variant = 'default' } = Astro.props;
@@ -10,13 +10,13 @@ const { href, class: className = '', variant = 'default' } = Astro.props;
 
 {
   href ? (
-    <a href={href} class={`card card--${variant} ${className}`}>
+    <a href={href} class={`card ${variant === 'wide' ? 'card-wide' : ''} ${className}`}>
       <div class="card-content">
         <slot />
       </div>
     </a>
   ) : (
-    <div class={`card card--${variant} ${className}`}>
+    <div class={`card ${variant === 'wide' ? 'card-wide' : ''} ${className}`}>
       <div class="card-content">
         <slot />
       </div>
@@ -27,10 +27,10 @@ const { href, class: className = '', variant = 'default' } = Astro.props;
 <style>
   .card {
     background: var(--background-white);
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow);
-    padding: 2rem;
     border: 1px solid var(--border-light);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow);
     transition: var(--transition);
     display: flex;
     flex-direction: column;
@@ -41,9 +41,14 @@ const { href, class: className = '', variant = 'default' } = Astro.props;
     max-width: 400px;
   }
 
+  .card-wide {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
   .card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
+    border-color: var(--accent-soft);
+    box-shadow: 0 2px 12px rgba(77, 166, 255, 0.15);
   }
 
   .card-content {
@@ -52,50 +57,10 @@ const { href, class: className = '', variant = 'default' } = Astro.props;
     flex-direction: column;
   }
 
-  /* Варианты карточек */
-  .card--feature {
-    position: relative;
-    overflow: hidden;
-    border: 2px solid var(--border-light);
-  }
-
-  .card--feature::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, var(--background-light), transparent);
-    transition: left 0.6s ease;
-    z-index: 0;
-  }
-
-  .card--feature:hover::before {
-    left: 100%;
-  }
-
-  .card--feature:hover {
-    border-color: var(--link-color);
-  }
-
-  .card--method,
-  .card--audience,
-  .card--review {
-    /* Базовые стили уже в .card */
-  }
-
-  /* Адаптивность */
   @media (max-width: 768px) {
     .card {
       padding: 1.5rem;
       max-width: 100%;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .card {
-      padding: 1.5rem;
     }
   }
 </style>

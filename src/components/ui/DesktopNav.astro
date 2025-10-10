@@ -1,14 +1,15 @@
 ---
 import { navigationLinks } from '../../data/navigation';
+import Button from './Button.astro';
 ---
 
 <nav class="nav-desktop" aria-label="Основная навигация">
   <div class="nav-links">
     {
       navigationLinks.map((link) => (
-        <a href={link.href} class="nav-item  radius-link">
+        <Button href={link.href} variant="button-link" size="large" class="nav-item">
           {link.label}
-        </a>
+        </Button>
       ))
     }
   </div>
@@ -26,16 +27,13 @@ import { navigationLinks } from '../../data/navigation';
   }
 
   .nav-item {
-    text-decoration: none;
-    color: var(--link-color);
     font-weight: 500;
     font-size: 1rem;
     padding: 1rem;
-    position: relative;
-    transition: color 0.2s ease;
     white-space: nowrap;
     border-radius: 2rem;
   }
+
   @media (max-width: 1024px) {
     .nav-links {
       gap: 0rem;

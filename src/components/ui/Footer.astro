@@ -1,102 +1,181 @@
 ---
-import { Image } from 'astro:assets';
-import favicon from '@assets/images/parrotsvg.svg';
+import Button from './Button.astro';
 ---
 
 <footer class="footer">
   <div class="footer-content">
-    <div class="footer-section">
-      <div class="footer-logo">
-        <Image src={favicon} alt="Логотип" width={40} height={40} />
-        <h3>Преподаватель финского языка</h3>
+    <div class="footer-row">
+      <div class="footer-contacts">
+        <Button href="tel:+79117770297" variant="button-link" size="small" class="contact-button">
+          <span class="contact-icon">📱</span>
+          <span class="contact-text">Позвонить</span>
+        </Button>
+
+        <Button
+          href="mailto:grigori.konopelko@mail.ru"
+          variant="button-link"
+          size="small"
+          class="contact-button"
+        >
+          <span class="contact-icon">✉️</span>
+          <span class="contact-text">Написать</span>
+        </Button>
+
+        <Button
+          href="https://t.me/grigori_konopelko"
+          variant="button-link"
+          size="small"
+          class="contact-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="contact-icon">📢</span>
+          <span class="contact-text">Telegram</span>
+        </Button>
+
+        <Button
+          href="https://wa.me/79117770297"
+          variant="button-link"
+          size="small"
+          class="contact-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="contact-icon">💬</span>
+          <span class="contact-text">WhatsApp</span>
+        </Button>
       </div>
-      <p>Конопелько Григорий Викторович</p>
-      <p>Опытный профессиональный репетитор с 15-летним стажем</p>
-    </div>
 
-    <div class="footer-section">
-      <h4>Контакты</h4>
-      <a href="tel:+79117770297" class="text-link">+7 911 777 02 97</a>
-      <a href="mailto:grigori.konopelko@mail.ru" class="text-link">grigori.konopelko@mail.ru</a>
-      <a href="/contact/" class="text-link text-link-emphasis">Записаться на урок</a>
+      <div class="footer-copyright">
+        <p>© Конопелько Григорий Викторович, 2024</p>
+      </div>
     </div>
-
-    <div class="footer-section">
-      <h4>Разделы</h4>
-      <a href="/" class="text-link">Главная</a>
-      <a href="/about/" class="text-link">Обо мне</a>
-      <a href="/lessons/" class="text-link">Уроки</a>
-      <a href="/grammar/" class="text-link">Грамматика</a>
-      <a href="/dictionary/" class="text-link">Словарь</a>
-      <a href="/level-test/" class="text-link">Тест уровня</a>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>© Конопелько Григорий Викторович, 2024</p>
   </div>
 </footer>
 
 <style>
   .footer {
-    background: var(--link-color);
-    color: var(--background-white);
-    padding: 3rem 2rem 1rem;
-    margin-top: auto;
+    border-top: 1px solid var(--border-light);
+    padding: 0.75rem 0;
+    margin-top: 3rem;
   }
 
   .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 2rem;
   }
 
-  .footer-logo {
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .footer-contacts {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-button {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
+    justify-content: center;
+    gap: 0.25rem;
   }
 
-  .footer-logo h3 {
+  .contact-icon {
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .contact-text {
+    white-space: nowrap;
+  }
+
+  .footer-copyright {
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  .footer-copyright p {
     margin: 0;
-    color: var(--background-white);
-    font-size: 1.1rem;
-    font-weight: 700;
   }
 
-  .footer-section h4 {
-    margin-bottom: 1rem;
-    color: var(--background-white);
-    font-size: 1.1rem;
-    font-weight: 600;
-  }
+  @media (max-width: 1024px) {
+    .footer-row {
+      flex-direction: column;
+      gap: 0.75rem;
+      text-align: center;
+    }
 
-  .footer-section p {
-    color: color-mix(in srgb, var(--background-white) 80%, transparent);
-    line-height: 1.5;
-    margin: 0.25rem 0;
-  }
-
-  .footer-bottom {
-    border-top: 1px solid color-mix(in srgb, var(--background-white) 20%, transparent);
-    margin-top: 2rem;
-    padding-top: 1rem;
-    text-align: center;
-    color: color-mix(in srgb, var(--background-white) 70%, transparent);
-    font-size: 0.875rem;
+    .footer-contacts {
+      justify-content: center;
+      gap: 0.5rem;
+    }
   }
 
   @media (max-width: 768px) {
     .footer {
-      padding: 2rem 1rem;
+      padding: 0.5rem 0;
+      margin-top: 2rem;
     }
 
     .footer-content {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
+      padding: 0 1rem;
+    }
+
+    .footer-contacts {
+      gap: 0.3rem;
+    }
+
+    .contact-text {
+      display: none;
+    }
+
+    .footer-copyright {
+      font-size: 0.75rem;
+    }
+
+    .contact-button {
+      width: 2rem !important;
+      height: 2rem !important;
+      padding: 0.5rem !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-content {
+      padding: 0 0.5rem;
+    }
+
+    .footer-contacts {
+      gap: 0.4rem;
+    }
+
+    .contact-button {
+      width: 2rem !important;
+      height: 2rem !important;
+    }
+
+    .contact-icon {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 375px) {
+    .footer-content {
+      padding: 0 0.25rem;
+    }
+
+    .footer-contacts {
+      gap: 0.25rem;
+    }
+
+    .contact-button {
+      width: 1.8rem !important;
+      height: 1.8rem !important;
     }
   }
 </style>

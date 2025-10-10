@@ -1,5 +1,7 @@
 ---
 import { navigationLinks } from '../../data/navigation';
+import Button from './Button.astro';
+
 interface Props {
   menuId: string;
 }
@@ -11,13 +13,15 @@ const { menuId } = Astro.props;
   <div class="mobile-links">
     {
       navigationLinks.map((link) => (
-        <a href={link.href} class="nav-item radius-link">
+        <Button href={link.href} variant="button-link" size="large" class="nav-item">
           {link.label}
-        </a>
+        </Button>
       ))
     }
 
-    <a href="/contact/" class="nav-item radius-link nav-item--cta">Записаться на урок</a>
+    <Button href="/contact/" variant="primary" size="large" class="nav-item--cta">
+      Записаться на урок
+    </Button>
   </div>
 </nav>
 
@@ -52,10 +56,8 @@ const { menuId } = Astro.props;
     gap: 1rem;
     margin: 0 auto;
     padding-top: 5rem;
-
     max-width: 17.5rem;
     min-height: calc(100vh - 2rem);
-
     opacity: 0;
     transform: translateY(10px);
     transition: all 0.3s ease 0.2s;
@@ -67,16 +69,11 @@ const { menuId } = Astro.props;
   }
 
   .mobile-links .nav-item {
-    padding: 1rem 0;
-    font-size: 1.1rem;
-    text-decoration: none;
-    transition: color 0.2s ease;
     text-align: center;
   }
 
   .nav-item--cta {
-    border: 1px solid var(--hover-bg);
-    font-weight: 600;
+    margin-top: 1rem;
   }
 
   @media (max-width: 30rem) {

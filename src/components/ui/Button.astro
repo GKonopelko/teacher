@@ -1,102 +1,113 @@
 ---
 export interface Props {
   href?: string;
-  variant?: 'primary' | 'filled' | 'minimal';
+  variant?: 'primary' | 'button-link' | 'text-link';
   size?: 'small' | 'medium' | 'large';
   class?: string;
+  target?: string;
+  rel?: string;
 }
 
-const { href, variant = 'primary', size = 'medium', class: className = '' } = Astro.props;
+const {
+  href,
+  variant = 'primary',
+  size = 'medium',
+  class: className = '',
+  target,
+  rel,
+} = Astro.props;
 
-const baseClass = 'button';
-const variantClass = `button-${variant}`;
-const sizeClass = `button--${size}`;
+const baseClass = 'btn';
+const variantClass = `btn-${variant}`;
+const sizeClass = size !== 'medium' ? `btn--${size}` : '';
 ---
 
 {
   href ? (
-    <a href={href} class={`${baseClass} ${variantClass} ${sizeClass} ${className}`}>
+    <a
+      href={href}
+      class={`${baseClass} ${variantClass} ${sizeClass} ${className}`.trim()}
+      target={target}
+      rel={rel}
+    >
       <slot />
     </a>
   ) : (
-    <button class={`${baseClass} ${variantClass} ${sizeClass} ${className}`}>
+    <button class={`${baseClass} ${variantClass} ${sizeClass} ${className}`.trim()}>
       <slot />
     </button>
   )
 }
 
 <style>
-  .button {
+  .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-rounded);
     font-weight: 600;
     text-decoration: none;
     transition: var(--transition);
     border: 2px solid transparent;
     font-family: inherit;
-    font-size: 0.875rem;
     cursor: pointer;
     gap: 0.5rem;
     white-space: nowrap;
   }
 
-  .button-primary {
+  .btn-primary {
     background: transparent;
     color: var(--link-color);
     border-color: var(--accent-light);
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
   }
 
-  .button-primary:hover {
+  .btn-primary:hover {
     background: var(--hover-bg);
     color: var(--text-primary);
     box-shadow: var(--shadow-hover);
     border-color: var(--hover-bg);
   }
-
-  .button-filled {
-    background: var(--link-color);
-    color: var(--background-white);
-    border-color: var(--link-color);
-  }
-
-  .button-filled:hover {
-    background: var(--hover-bg);
-    color: var(--background-white);
-    border-color: var(--hover-bg);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(77, 166, 255, 0.3);
-  }
-
-  .button-minimal {
+  .btn-button-link {
     background: transparent;
     color: var(--link-color);
-    border-color: transparent;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
   }
 
-  .button-minimal:hover {
-    background: var(--accent-soft);
+  .btn-button-link:hover {
+    background: var(--hover-bg);
+    color: var(--text-primary);
+  }
+
+  .btn-text-link {
+    background: transparent;
     color: var(--link-color);
-    transform: translateY(-1px);
+    padding: 0.25rem 0.5rem;
+    margin: -0.25rem -0.5rem;
+    font-weight: normal;
+    font-size: inherit;
   }
 
-  .button--small {
-    padding: 0.5rem 1rem;
-    font-size: 0.75rem;
+  .btn-text-link:hover {
+    background: var(--hover-bg);
+    color: var(--text-primary);
+    text-decoration: none;
   }
 
-  .button--medium {
-    padding: 0.75rem 1.5rem;
+  /* Размеры */
+  .btn--small {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.75rem !important;
   }
 
-  .button--large {
-    padding: 1rem 2rem;
-    font-size: 1rem;
+  .btn--large {
+    padding: 1rem 2rem !important;
+    font-size: 1rem !important;
   }
 
-  .button:disabled {
+  .btn:disabled {
     opacity: 0.6;
     cursor: not-allowed;
     transform: none !important;
