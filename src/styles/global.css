@@ -20,6 +20,12 @@
   --transition: all 0.3s ease;
   --font-heading: 'Inter', -apple-system, blinkmacsystemfont, sans-serif;
   --font-body: 'Inter', -apple-system, blinkmacsystemfont, sans-serif;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --heading-1: 2.5rem;
+  --heading-2: 2rem;
+  --heading-3: 1.5rem;
 }
 
 *,
@@ -37,6 +43,7 @@ html {
 
 body {
   font-family: var(--font-body);
+  font-size: var(--text-base);
   line-height: 1.6;
   color: var(--text-primary);
   background: var(--background-white);
@@ -74,28 +81,23 @@ h6 {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: var(--heading-1);
   font-weight: 700;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: var(--heading-2);
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: var(--heading-3);
 }
 
-h4 {
-  font-size: 1.25rem;
-}
-
-h5 {
-  font-size: 1.1rem;
-}
-
+h4,
+h5,
 h6 {
-  font-size: 1rem;
+  font-size: var(--text-base);
+  font-weight: 600;
 }
 
 p {

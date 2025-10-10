@@ -7,7 +7,7 @@ import Button from './Button.astro';
   <div class="nav-links">
     {
       navigationLinks.map((link) => (
-        <Button href={link.href} variant="button-link" size="large" class="nav-item">
+        <Button href={link.href} variant="button-link" size="medium" class="nav-item">
           {link.label}
         </Button>
       ))
@@ -28,7 +28,7 @@ import Button from './Button.astro';
 
   .nav-item {
     font-weight: 500;
-    font-size: 1rem;
+    font-size: var(--text-base);
     padding: 1rem;
     white-space: nowrap;
     border-radius: 2rem;
