@@ -88,7 +88,6 @@ const { teacherInfo } = Astro.props;
   }
 
   .hero-container {
-    max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
   }
@@ -99,11 +98,10 @@ const { teacherInfo } = Astro.props;
   }
 
   .hero-text {
-    /* width: 100%; */
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   .hero-with-photo-stats {
@@ -112,7 +110,7 @@ const { teacherInfo } = Astro.props;
     align-items: center;
     justify-content: center;
     gap: 0;
-    margin: 2rem 0 0;
+    margin: 1.5rem 0 0;
     position: relative;
   }
 
@@ -131,19 +129,19 @@ const { teacherInfo } = Astro.props;
   }
 
   .hero-photo {
-    width: min(350px, 50vw);
-    height: min(350px, 50vw);
+    width: min(21.875rem, 50vw);
+    height: min(21.875rem, 50vw);
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid var(--accent-light);
+    border: 0.25rem solid var(--accent-light);
     box-shadow: var(--shadow);
   }
 
   .stat-circle {
-    width: min(130px, 13vw);
-    height: min(130px, 13vw);
+    width: min(8.125rem, 13vw);
+    height: min(8.125rem, 13vw);
     border-radius: 50%;
-    border: 3px solid var(--accent-light);
+    border: 0.1875rem solid var(--accent-light);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -169,10 +167,10 @@ const { teacherInfo } = Astro.props;
   .stat-label {
     font-size: min(0.8rem, 2vw);
     line-height: 1.2;
-    max-width: 80px;
+    max-width: 5rem;
     word-wrap: break-word;
     hyphens: auto;
-    padding: 0 4px;
+    padding: 0 0.25rem;
   }
 
   .intro-text {
@@ -209,7 +207,7 @@ const { teacherInfo } = Astro.props;
   }
 
   /* Адаптивность */
-  @media (max-width: 768px) {
+  @media (max-width: 48rem) {
     .hero {
       padding: 2rem 0;
     }
@@ -224,8 +222,8 @@ const { teacherInfo } = Astro.props;
     }
 
     .stat-circle {
-      width: min(120px, 24vw);
-      height: min(120px, 24vw);
+      width: min(7.5rem, 24vw);
+      height: min(7.5rem, 24vw);
     }
 
     .hero-buttons {
@@ -235,15 +233,15 @@ const { teacherInfo } = Astro.props;
 
     .hero-buttons > * {
       width: 100%;
-      max-width: 300px;
+      max-width: 18.75rem;
     }
   }
 
   /* На маленьких экранах */
-  @media (max-width: 480px) {
+  @media (max-width: 30rem) {
     .hero-photo {
-      width: min(300px, 60vw);
-      height: min(300px, 60vw);
+      width: min(18.75rem, 60vw);
+      height: min(18.75rem, 60vw);
     }
 
     .stat-container {
@@ -252,8 +250,8 @@ const { teacherInfo } = Astro.props;
     }
 
     .stat-circle {
-      width: min(100px, 30vw);
-      height: min(100px, 30vw);
+      width: min(6.25rem, 30vw);
+      height: min(6.25rem, 30vw);
     }
 
     .stat-number {
@@ -274,14 +272,14 @@ const { teacherInfo } = Astro.props;
   }
 
   /* Очень маленькие экраны */
-  @media (max-width: 375px) {
+  @media (max-width: 23.4375rem) {
     .hero-container {
       padding: 0 0.5rem;
     }
 
     .hero-photo {
-      width: min(250px, 70vw);
-      height: min(250px, 70vw);
+      width: min(15.625rem, 70vw);
+      height: min(15.625rem, 70vw);
     }
 
     .stat-container {
@@ -290,8 +288,8 @@ const { teacherInfo } = Astro.props;
     }
 
     .stat-circle {
-      width: min(90px, 35vw);
-      height: min(90px, 35vw);
+      width: min(5.625rem, 35vw);
+      height: min(5.625rem, 35vw);
     }
 
     .stat-number {
@@ -300,7 +298,7 @@ const { teacherInfo } = Astro.props;
 
     .stat-label {
       font-size: min(0.65rem, 3vw);
-      max-width: 70px;
+      max-width: 4.375rem;
     }
   }
 
@@ -308,7 +306,7 @@ const { teacherInfo } = Astro.props;
     white-space: nowrap;
   }
 
-  @media (max-width: 320px) {
+  @media (max-width: 20rem) {
     .phrase {
       white-space: normal;
     }

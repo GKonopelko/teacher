@@ -27,18 +27,19 @@ const { href, class: className = '', variant = 'default' } = Astro.props;
 <style>
   .card {
     background: var(--background-white);
-    border: 1px solid var(--border-light);
+    border: 0.0625rem solid var(--border-light);
     border-radius: var(--border-radius-lg);
-    padding: 2rem;
+    padding: 1.5rem; /* Уменьшили с 2rem для более плотной типографики */
     box-shadow: var(--shadow);
     transition: var(--transition);
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: auto;
+    min-height: 0;
     text-decoration: none;
     color: inherit;
-    flex: 1 1 300px;
-    max-width: 400px;
+    flex: 1 1 18.75rem; /* 300px */
+    max-width: 25rem; /* 400px */
   }
 
   .card-wide {
@@ -48,18 +49,19 @@ const { href, class: className = '', variant = 'default' } = Astro.props;
 
   .card:hover {
     border-color: var(--accent-soft);
-    box-shadow: 0 2px 12px rgba(77, 166, 255, 0.15);
+    box-shadow: 0 0.125rem 0.75rem rgba(77, 166, 255, 0.15); /* 2px 12px */
   }
 
   .card-content {
-    height: 100%;
+    flex: 1;
     display: flex;
     flex-direction: column;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 48rem) {
+    /* 768px */
     .card {
-      padding: 1.5rem;
+      padding: 1.25rem; /* Уменьшили с 1.5rem */
       max-width: 100%;
     }
   }

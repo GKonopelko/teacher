@@ -55,7 +55,7 @@ import Button from './Button.astro';
 
 <style>
   .footer {
-    border-top: 1px solid var(--border-light);
+    border-top: 0.0625rem solid var(--border-light);
     padding: 0.75rem 0;
     margin-top: 3rem;
   }
@@ -103,7 +103,7 @@ import Button from './Button.astro';
     margin: 0;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 64rem) {
     .footer-row {
       flex-direction: column;
       gap: 0.75rem;
@@ -116,7 +116,7 @@ import Button from './Button.astro';
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 48rem) {
     .footer {
       padding: 0.5rem 0;
       margin-top: 2rem;
@@ -141,7 +141,7 @@ import Button from './Button.astro';
     }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 30rem) {
     .footer-content {
       padding: 0 0.5rem;
     }
@@ -155,7 +155,7 @@ import Button from './Button.astro';
     }
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 23.4375rem) {
     .footer-content {
       padding: 0 0.25rem;
     }

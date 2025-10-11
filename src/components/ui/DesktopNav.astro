@@ -13,36 +13,42 @@ import Button from './Button.astro';
       ))
     }
   </div>
-</nav>
 
-<style>
-  .nav-desktop {
-    display: flex;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-  }
-
-  .nav-item {
-    font-weight: 500;
-    font-size: var(--text-base);
-    padding: 1rem;
-    white-space: nowrap;
-    border-radius: 2rem;
-  }
-
-  @media (max-width: 1024px) {
-    .nav-links {
-      gap: 0rem;
-    }
-  }
-
-  @media (max-width: 768px) {
+  <style>
     .nav-desktop {
-      display: none;
+      display: flex;
     }
-  }
-</style>
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .nav-item {
+      font-weight: 500;
+      font-size: var(--text-base);
+      padding: 1rem;
+      white-space: nowrap;
+      border-radius: 2rem;
+    }
+
+    @media (max-width: 1024px) {
+      .nav-links {
+        gap: 0rem;
+      }
+    }
+    @media (min-width: 873px) {
+      .nav-item {
+        padding: 1.25rem 1.5rem !important;
+        font-size: 1.1rem !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-desktop {
+        display: none;
+      }
+    }
+  </style>
+</nav>

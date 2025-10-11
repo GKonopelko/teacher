@@ -1,6 +1,7 @@
 ---
 import { navigationLinks } from '../../data/navigation';
 import Button from './Button.astro';
+import LogoLink from './LogoLink.astro';
 
 interface Props {
   menuId: string;
@@ -11,6 +12,7 @@ const { menuId } = Astro.props;
 
 <nav class="nav-mobile" id={menuId} aria-label="Мобильная навигация" aria-hidden="true">
   <div class="mobile-links">
+    <LogoLink showText={false} />
     {
       navigationLinks.map((link) => (
         <Button href={link.href} variant="button-link" size="large" class="nav-item">
@@ -61,6 +63,7 @@ const { menuId } = Astro.props;
     opacity: 0;
     transform: translateY(10px);
     transition: all 0.3s ease 0.2s;
+    align-items: center;
   }
 
   .nav-mobile.active .mobile-links {

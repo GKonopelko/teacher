@@ -35,7 +35,7 @@ import '../styles/global.css';
         display: flex;
         flex-direction: column;
         margin: 0 auto;
-        padding: 0rem 2rem;
+        padding: 0 2rem;
         width: 100%;
         max-width: 75rem;
       }
@@ -44,21 +44,21 @@ import '../styles/global.css';
         width: 100%;
       }
 
-      @media (width <= 768px) {
+      @media (max-width: 48rem) {
         .body-wrapper {
-          padding: 0rem 1rem;
+          padding: 0 1rem;
         }
       }
 
-      @media (width < 430px) {
+      @media (max-width: 26.875rem) {
         .body-wrapper {
-          padding: 0rem 0.5rem;
+          padding: 0 0.5rem;
         }
       }
 
-      @media (width < 375px) {
+      @media (max-width: 23.4375rem) {
         .body-wrapper {
-          padding: 0rem 0.25rem;
+          padding: 0 0.25rem;
         }
       }
     </style>

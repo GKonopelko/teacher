@@ -48,7 +48,7 @@ const sizeClass = size !== 'medium' ? `btn--${size}` : '';
     font-weight: 600;
     text-decoration: none;
     transition: var(--transition);
-    border: 2px solid transparent;
+    border: 0.125rem solid transparent;
     font-family: inherit;
     cursor: pointer;
     gap: 0.5rem;
@@ -113,13 +113,14 @@ const sizeClass = size !== 'medium' ? `btn--${size}` : '';
     transform: none !important;
     box-shadow: none !important;
   }
-  @media (max-width: 768px) {
+
+  @media (max-width: 48rem) {
     .btn--large {
       padding: 0.875rem 1.5rem !important;
     }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 30rem) {
     .btn--large {
       padding: 0.75rem 1.25rem !important;
       font-size: 0.9rem !important;
