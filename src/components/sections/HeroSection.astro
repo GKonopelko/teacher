@@ -51,8 +51,8 @@ const { teacherInfo } = Astro.props;
 
         <div class="text-content">
           <p class="intro-text">
-            Здравствуйте! Меня зовут <strong>{teacherInfo.name}</strong>. Я профессиональный
-            преподаватель финского языка с опытом работы более 15 лет.
+            Здравствуйте! Меня зовут <strong>{teacherInfo.name}</strong>. <br /> Я профессиональный преподаватель
+            финского языка с опытом работы более 15 лет.
           </p>
         </div>
 
@@ -69,14 +69,12 @@ const { teacherInfo } = Astro.props;
         </div>
 
         <div class="hero-buttons">
-          <Button href="/contact/" variant="primary" size="large">
-            🗓️ Записаться на пробный урок
-          </Button>
+          <Button href="/contact/" variant="primary" size="large"> 🗓️ Записаться на урок </Button>
           <Button href="/about/" variant="button-link" size="large"> 📚 Узнать больше </Button>
         </div>
 
         <p class="welcome">
-          <em>Tervetuloa opiskelemaan! — Добро пожаловать на занятия!</em>
+          <em>Tervetuloa opiskelemaan!</em> — <em class="phrase">Добро пожаловать на занятия!</em>
         </p>
       </div>
     </div>
@@ -101,7 +99,7 @@ const { teacherInfo } = Astro.props;
   }
 
   .hero-text {
-    max-width: 800px;
+    /* width: 100%; */
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -207,6 +205,7 @@ const { teacherInfo } = Astro.props;
     font-size: 1.1rem;
     font-style: italic;
     margin: 0;
+    hyphens: auto;
   }
 
   /* Адаптивность */
@@ -302,6 +301,16 @@ const { teacherInfo } = Astro.props;
     .stat-label {
       font-size: min(0.65rem, 3vw);
       max-width: 70px;
+    }
+  }
+
+  .phrase {
+    white-space: nowrap;
+  }
+
+  @media (max-width: 320px) {
+    .phrase {
+      white-space: normal;
     }
   }
 </style>

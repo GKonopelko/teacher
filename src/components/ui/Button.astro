@@ -113,4 +113,16 @@ const sizeClass = size !== 'medium' ? `btn--${size}` : '';
     transform: none !important;
     box-shadow: none !important;
   }
+  @media (max-width: 768px) {
+    .btn--large {
+      padding: 0.875rem 1.5rem !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .btn--large {
+      padding: 0.75rem 1.25rem !important;
+      font-size: 0.9rem !important;
+    }
+  }
 </style>
