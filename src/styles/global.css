@@ -53,6 +53,7 @@ body {
   width: 100%;
   margin: 0;
   min-height: 100vh;
+  overflow-wrap: break-word;
 }
 
 body.menu-open {
@@ -120,4 +121,8 @@ img {
 
 .text-right {
   text-align: right;
+}
+
+* {
+  outline: 1px solid red !important;
 }

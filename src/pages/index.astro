@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSection from '../components/sections/HeroSection.astro';
 import Card from '../components/ui/Card.astro';
 import Section from '../components/ui/Section.astro';
-import Button from '../components/ui/Button.astro';
+import CTASection from '../components/sections/CTASection.astro';
 
 const TEACHER_INFO = {
   name: 'Конопелько Григорий Викторович',
@@ -174,21 +174,16 @@ const TEACHER_INFO = {
   </Section>
 
   <!-- CTA секция -->
-  <section class="cta-section">
-    <div class="text-center">
-      <div class="cta-badge">Идет набор новых учеников</div>
-      <h2>Готовы сделать первый шаг к свободному финскому?</h2>
-      <p class="cta-subtitle">
-        Первый урок — это диагностика вашего уровня и подробный план обучения.
-      </p>
-      <p class="cta-subtitle">
-        Запишитесь сейчас и получите подборку учебных материалов в подарок!
-      </p>
-      <div class="cta-buttons">
-        <Button href="/contact/" variant="primary" size="large"> 🗓️ Начать обучение </Button>
-      </div>
-    </div>
-  </section>
+  <CTASection
+    badgeText="Идет набор новых учеников"
+    title="Готовы сделать первый шаг к свободному финскому?"
+    subtitle={`
+    Первый урок — это диагностика вашего уровня и подробный план обучения.
+    Запишитесь сейчас и получите подборку учебных материалов в подарок!
+  `}
+    buttonText="🗓️ Начать обучение"
+    buttonHref="/contact/"
+  />
 </BaseLayout>
 
 <style>
@@ -225,7 +220,6 @@ const TEACHER_INFO = {
   .price {
     font-size: var(--heading-3);
     font-weight: 700;
-    color: var(--link-color);
     margin-top: auto;
     padding-top: 1rem;
   }
@@ -242,49 +236,10 @@ const TEACHER_INFO = {
     line-height: 1.6;
   }
 
-  /* CTA секция */
-  .cta-section {
-    background: linear-gradient(135deg, var(--link-color), #4da6ff);
-    color: var(--background-white);
-    padding: 4rem 0;
-    text-align: center;
-  }
-
-  .cta-badge {
-    background: #ff4444;
-    color: white;
-    padding: 0.5rem 1.5rem;
-    border-radius: 2rem;
-    display: inline-block;
-    margin-bottom: 1rem;
-    font-weight: 600;
-    font-size: var(--text-sm);
-  }
-
-  .cta-section h2 {
-    margin-bottom: 1rem;
-    font-size: var(--heading-2);
-    font-weight: 600;
-  }
-
-  .cta-subtitle {
-    font-size: var(--text-lg);
-    margin-bottom: 1rem;
-    opacity: 0.9;
-  }
-
-  .cta-buttons {
-    margin-top: 2rem;
-  }
-
   @media (max-width: 768px) {
     .cards-flex {
       flex-direction: column;
       align-items: center;
-    }
-
-    .cta-section {
-      padding: 2rem 0;
     }
   }
 </style>

@@ -29,13 +29,12 @@ const { href, class: className = '', variant = 'default' } = Astro.props;
     background: var(--background-white);
     border: 0.0625rem solid var(--border-light);
     border-radius: var(--border-radius-lg);
-    padding: 1.5rem; /* Уменьшили с 2rem для более плотной типографики */
+    padding: 1.5rem;
     box-shadow: var(--shadow);
     transition: var(--transition);
     display: flex;
     flex-direction: column;
     height: auto;
-    min-height: 0;
     text-decoration: none;
     color: inherit;
     flex: 1 1 18.75rem; /* 300px */
@@ -61,7 +60,7 @@ const { href, class: className = '', variant = 'default' } = Astro.props;
   @media (max-width: 48rem) {
     /* 768px */
     .card {
-      padding: 1.25rem; /* Уменьшили с 1.5rem */
+      padding: 1.25rem;
       max-width: 100%;
     }
   }
