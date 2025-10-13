@@ -3,10 +3,41 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Card from '../components/ui/Card.astro';
 import Section from '../components/ui/Section.astro';
 import CTASection from '../components/sections/CTASection.astro';
+
+const pageTitle = 'О репетиторе финского языка Григории Конопелько | Образование и методика';
+const pageDescription =
+  'Филолог СПбГУ со стажировкой в Хельсинки. 15+ лет преподавания финского для русскоязычных. Узнайте о моём уникальном подходе к обучению и успехах учеников.';
+const canonicalUrl = 'https://grigori.konopelko.com/about/';
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Григорий Конопелько',
+  jobTitle: 'Репетитор финского языка',
+  description: pageDescription,
+  url: canonicalUrl,
+  email: 'grigori.konopelko@mail.ru',
+  telephone: '+7-911-777-02-97',
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Санкт-Петербургский государственный университет',
+  },
+  hasCredential: "Филологическое образование, специальность 'Финский язык и литература'",
+  knowsAbout: [
+    'Финский язык',
+    'Преподавание иностранных языков',
+    'Подготовка к YKI',
+    'Финская культура',
+  ],
+  experienceYears: '15',
+};
 ---
 
-<BaseLayout>
-  <!-- Hero секция -->
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalUrl={canonicalUrl}
+  structuredData={structuredData}
+>
   <Section>
     <h1 class="text-center">Обо мне</h1>
     <p>
@@ -175,7 +206,6 @@ import CTASection from '../components/sections/CTASection.astro';
     <p>Я буду вашим гидом и поддержкой на этом пути.</p>
   </Section>
 
-  <!-- CTA секция -->
   <CTASection
     badgeText="Идет набор новых учеников"
     title="Готовы начать обучение?"

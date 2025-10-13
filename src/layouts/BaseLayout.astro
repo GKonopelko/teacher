@@ -2,8 +2,41 @@
 import Header from '../components/ui/Header.astro';
 import Footer from '../components/ui/Footer.astro';
 import favicon from '@assets/images/parrotsvg.svg';
+import teacherPhoto from '@assets/images/grigori.jpg';
 import '../styles/global.css';
 import Analytics from '../components/analytics/Analytics.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+  structuredData?: object;
+}
+
+const { title, description, canonicalUrl, structuredData } = Astro.props;
+const siteUrl = 'https://grigori.konopelko.com';
+const fullCanonicalUrl = canonicalUrl || siteUrl + Astro.url.pathname;
+const fullOgImage = siteUrl + teacherPhoto.src;
+
+const jsonLdString = JSON.stringify(
+  structuredData || {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: 'Репетитор финского языка - Григорий Конопелько',
+    description: description,
+    url: siteUrl,
+    telephone: '+7-911-777-02-97',
+    email: 'grigori.konopelko@mail.ru',
+    areaServed: ['Россия', 'Финляндия'],
+    serviceType: 'Языковые курсы',
+    provider: {
+      '@type': 'Person',
+      name: 'Григорий Конопелько',
+      jobTitle: 'Репетитор финского языка',
+      experienceYears: '15',
+    },
+  }
+);
 ---
 
 <!doctype html>
@@ -11,25 +44,37 @@ import Analytics from '../components/analytics/Analytics.astro';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={fullCanonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={fullCanonicalUrl} />
+    <meta property="og:image" content={fullOgImage} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Репетитор финского языка - Григорий Конопелько" />
+    <meta property="og:locale" content="ru_RU" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullOgImage} />
+
     <Analytics />
-    <meta
-      name="description"
-      content="Индивидуальные занятия по финскому языку онлайн. Опытный профессиональный частный преподаватель/репетитор финского языка в Санкт-Петербурге."
-    />
-    <meta
-      name="keywords"
-      content="преподаватель финского языка, репетитор финского языка, репетитор, финский язык, ищу репетитора по финскому языку, Санкт-Петербург, частный преподаватель, отзывы, уроки, цена, стоимость, посоветуйте, подбор"
-    />
-    <title>Преподаватель финского языка онлайн - Конопелько Григорий Викторович</title>
-
     <link rel="icon" href={favicon.src} type="image/svg+xml" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <script type="application/ld+json" set:html={jsonLdString} />
+
     <style>
       .body-wrapper {
         background: var(--background-white);

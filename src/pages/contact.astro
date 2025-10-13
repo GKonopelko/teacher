@@ -3,9 +3,44 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/ui/Button.astro';
 import Section from '../components/ui/Section.astro';
 import Card from '../components/ui/Card.astro';
+
+const pageTitle = 'Запись на уроки финского | Контакты репетитора Григория Конопелько';
+const pageDescription =
+  'Запишитесь на пробный урок финского языка по тел. +7 911 777 02 97. Онлайн по всей России и очно в Санкт-Петербурге. WhatsApp, Telegram, Email. Удобное расписание.';
+const canonicalUrl = 'https://grigori.konopelko.com/contact/';
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Контакты репетитора финского языка',
+  description: pageDescription,
+  url: canonicalUrl,
+  mainEntity: {
+    '@type': 'ProfessionalService',
+    name: 'Репетитор финского языка - Григорий Конопелько',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+7-911-777-02-97',
+      email: 'grigori.konopelko@mail.ru',
+      contactType: 'customer service',
+      areaServed: ['RU', 'FI'],
+      availableLanguage: ['Russian', 'Finnish'],
+      hoursAvailable: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        opens: '09:00',
+        closes: '21:00',
+      },
+    },
+  },
+};
 ---
 
-<BaseLayout>
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalUrl={canonicalUrl}
+  structuredData={structuredData}
+>
   <Section>
     <h1 class="text-center">Контакты и запись на занятия</h1>
 

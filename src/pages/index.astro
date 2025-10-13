@@ -11,13 +11,48 @@ const TEACHER_INFO = {
   phone: '+7 911 777 02 97',
   email: 'grigori.konopelko@mail.ru',
 };
+
+const pageTitle = 'Репетитор финского языка | Индивидуальные уроки онлайн с Григорием Конопелько';
+const pageDescription =
+  'Профессиональный репетитор финского с 15-летним опытом. Подготовка к YKI, переезду, работе в Финляндии. Индивидуальные онлайн-уроки. Начните говорить по-фински!';
+const canonicalUrl = 'https://grigori.konopelko.com/';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Репетитор финского языка - Григорий Конопелько',
+  description: pageDescription,
+  url: canonicalUrl,
+  telephone: '+7-911-777-02-97',
+  email: 'grigori.konopelko@mail.ru',
+  areaServed: ['Россия', 'Финляндия', 'СНГ'],
+  serviceType: ['Языковые курсы', 'Репетиторство'],
+  provider: {
+    '@type': 'Person',
+    name: 'Григорий Конопелько',
+    jobTitle: 'Репетитор финского языка',
+    experienceYears: '15',
+    alumniOf: {
+      '@type': 'CollegeOrUniversity',
+      name: 'СПбГУ',
+    },
+  },
+  offers: {
+    '@type': 'Offer',
+    description: 'Индивидуальные уроки финского языка онлайн',
+    price: '1600',
+    priceCurrency: 'RUB',
+  },
+};
 ---
 
-<BaseLayout>
-  <!-- Hero секция как отдельный компонент -->
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalUrl={canonicalUrl}
+  structuredData={structuredData}
+>
   <HeroSection teacherInfo={TEACHER_INFO} />
-
-  <!-- Почему выбирают меня -->
   <Section>
     <div class="text-center">
       <h2>Почему выбирают меня</h2>
@@ -173,7 +208,6 @@ const TEACHER_INFO = {
     </div>
   </Section>
 
-  <!-- CTA секция -->
   <CTASection
     badgeText="Идет набор новых учеников"
     title="Готовы сделать первый шаг к свободному финскому?"
@@ -187,7 +221,6 @@ const TEACHER_INFO = {
 </BaseLayout>
 
 <style>
-  /* Стили для остальных секций */
   .text-center {
     text-align: center;
   }
