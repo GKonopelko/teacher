@@ -1,19 +1,30 @@
 ---
 const GA_ID = 'G-K2H7LD1NFB';
 
-const gtagScript = `
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', '${GA_ID}');
+const gaScript = `
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      const script = document.createElement('script');
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=${GA_ID}';
+      script.async = true;
+      document.head.appendChild(script);
 
+      if (!window.dataLayer) {
+        window.dataLayer = [];
+      }
+
+      window.gtag = function gtag() {
+        window.dataLayer.push(arguments);
+      };
+
+      window.gtag('js', new Date());
+      window.gtag('config', '${GA_ID}', {
+        transport_type: 'beacon',
+        page_transition: true
+      });
+    }, 1000);
+  });
 `;
 ---
 
-{
-  GA_ID && (
-    <>
-      <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
-      <script is:inline set:html={gtagScript} />
-    </>
-  )
-}
+{GA_ID && <script is:inline set:html={gaScript} />}

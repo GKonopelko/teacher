@@ -65,12 +65,7 @@ const jsonLdString = JSON.stringify(
 
     <Analytics />
     <link rel="icon" href={favicon.src} type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" as="image" href="/images/grigori.webp" />
 
     <script is:inline type="application/ld+json" set:html={jsonLdString} />
 

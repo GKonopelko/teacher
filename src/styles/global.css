@@ -10,8 +10,8 @@
   --border-light: #e2e8f0;
 
   /* Типографика */
-  --font-heading: 'Inter', -apple-system, blinkmacsystemfont, sans-serif;
-  --font-body: 'Inter', -apple-system, blinkmacsystemfont, sans-serif;
+  --font-heading: arial, -apple-system, blinkmacsystemfont, 'segoe ui', sans-serif;
+  --font-body: arial, -apple-system, blinkmacsystemfont, 'segoe ui', sans-serif;
   --text-sm: 0.875rem;
   --text-base: 1rem;
   --text-lg: 1.125rem;
