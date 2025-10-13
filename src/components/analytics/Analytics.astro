@@ -1,20 +1,25 @@
 ---
 const GA_ID = import.meta.env.PUBLIC_GA_ID;
 
-// Формируем скрипт как строку
+const debugScript = `
+  console.log('GA_ID loaded:', '${GA_ID}');
+  console.log('Is production:', ${import.meta.env.PROD});
+`;
+
 const gtagScript = `
+  console.log('Starting GA initialization...');
   window.dataLayer = window.dataLayer || [];
+  console.log('dataLayer created:', window.dataLayer);
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', '${GA_ID}');
-  console.log('Google Analytics initialized');
+  console.log('Google Analytics fully initialized');
+  console.log('gtag function:', typeof gtag);
 `;
 ---
 
 {/* Отладочная информация */}
-<script is:inline>
-  console.log('GA_ID loaded:', '${GA_ID}');
-</script>
+<script is:inline set:html={debugScript} />
 
 {/* Google Analytics */}
 {
