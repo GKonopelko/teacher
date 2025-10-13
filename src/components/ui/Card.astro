@@ -2,7 +2,7 @@
 export interface Props {
   href?: string;
   class?: string;
-  variant?: 'default' | 'wide';
+  variant?: 'default' | 'wide' | 'accent' | 'wide-accent';
 }
 
 const { href, class: className = '', variant = 'default' } = Astro.props;
@@ -10,13 +10,24 @@ const { href, class: className = '', variant = 'default' } = Astro.props;
 
 {
   href ? (
-    <a href={href} class={`card ${variant === 'wide' ? 'card-wide' : ''} ${className}`}>
+    <a
+      href={href}
+      class={`card
+      ${variant.includes('wide') ? 'card-wide' : ''}
+      ${variant.includes('accent') ? 'card-accent' : ''}
+      ${className}`}
+    >
       <div class="card-content">
         <slot />
       </div>
     </a>
   ) : (
-    <div class={`card ${variant === 'wide' ? 'card-wide' : ''} ${className}`}>
+    <div
+      class={`card
+      ${variant.includes('wide') ? 'card-wide' : ''}
+      ${variant.includes('accent') ? 'card-accent' : ''}
+      ${className}`}
+    >
       <div class="card-content">
         <slot />
       </div>
@@ -37,13 +48,18 @@ const { href, class: className = '', variant = 'default' } = Astro.props;
     height: auto;
     text-decoration: none;
     color: inherit;
-    flex: 1 1 18.75rem; /* 300px */
+    flex: 1 1 10rem;
     max-width: 25rem; /* 400px */
   }
 
   .card-wide {
     flex: 1 1 100%;
     max-width: 100%;
+  }
+
+  .card-accent {
+    background: var(--accent-soft);
+    border-color: var(--accent-light);
   }
 
   .card:hover {
@@ -58,7 +74,6 @@ const { href, class: className = '', variant = 'default' } = Astro.props;
   }
 
   @media (max-width: 48rem) {
-    /* 768px */
     .card {
       padding: 1.25rem;
       max-width: 100%;

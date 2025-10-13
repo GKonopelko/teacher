@@ -1,50 +1,62 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/ui/Button.astro';
+import Section from '../components/ui/Section.astro';
+import Card from '../components/ui/Card.astro';
 ---
 
 <BaseLayout>
-  <section class="contact-section">
-    <div class="container">
-      <h1>Контакты и запись на уроки</h1>
+  <Section>
+    <h1 class="text-center">Контакты и запись на занятия</h1>
 
-      <div class="contact-content">
-        <div class="contact-info">
-          <h2>Свяжитесь со мной</h2>
+    <div class="contact-content">
+      <div class="contact-info">
+        <div class="contact-methods">
+          <Card class="text-center">
+            <h3>📞 Телефон</h3>
+            <Button href="tel:+79117770297" variant="button-link" size="large">
+              +7 911 777 02 97
+            </Button>
+            <p>Звоните в рабочее время с 9:00 до 21:00</p>
+          </Card>
 
-          <div class="contact-methods">
-            <div class="contact-method">
-              <h3>📞 Телефон</h3>
-              <a href="tel:+79117770297" class="contact-link">+7 911 777 02 97</a>
-              <p>Звоните в рабочее время с 9:00 до 21:00</p>
-            </div>
+          <Card class="text-center">
+            <h3>✉️ Email</h3>
+            <Button href="mailto:grigori.konopelko@mail.ru" variant="button-link" size="large">
+              grigori.konopelko@mail.ru
+            </Button>
+            <p>Отвечаю в течение 24 часов</p>
+          </Card>
 
-            <div class="contact-method">
-              <h3>✉️ Email</h3>
-              <a href="mailto:grigori.konopelko@mail.ru" class="contact-link"
-                >grigori.konopelko@mail.ru</a
+          <Card class="text-center">
+            <h3>💬 Мессенджеры</h3>
+            <div class="messenger-buttons">
+              <Button
+                href="https://wa.me/79117770297"
+                variant="button-link"
+                size="large"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-              <p>Отвечаю в течение 24 часов</p>
+                WhatsApp
+              </Button>
+              <Button
+                href="https://t.me/grigori_konopelko"
+                variant="button-link"
+                size="large"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Telegram
+              </Button>
             </div>
-
-            <div class="contact-method">
-              <h3>💬 Мессенджеры</h3>
-              <p>WhatsApp, Telegram</p>
-              <p>Быстрая связь для уточнения деталей</p>
-            </div>
-          </div>
-
-          <div class="lesson-info">
-            <h3>Форматы обучения:</h3>
-            <ul>
-              <li><strong>Онлайн:</strong> Zoom, Telegram, Google Docs - 1500р/60 мин</li>
-              <li><strong>Очно в СПб:</strong> у Вас дома или в офисе</li>
-              <li><strong>Индивидуально</strong> или в паре</li>
-            </ul>
-          </div>
+            <p>Быстрая связь для уточнения деталей</p>
+          </Card>
         </div>
+      </div>
 
-        <div class="contact-form">
+      <div class="contact-form-section">
+        <Card>
           <h2>Записаться на пробный урок</h2>
           <form class="form">
             <div class="form-group">
@@ -71,126 +83,88 @@ import Button from '../components/ui/Button.astro';
                 placeholder="Расскажите о ваших целях в изучении финского..."></textarea>
             </div>
 
-            <Button variant="filled" size="large">Отправить заявку</Button>
+            <Button variant="primary" size="large" type="submit">Отправить заявку</Button>
           </form>
-        </div>
+        </Card>
       </div>
     </div>
-  </section>
+    <Card variant="wide-accent" class="text-center">
+      <h3>Почему выбирают меня:</h3>
+      <p>
+        Опытный преподаватель и носитель финского языка. Готовлю к YKI-тесту, поступлению в вузы
+        Финляндии и учу с нуля. Гарантирую результат через упор на разговорную практику и
+        индивидуальный подход.
+      </p>
+    </Card>
+
+    <!-- Форматы обучения -->
+    <h3 class="formats-section">
+      <h2 class="text-center">Форматы и стоимость обучения</h2>
+      <div class="cards-flex">
+        <Card class="text-center">
+          <div class="feature-icon">💻</div>
+          <h3>Онлайн-урок</h3>
+          <p>Google Meet, Zoom<br />Удобно из любого места</p>
+          <h3>1600₽ / 60 мин</h3>
+        </Card>
+
+        <Card class="text-center">
+          <div class="feature-icon">👥</div>
+          <h3>Занятие в паре</h3>
+          <p>Экономия до 30%<br />Идеально для совместной мотивации</p>
+          <h3>1100₽ / 60 мин с человека</h3>
+        </Card>
+
+        <Card class="text-center">
+          <div class="feature-icon">🏠</div>
+          <h3>Очно в Санкт-Петербурге</h3>
+          <p>У вас дома или в офисе<br />Индивидуальный подход</p>
+          <h3>Стоимость рассчитывается индивидуально</h3>
+        </Card>
+      </div>
+    </h3>
+  </Section>
 </BaseLayout>
 
 <style>
-  .contact-section {
-    padding: 4rem 2rem;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .contact-section h1 {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    color: var(--link-color);
-    margin-bottom: 3rem;
-    text-align: center;
-  }
-
   .contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-bottom: 1rem;
   }
 
-  .contact-info h2 {
-    font-family: var(--font-heading);
-    font-size: 1.75rem;
-    color: var(--text-primary);
-    margin-bottom: 2rem;
+  .contact-info {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .contact-form-section {
+    flex: 1;
+    min-width: 300px;
   }
 
   .contact-methods {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    margin-bottom: 3rem;
+    gap: 1rem;
   }
 
-  .contact-method h3 {
-    font-size: 1.25rem;
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
-  }
-
-  .contact-link {
-    display: block;
-    font-size: 1.1rem;
-    color: var(--link-color);
-    text-decoration: none;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-
-  .contact-link:hover {
-    text-decoration: underline;
-  }
-
-  .contact-method p {
-    color: var(--text-secondary);
-    margin: 0;
-    line-height: 1.5;
-  }
-
-  .lesson-info {
-    background: var(--background-light);
-    padding: 1.5rem;
-    border-radius: var(--border-radius);
-    border-left: 4px solid var(--link-color);
-  }
-
-  .lesson-info h3 {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
-  }
-
-  .lesson-info ul {
-    padding-left: 1.5rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
-
-  .lesson-info li {
-    margin-bottom: 0.5rem;
-  }
-
-  .contact-form {
-    background: var(--background-white);
-    border: 1px solid var(--border-light);
-    border-radius: var(--border-radius-lg);
-    padding: 2rem;
-    box-shadow: var(--shadow);
-  }
-
-  .contact-form h2 {
-    font-family: var(--font-heading);
-    font-size: 1.75rem;
-    color: var(--text-primary);
-    margin-bottom: 2rem;
-    margin-top: 0;
+  .messenger-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .form-group label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: var(--text-primary);
   }
 
   .form-group input,
@@ -201,32 +175,44 @@ import Button from '../components/ui/Button.astro';
     border-radius: var(--border-radius);
     font-family: inherit;
     font-size: 1rem;
-    transition: var(--transition);
   }
 
   .form-group input:focus,
   .form-group textarea:focus {
     outline: none;
     border-color: var(--link-color);
-    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+
+  .cards-flex {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
   }
 
   @media (max-width: 768px) {
-    .contact-section {
-      padding: 2rem 1rem;
-    }
-
-    .contact-section h1 {
-      font-size: 2rem;
-    }
-
     .contact-content {
-      grid-template-columns: 1fr;
+      flex-direction: column;
       gap: 2rem;
     }
 
-    .contact-form {
-      padding: 1.5rem;
+    .contact-info,
+    .contact-form-section {
+      min-width: 100%;
+    }
+
+    .cards-flex {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .messenger-buttons {
+      flex-direction: column;
     }
   }
 </style>

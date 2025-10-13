@@ -6,6 +6,7 @@ export interface Props {
   class?: string;
   target?: string;
   rel?: string;
+  type?: 'button' | 'submit';
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   class: className = '',
   target,
   rel,
+  type = 'button',
 } = Astro.props;
 
 const baseClass = 'btn';
@@ -33,7 +35,7 @@ const sizeClass = size !== 'medium' ? `btn--${size}` : '';
       <slot />
     </a>
   ) : (
-    <button class={`${baseClass} ${variantClass} ${sizeClass} ${className}`.trim()}>
+    <button class={`${baseClass} ${variantClass} ${sizeClass} ${className}`.trim()} type={type}>
       <slot />
     </button>
   )
