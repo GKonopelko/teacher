@@ -65,7 +65,7 @@ const jsonLdString = JSON.stringify(
 
     <Analytics />
     <link rel="icon" href={favicon.src} type="image/svg+xml" />
-    <link rel="preload" as="image" href="/images/grigori.webp" />
+    <link rel="preload" as="image" href="/images/grigori.webp" fetchpriority="high" />
 
     <script is:inline type="application/ld+json" set:html={jsonLdString} />
 
