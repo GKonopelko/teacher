@@ -1,11 +1,5 @@
 ---
 const GA_ID = 'G-K2H7LD1NFB';
-// const GA_ID = import.meta.env.PUBLIC_GA_ID; //
-
-const debugScript = `
-  console.log('GA_ID loaded:', '${GA_ID}');
-  console.log('Is production:', ${import.meta.env.PROD});
-`;
 
 const gtagScript = `
   console.log('Starting GA initialization...');
@@ -19,10 +13,6 @@ const gtagScript = `
 `;
 ---
 
-{/* Отладочная информация */}
-<script is:inline set:html={debugScript} />
-
-{/* Google Analytics */}
 {
   GA_ID && (
     <>
