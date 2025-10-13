@@ -1,35 +1,19 @@
 ---
 const GA_ID = import.meta.env.PUBLIC_GA_ID;
-const isDev = import.meta.env.DEV;
 
 const gtagScript = `
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  // Основная конфигурация
-  gtag('config', '${GA_ID}', {
-    page_title: document.title,
-    page_location: window.location.href,
-    send_page_view: true
-  });
-
-  // Дополнительные настройки
-  gtag('config', '${GA_ID}', {
-    debug_mode: ${isDev},
-    cookie_flags: 'max-age=7200;secure;samesite=none'
-  });
+  gtag('config', '${GA_ID}');
 `;
 ---
 
 {
   GA_ID && (
     <>
-      <script type="text/partytown" src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
-
-      <script type="text/partytown" set:html={gtagScript} />
-
-      {/* Резервный скрипт */}
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+      <script is:inline set:html={gtagScript} />
       <noscript>
         <iframe
           src={`https://www.googletagmanager.com/ns.html?id=${GA_ID}`}
