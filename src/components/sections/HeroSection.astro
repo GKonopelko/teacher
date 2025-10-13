@@ -1,7 +1,5 @@
 ---
 import Button from '../ui/Button.astro';
-import grigori from '@assets/images/grigori.jpg';
-import { Image } from 'astro:assets';
 
 export interface Props {
   teacherInfo: {
@@ -23,13 +21,13 @@ const { teacherInfo } = Astro.props;
 
         <div class="hero-with-photo-stats">
           <div class="image-circle-container">
-            <Image
-              src={grigori}
-              alt={`${teacherInfo.name} - репетитор финского языка`}
-              width={300}
-              height={300}
-              class="hero-photo"
+            <img
+              src="/images/grigori.webp"
+              alt="Григорий Конопелько - репетитор финского языка"
+              width="400"
+              height="400"
               loading="eager"
+              class="teacher-photo"
             />
           </div>
           <div class="stat-container">
@@ -128,7 +126,7 @@ const { teacherInfo } = Astro.props;
     z-index: 2;
   }
 
-  .hero-photo {
+  .teacher-photo {
     width: min(21.875rem, 50vw);
     height: min(21.875rem, 50vw);
     border-radius: 50%;
@@ -239,7 +237,7 @@ const { teacherInfo } = Astro.props;
 
   /* На маленьких экранах */
   @media (max-width: 30rem) {
-    .hero-photo {
+    .teacher-photo {
       width: min(18.75rem, 60vw);
       height: min(18.75rem, 60vw);
     }
@@ -277,7 +275,7 @@ const { teacherInfo } = Astro.props;
       padding: 0 0.5rem;
     }
 
-    .hero-photo {
+    .teacher-photo {
       width: min(15.625rem, 70vw);
       height: min(15.625rem, 70vw);
     }

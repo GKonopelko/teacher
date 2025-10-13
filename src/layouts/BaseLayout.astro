@@ -2,7 +2,6 @@
 import Header from '../components/ui/Header.astro';
 import Footer from '../components/ui/Footer.astro';
 import favicon from '@assets/images/parrotsvg.svg';
-import teacherPhoto from '@assets/images/grigori.jpg';
 import '../styles/global.css';
 import Analytics from '../components/analytics/Analytics.astro';
 
@@ -16,7 +15,7 @@ export interface Props {
 const { title, description, canonicalUrl, structuredData } = Astro.props;
 const siteUrl = 'https://grigori.konopelko.com';
 const fullCanonicalUrl = canonicalUrl || siteUrl + Astro.url.pathname;
-const fullOgImage = siteUrl + teacherPhoto.src;
+const fullOgImage = siteUrl + '/images/grigori.webp';
 
 const jsonLdString = JSON.stringify(
   structuredData || {
@@ -73,7 +72,7 @@ const jsonLdString = JSON.stringify(
       rel="stylesheet"
     />
 
-    <script type="application/ld+json" set:html={jsonLdString} />
+    <script is:inline type="application/ld+json" set:html={jsonLdString} />
 
     <style>
       .body-wrapper {
