@@ -28,7 +28,8 @@
     ]
   },
   "dependencies": {
-    "astro": "^5.14.0"
+    "astro": "^5.14.0",
+    "marked": "^16.4.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",

@@ -1,5 +1,5 @@
 export const navigationLinks = [
   { href: '/about/', label: 'Обо мне' },
-  { href: '/materials/', label: 'Материалы' },
+  { href: '/faq/', label: 'Ответы' },
   { href: '/contact/', label: 'Контакты' },
 ];
