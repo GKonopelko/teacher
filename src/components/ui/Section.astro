@@ -22,6 +22,7 @@ const { class: className = '', background = 'white', padding = 'default' } = Ast
 <style>
   .section {
     width: 100%;
+    padding: 0 1rem;
   }
 
   .section--white {
@@ -33,7 +34,7 @@ const { class: className = '', background = 'white', padding = 'default' } = Ast
   }
 
   .section--default {
-    padding-top: 1rem;
+    padding-top: 0;
   }
 
   .section--small {
@@ -44,15 +45,7 @@ const { class: className = '', background = 'white', padding = 'default' } = Ast
     padding-top: 2rem;
   }
 
-  .section--none {
-    padding: 0;
-  }
-
   @media (max-width: 48rem) {
-    .section--default {
-      padding-top: 0.7rem;
-    }
-
     .section--large {
       padding-top: 1rem;
     }

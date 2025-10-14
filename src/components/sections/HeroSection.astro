@@ -14,82 +14,72 @@ const { teacherInfo } = Astro.props;
 ---
 
 <section class="hero">
-  <div class="hero-container">
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1>Финский язык перестанет быть проблемой.<br />Пора говорить свободно!</h1>
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>Финский язык перестанет быть проблемой.<br />Пора говорить свободно!</h1>
 
-        <div class="hero-with-photo-stats">
-          <div class="image-circle-container">
-            <img
-              src="/images/grigori.webp"
-              alt="Григорий Конопелько - репетитор финского языка"
-              width="400"
-              height="400"
-              loading="eager"
-              fetchpriority="high"
-              class="teacher-photo"
-            />
-          </div>
-          <div class="stat-container">
-            <div class="stat-circle">
-              <div class="stat-circle-content">
-                <span class="stat-number">15+</span>
-                <span class="stat-label">лет преподавания</span>
-              </div>
+      <div class="hero-with-photo-stats">
+        <div class="image-circle-container">
+          <img
+            src="/images/grigori.webp"
+            alt="Григорий Конопелько - репетитор финского языка"
+            width="400"
+            height="400"
+            loading="eager"
+            fetchpriority="high"
+            class="teacher-photo"
+          />
+        </div>
+        <div class="stat-container">
+          <div class="stat-circle">
+            <div class="stat-circle-content">
+              <span class="stat-number">15+</span>
+              <span class="stat-label">лет преподавания</span>
             </div>
+          </div>
 
-            <div class="stat-circle">
-              <div class="stat-circle-content">
-                <span class="stat-number">98%</span>
-                <span class="stat-label">успешной сдачи YKI</span>
-              </div>
+          <div class="stat-circle">
+            <div class="stat-circle-content">
+              <span class="stat-number">98%</span>
+              <span class="stat-label">успешной сдачи YKI</span>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="text-content">
-          <p class="intro-text">
-            Здравствуйте! Меня зовут <strong>{teacherInfo.name}</strong>. <br /> Я профессиональный преподаватель
-            финского языка с опытом работы более 15 лет.
-          </p>
-        </div>
-
-        <div class="hero-benefits">
-          <p class="benefits">
-            Помогаю взрослым и детям достигать целей: от переезда в Финляндию до карьерного роста.
-            Готовлю к экзамену YKI (98% успешной сдачи), поступлению в вузы и колледжи Финляндии.
-          </p>
-          <p class="benefits">Делаю упор на практику - первые диалоги уже через 2-3 недели!</p>
-          <p class="benefits">
-            На уроках добиваюсь понимания структуры языка, а не простого заучивания правил. 80%
-            времени — это практика понимания и живого общения.
-          </p>
-        </div>
-
-        <div class="hero-buttons">
-          <Button href="/contact/" variant="primary" size="large"> 🗓️ Записаться на урок </Button>
-          <Button href="/about/" variant="button-link" size="large"> 📚 Узнать больше </Button>
-        </div>
-
-        <p class="welcome">
-          <em>Tervetuloa opiskelemaan!</em> — <em class="phrase">Добро пожаловать на занятия!</em>
+      <div class="text-content">
+        <p class="intro-text">
+          Здравствуйте! Меня зовут <strong>{teacherInfo.name}</strong>. <br /> Я профессиональный преподаватель
+          финского языка с опытом работы более 15 лет.
         </p>
       </div>
+
+      <div class="hero-benefits">
+        <p class="benefits">
+          Помогаю взрослым и детям достигать целей: от переезда в Финляндию до карьерного роста.
+          Готовлю к экзамену YKI (98% успешной сдачи), поступлению в вузы и колледжи Финляндии.
+        </p>
+        <p class="benefits">Делаю упор на практику - первые диалоги уже через 2-3 недели!</p>
+        <p class="benefits">
+          На уроках добиваюсь понимания структуры языка, а не простого заучивания правил. 80%
+          времени — это практика понимания и живого общения.
+        </p>
+      </div>
+
+      <div class="hero-buttons">
+        <Button href="/contact/" variant="primary" size="large"> 🗓️ Записаться на урок </Button>
+        <Button href="/about/" variant="button-link" size="large"> 📚 Узнать больше </Button>
+      </div>
+
+      <p class="welcome">
+        <em>Tervetuloa opiskelemaan!</em> — <em class="phrase">Добро пожаловать на занятия!</em>
+      </p>
     </div>
   </div>
 </section>
 
 <style>
   /* Hero секция */
-  .hero {
-    padding: 3rem 0;
-  }
-
-  .hero-container {
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
 
   .hero-content {
     display: flex;
@@ -207,14 +197,6 @@ const { teacherInfo } = Astro.props;
 
   /* Адаптивность */
   @media (max-width: 48rem) {
-    .hero {
-      padding: 2rem 0;
-    }
-
-    .hero-container {
-      padding: 0 1rem;
-    }
-
     .stat-container {
       gap: 8rem;
       margin-top: -2rem;

@@ -39,19 +39,15 @@ const canonicalUrl = 'https://grigori.konopelko.com/faq/';
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription} canonicalUrl={canonicalUrl}>
-  <Section padding="small">
+  <Section>
     <div class="faq-header">
       <h1>Ответы на часто задаваемые вопросы по изучению финского языка</h1>
     </div>
   </Section>
   {
     categoriesWithQuestions.map((category, index) => (
-      <Section
-        background={index % 2 === 0 ? 'white' : 'light'}
-        padding="small"
-        class="faq-category"
-      >
-        <h2 class="text-center">{category.data.title}</h2>
+      <Section background={index % 2 === 0 ? 'white' : 'light'} class="faq-category">
+        <h2>{category.data.title}</h2>
         <div class="faq-items">
           {category.questions.map((item) => (
             <details class="faq-item">
@@ -70,7 +66,7 @@ const canonicalUrl = 'https://grigori.konopelko.com/faq/';
   }
 
   <Section>
-    <h2 class="text-center">Остались вопросы?</h2>
+    <h2>Остались вопросы?</h2>
     <p>Напишите или позвоните мне - с радостью отвечу и помогу с выбором программы обучения!</p>
   </Section>
 </BaseLayout>

@@ -1,0 +1,44 @@
+---
+import FaqSection from './FaqSection.astro';
+
+export interface Props {
+  title?: string;
+  questions: Array<{ question: string; answer: string }>;
+  showMoreLink?: string;
+  limit?: number;
+}
+
+const { title = 'Часто спрашивают', questions, showMoreLink = '/faq/', limit = 3 } = Astro.props;
+---
+
+<div class="faq-preview">
+  <h2>{title}</h2>
+  <FaqSection questions={questions} limit={limit} />
+  {
+    showMoreLink && (
+      <div>
+        <a href={showMoreLink} class="more-link">
+          Все вопросы и ответы →
+        </a>
+      </div>
+    )
+  }
+</div>
+
+<style>
+  .faq-preview {
+    padding: 2rem 0;
+  }
+
+  .more-link {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    display: inline-block;
+  }
+
+  .more-link:hover {
+    text-decoration: underline;
+  }
+</style>

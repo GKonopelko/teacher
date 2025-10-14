@@ -4,6 +4,7 @@ import HeroSection from '../components/sections/HeroSection.astro';
 import Card from '../components/ui/Card.astro';
 import Section from '../components/ui/Section.astro';
 import CTASection from '../components/sections/CTASection.astro';
+import FaqPreview from '../components/faq/FaqPreview.astro';
 
 const TEACHER_INFO = {
   name: 'Конопелько Григорий Викторович',
@@ -44,6 +45,21 @@ const structuredData = {
     priceCurrency: 'RUB',
   },
 };
+
+const mainQuestions = [
+  {
+    question: 'Сколько времени нужно чтобы выучить финский?',
+    answer: 'Для базового общения (уровень А2) нужно 3-6 месяцев...',
+  },
+  {
+    question: 'Возможно ли обучение с нуля?',
+    answer: 'Да, конечно! Многие мои ученики начинают с полного нуля...',
+  },
+  {
+    question: 'Сколько стоят занятия?',
+    answer: 'Индивидуальные онлайн-уроки стоят 1600 рублей за 60 минут...',
+  },
+];
 ---
 
 <BaseLayout
@@ -54,9 +70,8 @@ const structuredData = {
 >
   <HeroSection teacherInfo={TEACHER_INFO} />
   <Section>
-    <div class="text-center">
-      <h2>Почему выбирают меня</h2>
-    </div>
+    <h2>Почему выбирают меня</h2>
+
     <div class="cards-flex">
       <Card>
         <div class="feature-icon">🎯</div>
@@ -86,9 +101,8 @@ const structuredData = {
 
   <!-- Форматы обучения -->
   <Section background="light">
-    <div class="text-center">
-      <h2>Форматы и стоимость обучения</h2>
-    </div>
+    <h2>Форматы и стоимость обучения</h2>
+
     <div class="cards-flex">
       <Card>
         <div class="feature-icon">💻</div>
@@ -115,9 +129,8 @@ const structuredData = {
 
   <!-- Методика -->
   <Section>
-    <div class="text-center">
-      <h2>Почему мои ученики начинают говорить?</h2>
-    </div>
+    <h2>Почему мои ученики начинают говорить?</h2>
+
     <div class="cards-flex">
       <Card>
         <h3>🎯 Индивидуальная программа</h3>
@@ -142,9 +155,8 @@ const structuredData = {
 
   <!-- Для кого -->
   <Section background="light">
-    <div class="text-center">
-      <h2>Вам ко мне, если вы...</h2>
-    </div>
+    <h2>Вам ко мне, если вы...</h2>
+
     <div class="cards-flex">
       <Card>
         <h3>🎓 Строите карьеру или учитесь</h3>
@@ -177,9 +189,8 @@ const structuredData = {
 
   <!-- Отзывы -->
   <Section>
-    <div class="text-center">
-      <h2>Отзывы студентов</h2>
-    </div>
+    <h2>Отзывы студентов</h2>
+
     <div class="cards-flex">
       <Card>
         <div class="review-content">
@@ -218,13 +229,18 @@ const structuredData = {
     buttonText="🗓️ Начать обучение"
     buttonHref="/contact/"
   />
+
+  <Section background="light">
+    <FaqPreview
+      title="Часто спрашивают о финском"
+      questions={mainQuestions}
+      showMoreLink="/faq/"
+      limit={3}
+    />
+  </Section>
 </BaseLayout>
 
 <style>
-  .text-center {
-    text-align: center;
-  }
-
   .cards-flex {
     display: flex;
     gap: 2rem;

@@ -1,0 +1,84 @@
+---
+export interface Props {
+  question: string;
+  answer: string;
+  class?: string;
+}
+
+const { question, answer, class: className = '' } = Astro.props;
+---
+
+<details class={`faq-item ${className}`}>
+  <summary class="faq-question">
+    <span class="faq-question-text">{question}</span>
+    <span class="faq-icon">+</span>
+  </summary>
+  <div class="faq-answer">
+    <div set:html={answer} />
+  </div>
+</details>
+
+<style>
+  .faq-item {
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius);
+    background: var(--background-white);
+    transition: var(--transition);
+    margin-bottom: 1rem;
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: between;
+    align-items: center;
+    padding: 1.25rem;
+    cursor: pointer;
+    list-style: none;
+    font-weight: 600;
+    transition: var(--transition);
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question-text {
+    flex: 1;
+    margin-right: 1rem;
+  }
+
+  .faq-icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: var(--transition);
+    flex-shrink: 0;
+  }
+
+  .faq-answer {
+    padding: 0 1.25rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .faq-item[open] .faq-answer {
+    max-height: 1000px;
+    padding-bottom: 1.25rem;
+  }
+
+  .faq-item[open] .faq-icon {
+    transform: rotate(45deg);
+  }
+
+  .faq-question:hover {
+    background: var(--hover-bg);
+    color: var(--text-primary);
+    border-radius: var(--border-radius);
+  }
+
+  .faq-item[open] .faq-question {
+    background: var(--accent-soft);
+    border-bottom: 1px solid var(--accent-light);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+  }
+</style>
