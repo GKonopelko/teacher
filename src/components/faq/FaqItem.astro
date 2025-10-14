@@ -24,7 +24,6 @@ const { question, answer, class: className = '' } = Astro.props;
     border-radius: var(--border-radius);
     background: var(--background-white);
     transition: var(--transition);
-    margin-bottom: 1rem;
   }
 
   .faq-question {
@@ -80,5 +79,20 @@ const { question, answer, class: className = '' } = Astro.props;
     background: var(--accent-soft);
     border-bottom: 1px solid var(--accent-light);
     border-radius: var(--border-radius) var(--border-radius) 0 0;
+  }
+
+  /* Адаптивность */
+  @media (max-width: 768px) {
+    .faq-question {
+      padding: 1rem;
+    }
+
+    .faq-answer {
+      padding: 0 1rem;
+    }
+
+    .faq-item[open] .faq-answer {
+      padding-bottom: 1rem;
+    }
   }
 </style>

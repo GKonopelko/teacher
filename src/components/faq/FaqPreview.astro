@@ -1,25 +1,33 @@
 ---
 import FaqSection from './FaqSection.astro';
+import Button from '../ui/Button.astro';
 
 export interface Props {
   title?: string;
   questions: Array<{ question: string; answer: string }>;
   showMoreLink?: string;
   limit?: number;
+  class?: string;
 }
 
-const { title = 'Часто спрашивают', questions, showMoreLink = '/faq/', limit = 3 } = Astro.props;
+const {
+  title = 'Часто спрашивают',
+  questions,
+  showMoreLink = '/faq/',
+  limit = 3,
+  class: className = '',
+} = Astro.props;
 ---
 
-<div class="faq-preview">
+<div class={`faq-preview ${className}`}>
   <h2>{title}</h2>
   <FaqSection questions={questions} limit={limit} />
   {
     showMoreLink && (
-      <div>
-        <a href={showMoreLink} class="more-link">
-          Все вопросы и ответы →
-        </a>
+      <div class="faq-preview-footer">
+        <Button href={showMoreLink} variant="button-link" size="large">
+          📚 Все вопросы и ответы →
+        </Button>
       </div>
     )
   }
@@ -30,15 +38,18 @@ const { title = 'Часто спрашивают', questions, showMoreLink = '/f
     padding: 2rem 0;
   }
 
-  .more-link {
-    color: var(--link-color);
-    text-decoration: none;
-    font-weight: 600;
-    margin-top: 1.5rem;
-    display: inline-block;
+  .faq-preview-footer {
+    text-align: center;
+    margin-top: 2rem;
   }
 
-  .more-link:hover {
-    text-decoration: underline;
+  @media (max-width: 768px) {
+    .faq-preview {
+      padding: 1.5rem 0;
+    }
+
+    .faq-preview-footer {
+      margin-top: 1.5rem;
+    }
   }
 </style>
