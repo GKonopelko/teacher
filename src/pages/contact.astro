@@ -50,7 +50,7 @@ const contactQuestions = [
   {
     question: 'Какой график занятий?',
     answer:
-      'Гибкий график: утренние, дневные или вечерние занятия 2-3 раза в неделю. Рекомендую сдвоенные уроки по 120 минут 2 раза в неделю. Работаю с 9:00 до 21:00.',
+      'Гибкий график: утренные, дневные или вечерние занятия 2-3 раза в неделю. Рекомендую сдвоенные уроки по 120 минут 2 раза в неделю. Работаю с 9:00 до 21:00.',
   },
   {
     question: 'Есть ли пробный урок?',
@@ -73,23 +73,23 @@ const contactQuestions = [
       <div class="contact-info">
         <div class="contact-methods">
           <Card>
-            <h3><Icon name="phone" /> Телефон</h3>
+            <h3>Телефон</h3>
             <Button href="tel:+79117770297" variant="button-link" size="large">
-              +7 911 777 02 97
+              <Icon name="phone" size="sm" /> +7 911 777 02 97
             </Button>
             <p>Звоните в рабочее время с 9:00 до 21:00</p>
           </Card>
 
           <Card>
-            <h3>✉️ Email</h3>
+            <h3>Email</h3>
             <Button href="mailto:grigori.konopelko@mail.ru" variant="button-link" size="large">
-              grigori.konopelko@mail.ru
+              <Icon name="email" size="sm" /> grigori.konopelko@mail.ru
             </Button>
             <p>Отвечаю в течение 24 часов</p>
           </Card>
 
           <Card>
-            <h3>💬 Мессенджеры</h3>
+            <h3>Мессенджеры</h3>
             <div class="messenger-buttons">
               <Button
                 href="https://wa.me/79117770297"
@@ -98,6 +98,7 @@ const contactQuestions = [
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                <Icon name="whatsapp" size="sm" />
                 WhatsApp
               </Button>
               <Button
@@ -107,6 +108,7 @@ const contactQuestions = [
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                <Icon name="telegram" size="sm" />
                 Telegram
               </Button>
             </div>
@@ -158,31 +160,31 @@ const contactQuestions = [
     </Card>
 
     <!-- Форматы обучения -->
-    <h3 class="formats-section">
+    <div class="formats-section">
       <h2>Форматы и стоимость обучения</h2>
       <div class="cards-flex">
         <Card>
-          <div class="feature-icon">💻</div>
+          <Icon name="video" />
           <h3>Онлайн-урок</h3>
           <p>Google Meet, Zoom<br />Удобно из любого места</p>
           <h3>1600₽ / 60 мин</h3>
         </Card>
 
         <Card>
-          <div class="feature-icon">👥</div>
+          <Icon name="users" />
           <h3>Занятие в паре</h3>
           <p>Экономия до 30%<br />Идеально для совместной мотивации</p>
           <h3>1100₽ / 60 мин с человека</h3>
         </Card>
 
         <Card>
-          <div class="feature-icon">🏠</div>
+          <Icon name="mapPin" />
           <h3>Очно в Санкт-Петербурге</h3>
           <p>У вас дома или в офисе<br />Индивидуальный подход</p>
           <h3>Стоимость рассчитывается индивидуально</h3>
         </Card>
       </div>
-    </h3>
+    </div>
   </Section>
   <Section background="light">
     <FaqPreview
