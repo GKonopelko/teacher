@@ -1,5 +1,6 @@
 ---
 import Button from '../ui/Button.astro';
+import Icon from '../ui/Icon.astro';
 
 export interface Props {
   badgeText?: string;
@@ -13,7 +14,7 @@ const {
   badgeText = 'Идет набор новых учеников',
   title = 'Готовы начать обучение?',
   subtitle = 'Свяжитесь со мной для консультации и пробного урока',
-  buttonText = '🗓️ Записаться на пробный урок',
+  buttonText = 'Записаться на пробный урок',
   buttonHref = '/contact/',
 } = Astro.props;
 ---
@@ -24,6 +25,7 @@ const {
   {subtitle && <p>{subtitle}</p>}
   <div class="cta-buttons">
     <Button href={buttonHref} variant="primary" size="large">
+      <Icon name="calendar" size="sm" />
       {buttonText}
     </Button>
   </div>

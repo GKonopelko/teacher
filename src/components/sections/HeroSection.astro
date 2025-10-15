@@ -1,5 +1,6 @@
 ---
 import Button from '../ui/Button.astro';
+import Icon from '../ui/Icon.astro';
 
 export interface Props {
   teacherInfo: {
@@ -67,8 +68,14 @@ const { teacherInfo } = Astro.props;
       </div>
 
       <div class="hero-buttons">
-        <Button href="/contact/" variant="primary" size="large"> 🗓️ Записаться на урок </Button>
-        <Button href="/about/" variant="button-link" size="large"> 📚 Узнать больше </Button>
+        <Button href="/contact/" variant="primary" size="large">
+          <Icon name="calendar" size="sm" />
+          Записаться на урок
+        </Button>
+        <Button href="/about/" variant="button-link" size="large">
+          <Icon name="bookOpen" size="sm" />
+          Узнать больше
+        </Button>
       </div>
 
       <p class="welcome">

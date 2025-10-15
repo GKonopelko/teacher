@@ -1,6 +1,7 @@
 ---
 import FaqSection from './FaqSection.astro';
 import Button from '../ui/Button.astro';
+import Icon from '../ui/Icon.astro';
 
 export interface Props {
   title?: string;
@@ -26,7 +27,8 @@ const {
     showMoreLink && (
       <div class="faq-preview-footer">
         <Button href={showMoreLink} variant="button-link" size="large">
-          📚 Все вопросы и ответы →
+          <Icon name="bookOpen" size="sm" />
+          Все вопросы и ответы →
         </Button>
       </div>
     )

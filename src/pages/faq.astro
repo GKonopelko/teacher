@@ -38,7 +38,12 @@ const pageDescription =
 const canonicalUrl = 'https://grigori.konopelko.com/faq/';
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription} canonicalUrl={canonicalUrl}>
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalUrl={canonicalUrl}
+  faqData={categoriesWithQuestions.flatMap((cat) => cat.questions)}
+>
   <Section>
     <div class="faq-header">
       <h1>Ответы на часто задаваемые вопросы по изучению финского языка</h1>

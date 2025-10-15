@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/ui/Button.astro';
 import Section from '../components/ui/Section.astro';
 import Card from '../components/ui/Card.astro';
+import FaqPreview from '../components/faq/FaqPreview.astro';
+import Icon from '../components/ui/Icon.astro';
 
 const pageTitle = 'Запись на уроки финского | Контакты репетитора Григория Конопелько';
 const pageDescription =
@@ -21,6 +23,11 @@ const structuredData = {
       '@type': 'ContactPoint',
       telephone: '+7-911-777-02-97',
       email: 'grigori.konopelko@mail.ru',
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'RU',
+        addressLocality: 'Санкт-Петербург',
+      },
       contactType: 'customer service',
       areaServed: ['RU', 'FI'],
       availableLanguage: ['Russian', 'Finnish'],
@@ -33,6 +40,24 @@ const structuredData = {
     },
   },
 };
+
+const contactQuestions = [
+  {
+    question: 'Сколько стоят занятия?',
+    answer:
+      'Индивидуальные онлайн-уроки - 1600 рублей за 60 минут. Занятия в паре - 1100 рублей с человека. Очно в Санкт-Петербурге - стоимость рассчитывается индивидуально.',
+  },
+  {
+    question: 'Какой график занятий?',
+    answer:
+      'Гибкий график: утренние, дневные или вечерние занятия 2-3 раза в неделю. Рекомендую сдвоенные уроки по 120 минут 2 раза в неделю. Работаю с 9:00 до 21:00.',
+  },
+  {
+    question: 'Есть ли пробный урок?',
+    answer:
+      'Бесплатного урока нет. На первом уроке определяем ваш уровень, цели изучения и составляем индивидуальный план обучения. Это полноценное занятие с диагностикой и построением программы.',
+  },
+];
 ---
 
 <BaseLayout
@@ -48,7 +73,7 @@ const structuredData = {
       <div class="contact-info">
         <div class="contact-methods">
           <Card>
-            <h3>📞 Телефон</h3>
+            <h3><Icon name="phone" /> Телефон</h3>
             <Button href="tel:+79117770297" variant="button-link" size="large">
               +7 911 777 02 97
             </Button>
@@ -158,6 +183,14 @@ const structuredData = {
         </Card>
       </div>
     </h3>
+  </Section>
+  <Section background="light">
+    <FaqPreview
+      title="Часто спрашивают о финском"
+      questions={contactQuestions}
+      showMoreLink="/faq/"
+      limit={3}
+    />
   </Section>
 </BaseLayout>
 

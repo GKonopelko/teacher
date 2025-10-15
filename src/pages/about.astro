@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Card from '../components/ui/Card.astro';
 import Section from '../components/ui/Section.astro';
 import CTASection from '../components/sections/CTASection.astro';
+import FaqPreview from '../components/faq/FaqPreview.astro';
 
 const pageTitle = 'О репетиторе финского языка Григории Конопелько | Образование и методика';
 const pageDescription =
@@ -16,6 +17,11 @@ const structuredData = {
   description: pageDescription,
   url: canonicalUrl,
   email: 'grigori.konopelko@mail.ru',
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'RU',
+    addressLocality: 'Санкт-Петербург',
+  },
   telephone: '+7-911-777-02-97',
   alumniOf: {
     '@type': 'CollegeOrUniversity',
@@ -30,6 +36,24 @@ const structuredData = {
   ],
   experienceYears: '15',
 };
+
+const aboutQuestions = [
+  {
+    question: 'Какой у вас опыт преподавания?',
+    answer:
+      '15+ лет преподавания финского языка. Работал в СПбГУ, ФИНЭК, корпоративное обучение, частная практика. 98% успешной сдачи YKI среди моих учеников.',
+  },
+  {
+    question: 'По какой методике вы работаете?',
+    answer:
+      'Индивидуальный подход с упором на разговорную практику. Использую учебник "Suomen Mestari", авторские материалы, баланс: 40% говорение, 20% грамматика, 20% аудирование, 20% чтение и письмо.',
+  },
+  {
+    question: 'Какое у вас образование?',
+    answer:
+      'Филологическое образование СПбГУ по специальности "Финский язык и литература". Стажировка в Хельсинкском университете, глубокое понимание финской культуры и менталитета.',
+  },
+];
 ---
 
 <BaseLayout
@@ -213,6 +237,15 @@ const structuredData = {
     buttonText="🗓️ Записаться на пробный урок"
     buttonHref="/contact/"
   />
+
+  <Section background="light">
+    <FaqPreview
+      title="Часто спрашивают о финском"
+      questions={aboutQuestions}
+      showMoreLink="/faq/"
+      limit={3}
+    />
+  </Section>
 </BaseLayout>
 
 <style>

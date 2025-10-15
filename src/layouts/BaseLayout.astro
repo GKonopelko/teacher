@@ -10,9 +10,10 @@ export interface Props {
   description: string;
   canonicalUrl?: string;
   structuredData?: object;
+  faqData?: Array<{ question: string; answer: string }>;
 }
 
-const { title, description, canonicalUrl, structuredData } = Astro.props;
+const { title, description, canonicalUrl, structuredData, faqData = [] } = Astro.props;
 const siteUrl = 'https://grigori.konopelko.com';
 const fullCanonicalUrl = canonicalUrl || siteUrl + Astro.url.pathname;
 const fullOgImage = siteUrl + '/images/grigori.webp';
@@ -26,6 +27,11 @@ const jsonLdString = JSON.stringify(
     url: siteUrl,
     telephone: '+7-911-777-02-97',
     email: 'grigori.konopelko@mail.ru',
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'RU',
+      addressLocality: 'Санкт-Петербург',
+    },
     areaServed: ['Россия', 'Финляндия'],
     serviceType: 'Языковые курсы',
     provider: {
@@ -36,6 +42,22 @@ const jsonLdString = JSON.stringify(
     },
   }
 );
+
+const faqStructuredData =
+  faqData.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqData.map((q) => ({
+          '@type': 'Question',
+          name: q.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: q.answer.replace(/<[^>]*>/g, ''),
+          },
+        })),
+      }
+    : null;
 ---
 
 <!doctype html>
@@ -69,6 +91,12 @@ const jsonLdString = JSON.stringify(
     <link rel="preload" as="image" href="/images/grigori.webp" fetchpriority="high" />
 
     <script is:inline type="application/ld+json" set:html={jsonLdString} />
+
+    {
+      faqStructuredData && (
+        <script is:inline type="application/ld+json" set:html={JSON.stringify(faqStructuredData)} />
+      )
+    }
 
     <style>
       .body-wrapper {

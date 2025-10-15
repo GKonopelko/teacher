@@ -1,5 +1,6 @@
 ---
 import Button from './Button.astro';
+import Icon from './Icon.astro';
 ---
 
 <footer class="footer">
@@ -7,7 +8,7 @@ import Button from './Button.astro';
     <div class="footer-row">
       <div class="footer-contacts">
         <Button href="tel:+79117770297" variant="button-link" size="medium" class="contact-button">
-          <span class="contact-icon">📱</span>
+          <Icon name="phone" size="sm" />
           <span class="contact-text">Позвонить</span>
         </Button>
 
@@ -17,7 +18,7 @@ import Button from './Button.astro';
           size="medium"
           class="contact-button"
         >
-          <span class="contact-icon">✉️</span>
+          <Icon name="email" size="sm" />
           <span class="contact-text">Написать</span>
         </Button>
 
@@ -29,7 +30,7 @@ import Button from './Button.astro';
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span class="contact-icon">📢</span>
+          <Icon name="telegram" size="sm" />
           <span class="contact-text">Telegram</span>
         </Button>
 
@@ -41,7 +42,7 @@ import Button from './Button.astro';
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span class="contact-icon">💬</span>
+          <Icon name="whatsapp" size="sm" />
           <span class="contact-text">WhatsApp</span>
         </Button>
       </div>
