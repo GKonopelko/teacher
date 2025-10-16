@@ -19,56 +19,54 @@ const canonicalUrl = 'https://grigori.konopelko.com/students/sever/';
     </div>
   </Section>
 
-  <Section>
-    <Card variant="wide">
-      <h3>Расписание занятий</h3>
-      <div class="schedule-times">
-        <p>Вторник, 16:00-18.00 МСК</p>
-        <p>Суббота, 16:00-18.00 МСК</p>
-      </div>
+  <Card variant="wide">
+    <h3>Расписание занятий</h3>
+    <div class="schedule-times">
+      <p>Вторник, 16:00-18.00 МСК</p>
+      <p>Суббота, 16:00-18.00 МСК</p>
+    </div>
+  </Card>
+
+  <FlexRow>
+    <Card>
+      <h3>Конспект урока</h3>
+      <Button
+        href="https://docs.google.com/document/d/1aa9jdZ3Ev9CW2jEUbW_Qc6QmZU6F2jctIpwb8-i3bIY/edit?usp=sharing"
+        target="_blank"
+        variant="primary"
+      >
+        <Icon name="bookOpen" />
+        Открыть конспект
+      </Button>
     </Card>
 
-    <FlexRow>
-      <Card>
-        <h3>Конспект урока</h3>
-        <Button
-          href="https://docs.google.com/document/d/1aa9jdZ3Ev9CW2jEUbW_Qc6QmZU6F2jctIpwb8-i3bIY/edit?usp=sharing"
-          target="_blank"
-          variant="primary"
-        >
-          <Icon name="bookOpen" />
-          Открыть конспект
-        </Button>
-      </Card>
+    <Card>
+      <h3>Онлайн-урок</h3>
+      <Button
+        href="https://meet.jit.si/%D0%A4%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9%D1%8F%D0%B7%D1%8B%D0%BA"
+        target="_blank"
+        variant="primary"
+      >
+        <Icon name="video" />Подключение к уроку
+      </Button>
+    </Card>
 
-      <Card>
-        <h3>Онлайн-урок</h3>
-        <Button
-          href="https://meet.jit.si/%D0%A4%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9%D1%8F%D0%B7%D1%8B%D0%BA"
-          target="_blank"
-          variant="primary"
-        >
-          <Icon name="video" />Подключение к уроку
-        </Button>
-      </Card>
-
-      <Card>
-        <h3>Учебные материалы</h3>
-        <Button
-          href="https://drive.google.com/drive/folders/1XBNblM-W-MQx5_OX0mP0ijOzXuN3XhmN?usp=sharing"
-          target="_blank"
-          variant="primary"
-        >
-          <Icon name="bookOpen" /> Открыть материалы
-        </Button>
-      </Card>
-    </FlexRow>
-  </Section>
+    <Card>
+      <h3>Учебные материалы</h3>
+      <Button
+        href="https://drive.google.com/drive/folders/1XBNblM-W-MQx5_OX0mP0ijOzXuN3XhmN?usp=sharing"
+        target="_blank"
+        variant="primary"
+      >
+        <Icon name="bookOpen" /> Открыть материалы
+      </Button>
+    </Card>
+  </FlexRow>
 
   <Section>
     <h2>Полезные ресурсы</h2>
     <FlexRow>
-      <Card variant="accent">
+      <Card>
         <h3>Формы склонения слов</h3>
         <Button
           href="https://fi.wiktionary.org/wiki/Wikisanakirja:Etusivu"
@@ -79,7 +77,7 @@ const canonicalUrl = 'https://grigori.konopelko.com/students/sever/';
         </Button>
       </Card>
 
-      <Card variant="accent">
+      <Card>
         <h3>Поиск форм глаголов</h3>
         <Button href="https://www.verbix.com/find-verb/" target="_blank" variant="button-link">
           Verbix
