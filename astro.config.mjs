@@ -10,6 +10,7 @@ export default defineConfig({
     resolve: {
       alias: {
         '@assets': resolve('./src/assets'),
+        '@scripts': resolve('./src/scripts'),
       },
     },
   },

@@ -116,6 +116,11 @@ const sizeClass = size !== 'medium' ? `btn--${size}` : '';
     box-shadow: none !important;
   }
 
+  .btn:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+
   @media (max-width: 48rem) {
     .btn--large {
       padding: 0.875rem 1.5rem !important;
