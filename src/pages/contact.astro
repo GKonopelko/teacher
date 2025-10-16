@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/ui/Button.astro';
 import Section from '../components/ui/Section.astro';
 import Card from '../components/ui/Card.astro';
+import FlexRow from '../components/ui/FlexRow.astro';
 import FaqPreview from '../components/faq/FaqPreview.astro';
 import Icon from '../components/ui/Icon.astro';
 
@@ -69,52 +70,50 @@ const contactQuestions = [
   <Section>
     <h1>Контакты и запись на занятия</h1>
 
-    <div class="contact-content">
+    <FlexRow>
       <div class="contact-info">
-        <div class="contact-methods">
-          <Card>
-            <h3>Телефон</h3>
-            <Button href="tel:+79117770297" variant="button-link" size="large">
-              <Icon name="phone" size="sm" /> +7 911 777 02 97
-            </Button>
-            <p>Звоните в рабочее время с 9:00 до 21:00</p>
-          </Card>
+        <Card>
+          <h3>Телефон</h3>
+          <Button href="tel:+79117770297" variant="button-link" size="large">
+            <Icon name="phone" size="sm" /> +7 911 777 02 97
+          </Button>
+          <p>Звоните в рабочее время с 9:00 до 21:00</p>
+        </Card>
 
-          <Card>
-            <h3>Email</h3>
-            <Button href="mailto:grigori.konopelko@mail.ru" variant="button-link" size="large">
-              <Icon name="email" size="sm" /> grigori.konopelko@mail.ru
-            </Button>
-            <p>Отвечаю в течение 24 часов</p>
-          </Card>
+        <Card>
+          <h3>Email</h3>
+          <Button href="mailto:grigori.konopelko@mail.ru" variant="button-link" size="large">
+            <Icon name="email" size="sm" /> grigori.konopelko@mail.ru
+          </Button>
+          <p>Отвечаю в течение 24 часов</p>
+        </Card>
 
-          <Card>
-            <h3>Мессенджеры</h3>
-            <div class="messenger-buttons">
-              <Button
-                href="https://wa.me/79117770297"
-                variant="button-link"
-                size="large"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon name="whatsapp" size="sm" />
-                WhatsApp
-              </Button>
-              <Button
-                href="https://t.me/GrigoriKonopelko"
-                variant="button-link"
-                size="large"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon name="telegram" size="sm" />
-                Telegram
-              </Button>
-            </div>
-            <p>Быстрая связь для уточнения деталей</p>
-          </Card>
-        </div>
+        <Card>
+          <h3>Мессенджеры</h3>
+          <div class="messenger-buttons">
+            <Button
+              href="https://wa.me/79117770297"
+              variant="button-link"
+              size="large"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon name="whatsapp" size="sm" />
+              WhatsApp
+            </Button>
+            <Button
+              href="https://t.me/GrigoriKonopelko"
+              variant="button-link"
+              size="large"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon name="telegram" size="sm" />
+              Telegram
+            </Button>
+          </div>
+          <p>Быстрая связь для уточнения деталей</p>
+        </Card>
       </div>
 
       <div class="contact-form-section">
@@ -149,7 +148,8 @@ const contactQuestions = [
           </form>
         </Card>
       </div>
-    </div>
+    </FlexRow>
+
     <Card variant="wide-accent">
       <h3>Почему выбирают меня:</h3>
       <p>
@@ -160,9 +160,9 @@ const contactQuestions = [
     </Card>
 
     <!-- Форматы обучения -->
-    <div class="formats-section">
+    <Section>
       <h2>Форматы и стоимость обучения</h2>
-      <div class="cards-flex">
+      <FlexRow>
         <Card>
           <Icon name="video" />
           <h3>Онлайн-урок</h3>
@@ -183,9 +183,10 @@ const contactQuestions = [
           <p>У вас дома или в офисе<br />Индивидуальный подход</p>
           <h3>Стоимость рассчитывается индивидуально</h3>
         </Card>
-      </div>
-    </div>
+      </FlexRow>
+    </Section>
   </Section>
+
   <Section background="light">
     <FaqPreview
       title="Часто спрашивают о финском"
@@ -197,27 +198,17 @@ const contactQuestions = [
 </BaseLayout>
 
 <style>
-  .contact-content {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    padding-bottom: 1rem;
-  }
-
   .contact-info {
     flex: 1;
     min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .contact-form-section {
     flex: 1;
     min-width: 300px;
-  }
-
-  .contact-methods {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
   }
 
   .messenger-buttons {
@@ -253,27 +244,10 @@ const contactQuestions = [
     border-color: var(--link-color);
   }
 
-  .cards-flex {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
   @media (max-width: 768px) {
-    .contact-content {
-      flex-direction: column;
-      gap: 2rem;
-    }
-
     .contact-info,
     .contact-form-section {
       min-width: 100%;
-    }
-
-    .cards-flex {
-      flex-direction: column;
-      align-items: stretch;
     }
 
     .messenger-buttons {

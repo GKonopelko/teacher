@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSection from '../components/sections/HeroSection.astro';
 import Card from '../components/ui/Card.astro';
 import Section from '../components/ui/Section.astro';
+import FlexRow from '../components/ui/FlexRow.astro';
 import CTASection from '../components/sections/CTASection.astro';
 import FaqPreview from '../components/faq/FaqPreview.astro';
 import Icon from '../components/ui/Icon.astro';
@@ -79,8 +80,7 @@ const mainQuestions = [
 
   <Section>
     <h2>Почему выбирают меня</h2>
-
-    <div class="cards-flex">
+    <FlexRow>
       <Card>
         <Icon name="target" />
         <h3>Индивидуальный подход</h3>
@@ -104,42 +104,40 @@ const mainQuestions = [
           грамматику и тонкости языка.
         </p>
       </Card>
-    </div>
+    </FlexRow>
   </Section>
 
   <!-- Форматы обучения -->
   <Section background="light">
     <h2>Форматы и стоимость обучения</h2>
-
-    <div class="cards-flex">
+    <FlexRow>
       <Card>
         <Icon name="video" />
         <h3>Онлайн-уроки</h3>
         <p>Удобно из любого города<br />Google Meet, Zoom, интерактивные материалы</p>
-        <div class="price">1600₽ / 60 мин</div>
+        <div><strong>1600₽ / 60 мин</strong></div>
       </Card>
 
       <Card>
         <Icon name="mapPin" />
         <h3>Очно в Санкт-Петербурге</h3>
         <p>Занятия у вас дома или в офисе<br />Индивидуальный подход и полное погружение</p>
-        <div class="price">Стоимость рассчитывается индивидуально</div>
+        <div><strong>Стоимость рассчитывается индивидуально</strong></div>
       </Card>
 
       <Card>
         <Icon name="users" />
         <h3>Занятия в паре</h3>
         <p>Экономия до 30% для вас и друга/коллеги<br />Идеально для совместной мотивации</p>
-        <div class="price">1100₽ / 60 мин с человека</div>
+        <div><strong>1100₽ / 60 мин с человека</strong></div>
       </Card>
-    </div>
+    </FlexRow>
   </Section>
 
   <!-- Методика -->
   <Section>
     <h2>Почему мои ученики начинают говорить?</h2>
-
-    <div class="cards-flex">
+    <FlexRow>
       <Card>
         <Icon name="zap" />
         <h3>Индивидуальная программа</h3>
@@ -162,14 +160,13 @@ const mainQuestions = [
           Вы сами заметите, что начинаете понимать финскую речь и строить предложения по-фински.
         </p>
       </Card>
-    </div>
+    </FlexRow>
   </Section>
 
   <!-- Для кого -->
   <Section background="light">
     <h2>Вам ко мне, если вы...</h2>
-
-    <div class="cards-flex">
+    <FlexRow>
       <Card>
         <Icon name="flag" />
         <h3>Строите карьеру или учитесь</h3>
@@ -199,14 +196,13 @@ const mainQuestions = [
           <li>Хотите знать язык глубже школьной программы</li>
         </ul>
       </Card>
-    </div>
+    </FlexRow>
   </Section>
 
   <!-- Отзывы -->
   <Section>
     <h2>Отзывы студентов</h2>
-
-    <div class="cards-flex">
+    <FlexRow>
       <Card>
         <Icon name="flag" size="sm" />
         <p>
@@ -234,7 +230,7 @@ const mainQuestions = [
           >
         </p>
       </Card>
-    </div>
+    </FlexRow>
   </Section>
 
   <CTASection
@@ -257,39 +253,3 @@ const mainQuestions = [
     />
   </Section>
 </BaseLayout>
-
-<style>
-  .cards-flex {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .card p {
-    line-height: 1.6;
-  }
-
-  .card ul {
-    padding-left: 1.5rem;
-    line-height: 1.7;
-  }
-
-  .card li {
-    margin-bottom: 0.5rem;
-  }
-
-  .price {
-    font-size: var(--heading-3);
-    font-weight: 700;
-    margin-top: auto;
-    padding-top: 1rem;
-  }
-
-  @media (max-width: 768px) {
-    .cards-flex {
-      flex-direction: column;
-      align-items: stretch;
-    }
-  }
-</style>

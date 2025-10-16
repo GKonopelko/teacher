@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Card from '../components/ui/Card.astro';
 import Section from '../components/ui/Section.astro';
+import FlexRow from '../components/ui/FlexRow.astro';
 import CTASection from '../components/sections/CTASection.astro';
 import FaqPreview from '../components/faq/FaqPreview.astro';
 import Icon from '../components/ui/Icon.astro';
@@ -156,7 +157,7 @@ const aboutQuestions = [
   <!-- Мои принципы работы -->
   <Section background="light">
     <h2>Мои принципы работы</h2>
-    <div class="cards-flex">
+    <FlexRow>
       <Card>
         <Icon name="target" />
         <h3>Индивидуальный подход</h3>
@@ -187,7 +188,7 @@ const aboutQuestions = [
           Вы сами заметите, что начинаете понимать финскую речь и строить предложения по-фински.
         </p>
       </Card>
-    </div>
+    </FlexRow>
   </Section>
 
   <!-- Моя методика преподавания -->
@@ -248,20 +249,3 @@ const aboutQuestions = [
     />
   </Section>
 </BaseLayout>
-
-<style>
-  .cards-flex {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 2rem;
-  }
-
-  @media (max-width: 768px) {
-    .cards-flex {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-</style>
