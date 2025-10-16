@@ -1,0 +1,90 @@
+---
+import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
+import Icon from '../components/ui/Icon.astro';
+import Section from '../components/ui/Section.astro';
+import FlexRow from '../components/ui/FlexRow.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = 'Север';
+const pageDescription =
+  'Персональная страница ученика Севера с материалами для занятий финским языком';
+const canonicalUrl = 'https://grigori.konopelko.com/students/sever/';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} canonicalUrl={canonicalUrl}>
+  <Section>
+    <div class="student-header">
+      <h1>Север</h1>
+    </div>
+  </Section>
+
+  <Section>
+    <Card variant="wide">
+      <h3>Расписание занятий</h3>
+      <div class="schedule-times">
+        <p>Вторник, 16:00-18.00 МСК</p>
+        <p>Суббота, 16:00-18.00 МСК</p>
+      </div>
+    </Card>
+
+    <FlexRow>
+      <Card>
+        <h3>Конспект урока</h3>
+        <Button
+          href="https://docs.google.com/document/d/1aa9jdZ3Ev9CW2jEUbW_Qc6QmZU6F2jctIpwb8-i3bIY/edit?usp=sharing"
+          target="_blank"
+          variant="primary"
+        >
+          <Icon name="bookOpen" />
+          Открыть конспект
+        </Button>
+      </Card>
+
+      <Card>
+        <h3>Онлайн-урок</h3>
+        <Button
+          href="https://meet.jit.si/%D0%A4%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9%D1%8F%D0%B7%D1%8B%D0%BA"
+          target="_blank"
+          variant="primary"
+        >
+          <Icon name="video" />Подключение к уроку
+        </Button>
+      </Card>
+
+      <Card>
+        <h3>Учебные материалы</h3>
+        <Button
+          href="https://drive.google.com/drive/folders/1XBNblM-W-MQx5_OX0mP0ijOzXuN3XhmN?usp=sharing"
+          target="_blank"
+          variant="primary"
+        >
+          <Icon name="bookOpen" /> Открыть материалы
+        </Button>
+      </Card>
+    </FlexRow>
+  </Section>
+
+  <Section>
+    <h2>Полезные ресурсы</h2>
+    <FlexRow>
+      <Card variant="accent">
+        <h3>Формы склонения слов</h3>
+        <Button
+          href="https://fi.wiktionary.org/wiki/Wikisanakirja:Etusivu"
+          target="_blank"
+          variant="button-link"
+        >
+          Wikisanakirja
+        </Button>
+      </Card>
+
+      <Card variant="accent">
+        <h3>Поиск форм глаголов</h3>
+        <Button href="https://www.verbix.com/find-verb/" target="_blank" variant="button-link">
+          Verbix
+        </Button>
+      </Card>
+    </FlexRow>
+  </Section>
+</BaseLayout>

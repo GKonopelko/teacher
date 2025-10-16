@@ -2,17 +2,15 @@
 export interface Props {
   class?: string;
   background?: 'white' | 'light';
-  padding?: 'default' | 'small' | 'large' | 'none';
 }
 
-const { class: className = '', background = 'white', padding = 'default' } = Astro.props;
+const { class: className = '', background = 'white' } = Astro.props;
 ---
 
 <section
   class={`
     section
     section--${background}
-    section--${padding}
     ${className}
   `}
 >
@@ -22,7 +20,13 @@ const { class: className = '', background = 'white', padding = 'default' } = Ast
 <style>
   .section {
     width: 100%;
-    padding: 0 1rem;
+    padding: 0 0.5rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: center; */
+    gap: 1rem;
   }
 
   .section--white {
@@ -31,27 +35,5 @@ const { class: className = '', background = 'white', padding = 'default' } = Ast
 
   .section--light {
     background: var(--background-light);
-  }
-
-  .section--default {
-    padding-top: 0;
-  }
-
-  .section--small {
-    padding-top: 0.5rem;
-  }
-
-  .section--large {
-    padding-top: 2rem;
-  }
-
-  @media (max-width: 48rem) {
-    .section--large {
-      padding-top: 1rem;
-    }
-
-    .section--small {
-      padding-top: 0.2rem;
-    }
   }
 </style>
