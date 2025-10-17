@@ -1,37 +1,41 @@
 ---
+export interface Props {
+  rootMargin?: string;
+  threshold?: number;
+}
 
+// Уберите деструктуризацию если не используете переменные
+// или используйте их в шаблоне
 ---
 
 <script is:inline>
+  // Минимальная версия без лишних функций
   (function () {
-    const options = {
-      rootMargin: '50px 0px -50px 0px',
-      threshold: 0.05,
-    };
+    'use strict';
 
-    function initScrollAnimations() {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
+    const observer = new IntersectionObserver(
+      function (entries) {
+        for (let i = 0; i < entries.length; i++) {
+          const entry = entries[i];
           if (entry.isIntersecting) {
             const element = entry.target;
-            const delay = parseInt(element.dataset.delay || '0', 10);
+            const delay = element.dataset.delay || 0;
 
-            setTimeout(() => {
+            setTimeout(function () {
               element.classList.add('visible');
               observer.unobserve(element);
-            }, delay);
+            }, Number(delay));
           }
-        });
-      }, options);
-
-      const elements = document.querySelectorAll('[data-animate="fade-in-up"]');
-      elements.forEach((element) => observer.observe(element));
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initScrollAnimations);
-    } else {
-      initScrollAnimations();
+        }
+      },
+      {
+        rootMargin: '100px 0px -50px 0px',
+        threshold: 0.02,
+      }
+    );
+    const elements = document.querySelectorAll('[data-animate="fade-in-up"]');
+    for (let i = 0; i < elements.length; i++) {
+      observer.observe(elements[i]);
     }
   })();
 </script>
