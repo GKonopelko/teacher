@@ -147,5 +147,29 @@ const faqStructuredData =
       </main>
       <Footer />
     </div>
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const delay = parseInt(entry.target.dataset.delay || '0');
+                setTimeout(() => {
+                  entry.target.classList.add('visible');
+                  observer.unobserve(entry.target);
+                }, delay);
+              }
+            });
+          },
+          {
+            rootMargin: '0px 0px -50px 0px',
+            threshold: 0.1,
+          }
+        );
+        document.querySelectorAll('.fade-in-up').forEach((card) => {
+          observer.observe(card);
+        });
+      });
+    </script>
   </body>
 </html>
