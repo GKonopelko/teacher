@@ -3,9 +3,10 @@ export interface Props {
   href?: string;
   class?: string;
   variant?: 'default' | 'wide' | 'accent' | 'wide-accent';
+  delay?: number;
 }
 
-const { href, class: className = '', variant = 'default' } = Astro.props;
+const { href, class: className = '', variant = 'default', delay = 0 } = Astro.props;
 ---
 
 {
@@ -16,6 +17,8 @@ const { href, class: className = '', variant = 'default' } = Astro.props;
       ${variant.includes('wide') ? 'card-wide' : ''}
       ${variant.includes('accent') ? 'card-accent' : ''}
       ${className}`}
+      data-animate="fade-in-up"
+      data-delay={delay}
     >
       <div class="card-content">
         <slot />
@@ -27,6 +30,8 @@ const { href, class: className = '', variant = 'default' } = Astro.props;
       ${variant.includes('wide') ? 'card-wide' : ''}
       ${variant.includes('accent') ? 'card-accent' : ''}
       ${className}`}
+      data-animate="fade-in-up"
+      data-delay={delay}
     >
       <div class="card-content">
         <slot />
@@ -49,7 +54,18 @@ const { href, class: className = '', variant = 'default' } = Astro.props;
     text-decoration: none;
     color: inherit;
     flex: 1 1 10rem;
-    max-width: 25rem; /* 400px */
+    max-width: 25rem;
+
+    /* Все карточки анимированы по умолчанию */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+    will-change: transform, opacity;
+  }
+
+  .card.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .card-wide {
@@ -64,7 +80,7 @@ const { href, class: className = '', variant = 'default' } = Astro.props;
 
   .card:hover {
     border-color: var(--accent-soft);
-    box-shadow: 0 0.125rem 0.75rem rgba(77, 166, 255, 0.15); /* 2px 12px */
+    box-shadow: 0 0.125rem 0.75rem rgba(77, 166, 255, 0.15);
   }
 
   .card-content {

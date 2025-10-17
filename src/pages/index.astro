@@ -1,12 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSection from '../components/sections/HeroSection.astro';
-import AnimatedCard from '../components/ui/AnimatedCard.astro';
 import Section from '../components/ui/Section.astro';
 import FlexRow from '../components/ui/FlexRow.astro';
 import CTASection from '../components/sections/CTASection.astro';
 import FaqPreview from '../components/faq/FaqPreview.astro';
 import Icon from '../components/ui/Icon.astro';
+import Card from '../components/ui/Card.astro';
 
 const TEACHER_INFO = {
   name: 'Конопелько Григорий Викторович',
@@ -81,29 +81,29 @@ const mainQuestions = [
   <Section>
     <h2>Почему выбирают меня</h2>
     <FlexRow>
-      <AnimatedCard delay={100}>
+      <Card delay={100}>
         <Icon name="target" />
         <h3>Индивидуальный подход</h3>
         <p>
           Учебный процесс строится под ваши цели. Бесплатные учебные материалы предоставляются в
           соответствии с учебным планом.
         </p>
-      </AnimatedCard>
-      <AnimatedCard delay={200}>
+      </Card>
+      <Card delay={200}>
         <Icon name="video" />
         <h3>Гибкий график онлайн</h3>
         <p>
           Занимайтесь из любой точки мира. Сами формируете расписание. Не тратьте время на дорогу.
         </p>
-      </AnimatedCard>
-      <AnimatedCard delay={300}>
+      </Card>
+      <Card delay={300}>
         <Icon name="award" />
         <h3>Языковая практика с опытным преподавателем</h3>
         <p>
           На каждом уроке тренируем разговорную речь и восприятие на слух. Доступно объясняю
           грамматику и тонкости языка.
         </p>
-      </AnimatedCard>
+      </Card>
     </FlexRow>
   </Section>
 
@@ -111,26 +111,26 @@ const mainQuestions = [
   <Section background="light">
     <h2>Форматы и стоимость обучения</h2>
     <FlexRow>
-      <AnimatedCard delay={100}>
+      <Card delay={100}>
         <Icon name="video" />
         <h3>Онлайн-уроки</h3>
         <p>Удобно из любого города<br />Google Meet, Zoom, интерактивные материалы</p>
         <div><strong>1600₽ / 60 мин</strong></div>
-      </AnimatedCard>
+      </Card>
 
-      <AnimatedCard delay={200}>
+      <Card delay={200}>
         <Icon name="mapPin" />
         <h3>Очно в Санкт-Петербурге</h3>
         <p>Занятия у вас дома или в офисе<br />Индивидуальный подход и полное погружение</p>
         <div><strong>Стоимость рассчитывается индивидуально</strong></div>
-      </AnimatedCard>
+      </Card>
 
-      <AnimatedCard delay={300}>
+      <Card delay={300}>
         <Icon name="users" />
         <h3>Занятия в паре</h3>
         <p>Экономия до 30% для вас и друга/коллеги<br />Идеально для совместной мотивации</p>
         <div><strong>1100₽ / 60 мин с человека</strong></div>
-      </AnimatedCard>
+      </Card>
     </FlexRow>
   </Section>
 
@@ -138,28 +138,28 @@ const mainQuestions = [
   <Section>
     <h2>Почему мои ученики начинают говорить?</h2>
     <FlexRow>
-      <AnimatedCard delay={100}>
+      <Card delay={100}>
         <Icon name="zap" />
         <h3>Индивидуальная программа</h3>
         <p>Уроки строятся под ваши цели: работа, учеба, переезд или путешествия.</p>
-      </AnimatedCard>
-      <AnimatedCard delay={200}>
+      </Card>
+      <Card delay={200}>
         <Icon name="bookOpen" />
         <h3>Эффективные материалы</h3>
         <p>Использую учебник "Suomen Mestari", авторские упражнения, статьи, видео и подкасты.</p>
-      </AnimatedCard>
-      <AnimatedCard delay={300}>
+      </Card>
+      <Card delay={300}>
         <Icon name="chat" />
         <h3>Упор на разговорную практику</h3>
         <p>Преодолеваем языковой барьер через диалоги и обсуждения с первого занятия.</p>
-      </AnimatedCard>
-      <AnimatedCard delay={400}>
+      </Card>
+      <Card delay={400}>
         <Icon name="trendingUp" />
         <h3>Ощутимый прогресс</h3>
         <p>
           Вы сами заметите, что начинаете понимать финскую речь и строить предложения по-фински.
         </p>
-      </AnimatedCard>
+      </Card>
     </FlexRow>
   </Section>
 
@@ -167,7 +167,7 @@ const mainQuestions = [
   <Section background="light">
     <h2>Вам ко мне, если вы...</h2>
     <FlexRow>
-      <AnimatedCard delay={100}>
+      <Card delay={100}>
         <Icon name="flag" />
         <h3>Строите карьеру или учитесь</h3>
         <ul>
@@ -175,9 +175,9 @@ const mainQuestions = [
           <li>Нужен язык для работы и делового общения</li>
           <li>Поступаете в вуз или колледж Финляндии</li>
         </ul>
-      </AnimatedCard>
+      </Card>
 
-      <AnimatedCard delay={200}>
+      <Card delay={200}>
         <Icon name="mapPin" />
         <h3>Переезжаете или живете в Финляндии</h3>
         <ul>
@@ -185,9 +185,9 @@ const mainQuestions = [
           <li>Готовитесь к интервью в миграционной службе (Maahanmuuttovirasto)</li>
           <li>Помогаете ребенку-школьнику адаптироваться и подтянуть язык</li>
         </ul>
-      </AnimatedCard>
+      </Card>
 
-      <AnimatedCard delay={300}>
+      <Card delay={300}>
         <Icon name="user" />
         <h3>Школьник или студент</h3>
         <ul>
@@ -195,7 +195,7 @@ const mainQuestions = [
           <li>Готовитесь к выпускным или вступительным экзаменам</li>
           <li>Хотите знать язык глубже школьной программы</li>
         </ul>
-      </AnimatedCard>
+      </Card>
     </FlexRow>
   </Section>
 
@@ -203,7 +203,7 @@ const mainQuestions = [
   <Section>
     <h2>Отзывы студентов</h2>
     <FlexRow>
-      <AnimatedCard delay={100}>
+      <Card delay={100}>
         <Icon name="flag" size="sm" />
         <p>
           <strong>Сергей</strong> (сдал YKI на B1): <em
@@ -211,8 +211,8 @@ const mainQuestions = [
             потрясающий. Сдал YKI на уровень В1. Очень доволен!"</em
           >
         </p>
-      </AnimatedCard>
-      <AnimatedCard delay={200}>
+      </Card>
+      <Card delay={200}>
         <Icon name="mapPin" size="sm" />
         <p>
           <strong>Алина</strong> (живет в Финляндии): <em
@@ -220,8 +220,8 @@ const mainQuestions = [
             повседневной жизни. Стала лучше понимать мужа-финна и окружающих."</em
           >
         </p>
-      </AnimatedCard>
-      <AnimatedCard delay={300}>
+      </Card>
+      <Card delay={300}>
         <Icon name="trendingUp" size="sm" />
         <p>
           <strong>Мария</strong> (начала с нуля): <em>
@@ -229,7 +229,7 @@ const mainQuestions = [
             поддержать беседу. Обучение комфортное и эффективное!"</em
           >
         </p>
-      </AnimatedCard>
+      </Card>
     </FlexRow>
   </Section>
 
