@@ -4,6 +4,7 @@ import Footer from '../components/ui/Footer.astro';
 import favicon from '@assets/images/parrotsvg.svg';
 import '../styles/global.css';
 import Analytics from '../components/analytics/Analytics.astro';
+import ScrollAnimations from '../components/scripts/ScrollAnimations.astro';
 
 export interface Props {
   title: string;
@@ -147,27 +148,6 @@ const faqStructuredData =
       </main>
       <Footer />
     </div>
-    <script is:inline>
-      document.addEventListener('DOMContentLoaded', () => {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                const card = entry.target;
-                const delay = card.dataset.delay || 0;
-                setTimeout(() => card.classList.add('visible'), delay);
-                observer.unobserve(card);
-              }
-            });
-          },
-          {
-            rootMargin: '0px 0px -10% 0px',
-            threshold: 0.05,
-          }
-        );
-        const cards = document.querySelectorAll('.fade-in-up');
-        cards.forEach((card) => observer.observe(card));
-      });
-    </script>
+    <ScrollAnimations />
   </body>
 </html>

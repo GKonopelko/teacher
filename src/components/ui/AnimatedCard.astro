@@ -13,10 +13,11 @@ const { href, class: className = '', variant = 'default', delay = 0 } = Astro.pr
   href ? (
     <a
       href={href}
-      class={`card fade-in-up
+      class={`card
       ${variant.includes('wide') ? 'card-wide' : ''}
       ${variant.includes('accent') ? 'card-accent' : ''}
       ${className}`}
+      data-animate="fade-in-up"
       data-delay={delay}
     >
       <div class="card-content">
@@ -25,10 +26,11 @@ const { href, class: className = '', variant = 'default', delay = 0 } = Astro.pr
     </a>
   ) : (
     <div
-      class={`card fade-in-up
+      class={`card
       ${variant.includes('wide') ? 'card-wide' : ''}
       ${variant.includes('accent') ? 'card-accent' : ''}
       ${className}`}
+      data-animate="fade-in-up"
       data-delay={delay}
     >
       <div class="card-content">
@@ -40,59 +42,15 @@ const { href, class: className = '', variant = 'default', delay = 0 } = Astro.pr
 
 <style>
   .card {
-    background: var(--background-white);
-    border: 0.0625rem solid var(--border-light);
-    border-radius: var(--border-radius-lg);
-    padding: 1.5rem;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    text-decoration: none;
-    color: inherit;
-    flex: 1 1 10rem;
-    max-width: 25rem;
-
-    /* Анимационные свойства */
+    /* существующие стили */
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.6s ease-out;
     will-change: transform, opacity;
   }
 
-  .card-wide {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
-
-  .card-accent {
-    background: var(--accent-soft);
-    border-color: var(--accent-light);
-  }
-
-  .card:hover {
-    border-color: var(--accent-soft);
-    box-shadow: 0 0.125rem 0.75rem rgba(77, 166, 255, 0.15);
-  }
-
-  .card-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* Класс для видимых карточек */
-  .card.visible {
+  .card[data-animate].visible {
     opacity: 1;
     transform: translateY(0);
-  }
-
-  @media (max-width: 48rem) {
-    .card {
-      padding: 1.25rem;
-      max-width: 100%;
-    }
   }
 </style>
