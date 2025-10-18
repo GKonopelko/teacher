@@ -1,0 +1,75 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Section from '../components/ui/Section.astro';
+import Card from '../components/ui/Card.astro';
+import Icon from '../components/ui/Icon.astro';
+import FlexRow from '../components/ui/FlexRow.astro';
+import CTA from '../components/sections/CTASection.astro';
+import NumberedCard from '../components/ui/NumberedCard.astro';
+
+const { frontmatter } = Astro.props;
+
+type PrincipleItem = {
+  icon: keyof typeof import('../data/icons').ICONS;
+  title: string;
+  description: string;
+};
+type StageItem = {
+  stage: string;
+  description: string;
+};
+---
+
+<BaseLayout title={frontmatter.title} description={frontmatter.description}>
+  <Section variant="text">
+    <h1>{frontmatter.title}</h1>
+    {frontmatter.description && <p>{frontmatter.description}</p>}
+    <slot />
+  </Section>
+
+  {
+    frontmatter.keyPrinciples && (
+      <Section>
+        <h2>Ключевые принципы методики</h2>
+        <FlexRow>
+          {(frontmatter.keyPrinciples as PrincipleItem[]).map(
+            (principle: PrincipleItem, index: number) => (
+              <Card delay={index * 100}>
+                <Icon name={principle.icon} size="lg" />
+                <h3>{principle.title}</h3>
+                <p>{principle.description}</p>
+              </Card>
+            )
+          )}
+        </FlexRow>
+      </Section>
+    )
+  }
+
+  {
+    frontmatter.learningStages && (
+      <Section>
+        <h2>Этапы обучения</h2>
+        <FlexRow>
+          {(frontmatter.learningStages as StageItem[]).map((stage: StageItem, index: number) => (
+            <NumberedCard
+              number={index + 1}
+              title={stage.stage}
+              description={stage.description}
+              delay={index * 100}
+            />
+          ))}
+        </FlexRow>
+      </Section>
+    )
+  }
+
+  <Section>
+    <CTA
+      title="Готовы учиться по эффективной методике?"
+      subtitle="Запишитесь на первый урок и получите индивидуальную программу обучения"
+      buttonText="Записаться на пробный урок"
+      buttonHref="/contact/"
+    />
+  </Section>
+</BaseLayout>
