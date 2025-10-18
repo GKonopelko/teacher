@@ -1,0 +1,181 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/ui/Section.astro';
+import FlexRow from '../components/ui/FlexRow.astro';
+import Card from '../components/ui/Card.astro';
+import Icon from '../components/ui/Icon.astro';
+
+import { getCollection } from 'astro:content';
+
+const methodologyItems = await getCollection('methodology');
+const methodology = methodologyItems[0];
+
+// Функция для парсинга карточек из markdown
+function parseCardsFromMarkdown(content: string) {
+  const cards: Array<{ icon: string; title: string; content: string }> = [];
+
+  const cardsMatch = content.match(/<!-- CARDS_START -->([\s\S]*?)<!-- CARDS_END -->/);
+  if (!cardsMatch) return { content, cards: [] };
+
+  const cardsBlock = cardsMatch[1];
+  const cardSections = cardsBlock.split('<!-- CARD: ');
+
+  for (let i = 1; i < cardSections.length; i++) {
+    const section = cardSections[i];
+    const iconMatch = section.match(/^([a-zA-Z]+) -->/);
+    if (!iconMatch) continue;
+
+    const icon = iconMatch[1];
+    const rest = section.slice(iconMatch[0].length);
+    const titleMatch = rest.match(/### (.*?)(?:\n|$)/);
+
+    if (titleMatch) {
+      const title = titleMatch[1];
+      const content = rest.slice(titleMatch[0].length).trim();
+      cards.push({ icon, title, content });
+    }
+  }
+
+  const cleanContent = content.replace(cardsMatch[0], '');
+  return { content: cleanContent, cards };
+}
+
+const { content: mainContent, cards } = methodology?.body
+  ? parseCardsFromMarkdown(methodology.body)
+  : { content: '', cards: [] };
+
+const pageTitle = methodology?.data.title || 'Методика преподавания финского языка';
+const pageDescription =
+  methodology?.data.description || 'Уникальный подход к обучению финскому языку';
+const canonicalUrl = 'https://grigori.konopelko.com/metodika/';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} canonicalUrl={canonicalUrl}>
+  <!-- Заголовок -->
+  <Section>
+    <div class="page-header">
+      <h1>{methodology?.data.title || 'Методика преподавания'}</h1>
+      {
+        methodology?.data.description && (
+          <p class="page-description">{methodology.data.description}</p>
+        )
+      }
+    </div>
+  </Section>
+
+  <!-- Карточки с ключевыми принципами -->
+  {
+    cards.length > 0 && (
+      <Section>
+        <FlexRow>
+          {cards.map((card, index) => (
+            <Card delay={(index + 1) * 100}>
+              <Icon name={card.icon as any} />
+              <h3>{card.title}</h3>
+              <div set:html={card.content} />
+            </Card>
+          ))}
+        </FlexRow>
+      </Section>
+    )
+  }
+
+  <!-- Основной контент -->
+  {
+    mainContent && (
+      <Section background="light">
+        <div class="content-container">
+          <div set:html={mainContent} />
+        </div>
+      </Section>
+    )
+  }
+
+  <!-- Призыв к действию -->
+  <Section>
+    <div class="cta-block">
+      <h2>Готовы учиться по эффективной методике?</h2>
+      <p>Запишитесь на первый урок и получите индивидуальную программу обучения</p>
+      <a href="/contact/" class="btn-primary">Записаться на урок</a>
+    </div>
+  </Section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .page-description {
+    font-size: var(--text-lg);
+    color: var(--text-primary);
+    opacity: 0.8;
+    margin-top: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .content-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .content-container h2 {
+    text-align: center;
+    margin: 3rem 0 1.5rem 0;
+    color: var(--text-primary);
+  }
+
+  .content-container h3 {
+    margin: 2rem 0 1rem 0;
+    color: var(--text-primary);
+  }
+
+  .content-container ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .content-container li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+
+  .cta-block {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: var(--accent-soft);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--accent-light);
+  }
+
+  .cta-block h2 {
+    margin-bottom: 1rem;
+  }
+
+  .cta-block p {
+    margin-bottom: 2rem;
+    font-size: var(--text-lg);
+    opacity: 0.8;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--background-white);
+    color: var(--link-color);
+    text-decoration: none;
+    border-radius: var(--border-radius-rounded);
+    border: 2px solid var(--accent-light);
+    font-weight: 600;
+    transition: var(--transition);
+  }
+
+  .btn-primary:hover {
+    background: var(--hover-bg);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-hover);
+  }
+</style>

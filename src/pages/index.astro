@@ -7,6 +7,7 @@ import CTASection from '../components/sections/CTASection.astro';
 import FaqPreview from '../components/faq/FaqPreview.astro';
 import Icon from '../components/ui/Icon.astro';
 import Card from '../components/ui/Card.astro';
+import Button from '../components/ui/Button.astro';
 
 const TEACHER_INFO = {
   name: 'Конопелько Григорий Викторович',
@@ -134,32 +135,39 @@ const mainQuestions = [
     </FlexRow>
   </Section>
 
-  <!-- Методика -->
+  <!-- Методика - краткое описание с ссылкой -->
   <Section>
-    <h2>Почему мои ученики начинают говорить?</h2>
+    <h2>Эффективная методика обучения</h2>
+    <p class="text-center">
+      Моя авторская методика, разработанная за 15 лет преподавания, сочетает проверенные подходы и
+      современные технологии обучения. Упор на разговорную практику и персонализацию позволяет
+      достигать быстрых результатов.
+    </p>
+
     <FlexRow>
       <Card delay={100}>
         <Icon name="zap" />
-        <h3>Индивидуальная программа</h3>
-        <p>Уроки строятся под ваши цели: работа, учеба, переезд или путешествия.</p>
+        <h3>Сбалансированный подход</h3>
+        <p>
+          40% - разговорная практика, 20% - грамматика, 20% - аудирование, 20% - чтение и письмо
+        </p>
       </Card>
       <Card delay={200}>
         <Icon name="bookOpen" />
-        <h3>Эффективные материалы</h3>
-        <p>Использую учебник "Suomen Mestari", авторские упражнения, статьи, видео и подкасты.</p>
+        <h3>Современные материалы</h3>
+        <p>Suomen Mestari, финские СМИ, видео Yle и авторские разработки</p>
       </Card>
       <Card delay={300}>
-        <Icon name="chat" />
-        <h3>Упор на разговорную практику</h3>
-        <p>Преодолеваем языковой барьер через диалоги и обсуждения с первого занятия.</p>
-      </Card>
-      <Card delay={400}>
         <Icon name="trendingUp" />
-        <h3>Ощутимый прогресс</h3>
-        <p>
-          Вы сами заметите, что начинаете понимать финскую речь и строить предложения по-фински.
-        </p>
+        <h3>Контроль прогресса</h3>
+        <p>Регулярное тестирование и корректировка программы под ваши успехи</p>
       </Card>
+    </FlexRow>
+    <FlexRow>
+      <Button href="/metodika/" variant="button-link" size="large">
+        <Icon name="award" />
+        Узнать подробнее о методике преподавания →
+      </Button>
     </FlexRow>
   </Section>
 

@@ -129,9 +129,6 @@ img {
   margin-bottom: 0.5rem;
 }
 
-/* * {
-  outline: 1px solid red !important;
-} */
 ul,
 ol {
   padding-left: 1rem;
@@ -140,3 +137,8 @@ ol {
 li {
   margin-bottom: 0.5rem;
 }
+
+/*
+* {
+  outline: 1px solid red !important;
+} */

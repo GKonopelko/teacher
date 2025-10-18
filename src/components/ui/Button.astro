@@ -1,7 +1,7 @@
 ---
 export interface Props {
   href?: string;
-  variant?: 'primary' | 'button-link' | 'text-link';
+  variant?: 'primary' | 'button-link' | 'text-link' | 'nav-link';
   size?: 'small' | 'medium' | 'large';
   class?: string;
   target?: string;
@@ -54,15 +54,15 @@ const sizeClass = size !== 'medium' ? `btn--${size}` : '';
     font-family: inherit;
     cursor: pointer;
     gap: 0.5rem;
-    white-space: nowrap;
   }
 
+  /* PRIMARY BUTTON - Mobile First */
   .btn-primary {
     background: var(--background-white);
     color: var(--link-color);
     border-color: var(--accent-light);
     padding: 0.75rem 1rem;
-    font-size: 0.875rem;
+    /* font-size: var(--text-sm); */
   }
 
   .btn-primary:hover {
@@ -71,11 +71,13 @@ const sizeClass = size !== 'medium' ? `btn--${size}` : '';
     box-shadow: var(--shadow-hover);
     border-color: var(--hover-bg);
   }
+
+  /* BUTTON LINK - Mobile First */
   .btn-button-link {
     background: transparent;
     color: var(--link-color);
     padding: 0.75rem 1rem;
-    font-size: 0.875rem;
+    /* font-size: var(--text-sm); */
   }
 
   .btn-button-link:hover {
@@ -83,6 +85,7 @@ const sizeClass = size !== 'medium' ? `btn--${size}` : '';
     color: var(--text-primary);
   }
 
+  /* TEXT LINK - Mobile First */
   .btn-text-link {
     background: transparent;
     color: var(--link-color);
@@ -98,39 +101,98 @@ const sizeClass = size !== 'medium' ? `btn--${size}` : '';
     text-decoration: none;
   }
 
-  /* Размеры */
+  /* NAV LINK - Mobile First */
+  .btn-nav-link {
+    background: transparent;
+    color: var(--link-color);
+    font-weight: 700;
+    font-size: var(--text-base);
+    padding: 1rem 0.35rem;
+    border-radius: 2rem;
+  }
+
+  .btn-nav-link:hover {
+    background: var(--hover-bg);
+    color: var(--text-primary);
+  }
+
+  /* === SIZES - Mobile First === */
   .btn--small {
-    padding: 0.5rem 1rem !important;
-    font-size: 0.75rem !important;
+    padding: 0.5rem 0.875rem;
   }
 
   .btn--large {
-    padding: 1rem 2rem !important;
-    font-size: 1rem !important;
+    padding: 1rem 1.5rem;
+    font-size: var(--text-lg);
   }
 
+  /* === MEDIA QUERIES === */
+
+  /* width ≥ 768px */
+  @media (min-width: 48rem) {
+    .btn-primary,
+    .btn-button-link {
+      padding: 0.875rem 1.25rem;
+      font-size: var(--text-base);
+    }
+
+    .btn-nav-link {
+      padding: 1.125rem 0.3rem;
+      font-size: var(--text-base);
+    }
+
+    .btn--small {
+      padding: 0.625rem 1rem;
+      font-size: var(--text-base);
+    }
+
+    .btn--large {
+      padding: 1.125rem 2rem;
+      font-size: var(--text-lg);
+    }
+  }
+
+  /* width ≥ 860px */
+  @media (min-width: 53.75rem) {
+    .btn-nav-link {
+      padding: 1.25rem 0.5rem;
+      font-size: 1.1rem;
+    }
+  }
+
+  /* width ≥ 928px */
+  @media (min-width: 58rem) {
+    .btn-primary,
+    .btn-button-link {
+      padding: 1rem 1.5rem;
+      font-size: var(--text-base);
+    }
+
+    .btn-nav-link {
+      padding: 1.25rem 1rem;
+      font-size: var(--text-lg);
+    }
+  }
+
+  /* width ≥ 1200px */
+  @media (min-width: 75rem) {
+    .btn-primary,
+    .btn-button-link {
+      padding: 1.125rem 2rem;
+      font-size: var(--text-lg);
+    }
+  }
+
+  /* === STATES === */
   .btn:disabled {
     opacity: 0.6;
     cursor: not-allowed;
-    transform: none !important;
-    box-shadow: none !important;
+    transform: none;
+    box-shadow: none;
   }
 
   .btn:active {
     transform: scale(0.98);
     transition: transform 0.1s ease;
-  }
-
-  @media (max-width: 48rem) {
-    .btn--large {
-      padding: 0.875rem 1.5rem !important;
-    }
-  }
-
-  @media (max-width: 30rem) {
-    .btn--large {
-      padding: 0.75rem 1.25rem !important;
-      font-size: 0.9rem !important;
-    }
   }
 </style>

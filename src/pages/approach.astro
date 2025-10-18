@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/ui/Section.astro';
+import Card from '../components/ui/Card.astro';
+import FlexRow from '../components/ui/FlexRow.astro';
+import Icon from '../components/ui/Icon.astro';
+import CTASection from '../components/sections/CTASection.astro';
+---
+
+<BaseLayout
+  title="Методика преподавания финского языка"
+  description="Уникальный подход к обучению финскому языку для русскоязычных студентов"
+  canonicalUrl="https://grigori.konopelko.com/approach/"
+>
+  <Section>
+    <div class="header">
+      <h1>Методика обучения</h1>
+      <p class="description">Как проходят уроки и строится учебный процесс</p>
+    </div>
+  </Section>
+
+  <Section>
+    <div class="content">
+      <h2>Как строится урок финского языка?</h2>
+      <p>
+        Каждый урок включает разговорную практику, изучение новой лексики, грамматику и аудирование.
+        Соотношение: 40% - говорение, 20% - грамматика, 20% - аудирование, 20% - чтение и письмо.
+        Такой баланс гарантирует комплексное развитие языковых навыков.
+      </p>
+
+      <h2>Какие учебные материалы вы используете?</h2>
+      <p>
+        Основной учебник - "Suomen Mestari", дополняю авторскими материалами, статьями из финских
+        СМИ, видео с Yle и современными разговорными выражениями. Все материалы предоставляю
+        бесплатно в электронном виде.
+      </p>
+
+      <h2>Сколько времени нужно заниматься самостоятельно между уроками?</h2>
+      <p>
+        Рекомендую 30-40 минут в день на повторение материала и выполнение домашних заданий для
+        оптимального прогресса. Регулярность важнее длительности - лучше по 20 минут каждый день,
+        чем 2 часа раз в неделю.
+      </p>
+
+      <h2>Как вы отслеживаете прогресс учеников?</h2>
+      <p>
+        Провожу промежуточные тесты каждые 2 месяца, веду журнал успеваемости и корректирую
+        программу по результатам. Вы сами увидите прогресс в увеличении словарного запаса и
+        уверенности в общении.
+      </p>
+    </div>
+  </Section>
+
+  <Section background="light">
+    <h2>Преимущества моего подхода</h2>
+    <FlexRow>
+      <Card delay={100}>
+        <Icon name="target" />
+        <h3>Индивидуальная программа</h3>
+        <p>Учебный план строится под ваши цели и темп обучения</p>
+      </Card>
+      <Card delay={200}>
+        <Icon name="zap" />
+        <h3>Быстрый результат</h3>
+        <p>Акцент на практическое применение языка с первого занятия</p>
+      </Card>
+      <Card delay={300}>
+        <Icon name="bookOpen" />
+        <h3>Современные материалы</h3>
+        <p>Использую проверенные учебники и актуальные ресурсы</p>
+      </Card>
+      <Card delay={400}>
+        <Icon name="trendingUp" />
+        <h3>Измеримый прогресс</h3>
+        <p>Регулярная оценка прогресса и корректировка программы</p>
+      </Card>
+    </FlexRow>
+  </Section>
+
+  <CTASection
+    badgeText="Начать обучение"
+    title="Хотите попробовать мою методику?"
+    subtitle="Запишитесь на пробный урок и получите индивидуальную программу обучения"
+    buttonText="Записаться на пробный урок"
+    buttonHref="/contact/"
+  />
+</BaseLayout>
+
+<style>
+  .header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .description {
+    font-size: var(--text-lg);
+    color: var(--text-primary);
+    opacity: 0.8;
+    margin-top: 1rem;
+  }
+
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .content h2 {
+    text-align: left;
+    margin: 2rem 0 1rem 0;
+    color: var(--text-primary);
+  }
+
+  .content p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+</style>
