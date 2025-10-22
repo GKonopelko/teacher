@@ -3,39 +3,44 @@ export interface Props {
   rootMargin?: string;
   threshold?: number;
 }
-
-// Уберите деструктуризацию если не используете переменные
-// или используйте их в шаблоне
 ---
 
 <script is:inline>
-  // Минимальная версия без лишних функций
   (function () {
     'use strict';
 
-    const observer = new IntersectionObserver(
-      function (entries) {
-        for (let i = 0; i < entries.length; i++) {
-          const entry = entries[i];
-          if (entry.isIntersecting) {
-            const element = entry.target;
-            const delay = element.dataset.delay || 0;
-
-            setTimeout(function () {
-              element.classList.add('visible');
-              observer.unobserve(element);
-            }, Number(delay));
-          }
-        }
-      },
-      {
-        rootMargin: '100px 0px -50px 0px',
-        threshold: 0.02,
-      }
-    );
-    const elements = document.querySelectorAll('[data-animate="fade-in-up"]');
-    for (let i = 0; i < elements.length; i++) {
-      observer.observe(elements[i]);
+    function setupAutoDelays() {
+      const flexRows = document.querySelectorAll('.flex-row');
+      flexRows.forEach((row) => {
+        const cards = row.querySelectorAll('.card[data-animate="fade-in-up"]');
+        cards.forEach((card, index) => {
+          card.dataset.delay = (index * 100).toString();
+        });
+      });
     }
+
+    const observer = new IntersectionObserver(function (entries) {
+      for (let i = 0; i < entries.length; i++) {
+        const entry = entries[i];
+        if (entry.isIntersecting) {
+          const element = entry.target;
+          const delay = element.dataset.delay || 0;
+
+          setTimeout(function () {
+            element.classList.add('visible');
+            observer.unobserve(element);
+          }, Number(delay));
+        }
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      setupAutoDelays();
+
+      const elements = document.querySelectorAll('[data-animate="fade-in-up"]');
+      for (let i = 0; i < elements.length; i++) {
+        observer.observe(elements[i]);
+      }
+    });
   })();
 </script>

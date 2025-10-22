@@ -3,10 +3,9 @@ export interface Props {
   href?: string;
   class?: string;
   variant?: 'default' | 'wide' | 'accent' | 'wide-accent';
-  delay?: number;
 }
 
-const { href, class: className = '', variant = 'default', delay = 0 } = Astro.props;
+const { href, class: className = '', variant = 'default' } = Astro.props;
 ---
 
 {
@@ -18,7 +17,6 @@ const { href, class: className = '', variant = 'default', delay = 0 } = Astro.pr
       ${variant.includes('accent') ? 'card-accent' : ''}
       ${className}`}
       data-animate="fade-in-up"
-      data-delay={delay}
     >
       <div class="card-content">
         <slot />
@@ -31,7 +29,6 @@ const { href, class: className = '', variant = 'default', delay = 0 } = Astro.pr
       ${variant.includes('accent') ? 'card-accent' : ''}
       ${className}`}
       data-animate="fade-in-up"
-      data-delay={delay}
     >
       <div class="card-content">
         <slot />
@@ -56,7 +53,6 @@ const { href, class: className = '', variant = 'default', delay = 0 } = Astro.pr
     flex: 1 1 10rem;
     max-width: 25rem;
 
-    /* Все карточки анимированы по умолчанию */
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.6s ease-out;
