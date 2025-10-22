@@ -97,12 +97,6 @@ export const ICONS = {
       <line x1="3" y1="10" x2="21" y2="10"/>
     </svg>
   `,
-  brain: `
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 2.5 2.5 0 0 1-.34-5.99 2.5 2.5 0 0 1 5.76-1.24Z"/>
-    <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 2.5 2.5 0 0 0 .34-5.99 2.5 2.5 0 0 0-5.76-1.24Z"/>
-  </svg>
-`,
 
   // === ДОПОЛНИТЕЛЬНЫЕ ===
   flag: `
@@ -132,4 +126,35 @@ export const ICONS = {
     <polyline points="20 6 9 17 4 12"/>
   </svg>
 `,
+  book: `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+    </svg>
+  `,
+  headphones: `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+      <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+    </svg>
+  `,
+  film: `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
+      <line x1="7" y1="2" x2="7" y2="22"/>
+      <line x1="17" y1="2" x2="17" y2="22"/>
+      <line x1="2" y1="12" x2="22" y2="12"/>
+      <line x1="2" y1="7" x2="7" y2="7"/>
+      <line x1="2" y1="17" x2="7" y2="17"/>
+      <line x1="17" y1="17" x2="22" y2="17"/>
+      <line x1="17" y1="7" x2="22" y2="7"/>
+    </svg>
+  `,
+  globe: `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <line x1="2" y1="12" x2="22" y2="12"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+  `,
 } as const;

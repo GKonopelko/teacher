@@ -1,11 +1,11 @@
 ---
-import BaseLayout from './BaseLayout.astro';
-import Section from '../components/ui/Section.astro';
-import Card from '../components/ui/Card.astro';
-import Icon from '../components/ui/Icon.astro';
-import FlexRow from '../components/ui/FlexRow.astro';
-import CTA from '../components/sections/CTASection.astro';
-import NumberedCard from '../components/ui/NumberedCard.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+import Card from '../../components/ui/Card.astro';
+import FlexRow from '../../components/ui/FlexRow.astro';
+import Icon from '../../components/ui/Icon.astro';
+import NumberedCard from '../../components/ui/NumberedCard.astro';
+import Section from '../../components/ui/Section.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const { frontmatter } = Astro.props;
 
@@ -55,7 +55,7 @@ const faqData = frontmatter.faq || [
 
 // Типы для TypeScript
 type PrincipleItem = {
-  icon: keyof typeof import('../data/icons').ICONS;
+  icon: keyof typeof import('../../data/icons').ICONS;
   title: string;
   description: string;
 };
@@ -120,7 +120,7 @@ type StageItem = {
 
   <!-- Призыв к действию -->
   <Section>
-    <CTA
+    <CTASection
       title="Готовы учиться по эффективной методике?"
       subtitle="Запишитесь на первый урок и получите индивидуальную программу обучения"
       buttonText="Записаться на урок"
