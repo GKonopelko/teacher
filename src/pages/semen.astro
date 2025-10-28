@@ -6,40 +6,28 @@ import Section from '../components/ui/Section.astro';
 import FlexRow from '../components/ui/FlexRow.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const pageTitle = 'Север';
+const pageTitle = 'Семён';
 const pageDescription =
-  'Персональная страница ученика Севера с материалами для занятий финским языком';
+  'Персональная страница ученика Семёна с материалами для занятий финским языком';
 const canonicalUrl = 'https://grigori.konopelko.com/students/sever/';
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription} canonicalUrl={canonicalUrl}>
   <Section>
     <div class="student-header">
-      <h1>Север</h1>
+      <h1>Семён</h1>
     </div>
   </Section>
 
   <Card variant="wide">
     <h3>Расписание занятий</h3>
     <div class="schedule-times">
-      <p>Вторник, 17:00-19:00 МСК</p>
-      <p>Суббота, 17:00-19:00 МСК</p>
+      <p>Понедельник, 15:00-16:00 МСК</p>
+      <p>Четверг, 16:00-17:00 МСК</p>
     </div>
   </Card>
 
   <FlexRow>
-    <Card>
-      <h3>Конспект урока</h3>
-      <Button
-        href="https://docs.google.com/document/d/1aa9jdZ3Ev9CW2jEUbW_Qc6QmZU6F2jctIpwb8-i3bIY/edit?usp=sharing"
-        target="_blank"
-        variant="primary"
-      >
-        <Icon name="bookOpen" />
-        Открыть конспект
-      </Button>
-    </Card>
-
     <Card>
       <h3>Онлайн-урок</h3>
       <Button
@@ -54,11 +42,22 @@ const canonicalUrl = 'https://grigori.konopelko.com/students/sever/';
     <Card>
       <h3>Учебные материалы</h3>
       <Button
-        href="https://drive.google.com/drive/folders/1XBNblM-W-MQx5_OX0mP0ijOzXuN3XhmN?usp=sharing"
+        href="https://drive.google.com/drive/folders/1H-P45PbX1DpbqYEh6S4UyC0Bz4J4sga9?usp=drive_link"
         target="_blank"
         variant="primary"
       >
         <Icon name="bookOpen" /> Открыть материалы
+      </Button>
+    </Card>
+    <Card>
+      <h3>Конспект урока</h3>
+      <Button
+        href="https://docs.google.com/document/d/1qd8bLmCBvLtCDI_yALhF2_fMzn0_8VHFxeq29lKMtpI/edit?usp=sharing"
+        target="_blank"
+        variant="primary"
+      >
+        <Icon name="bookOpen" />
+        Открыть конспект
       </Button>
     </Card>
   </FlexRow>
@@ -81,6 +80,32 @@ const canonicalUrl = 'https://grigori.konopelko.com/students/sever/';
         <h3>Поиск форм глаголов</h3>
         <Button href="https://www.verbix.com/find-verb/" target="_blank" variant="button-link">
           Verbix
+        </Button>
+      </Card>
+    </FlexRow>
+  </Section>
+
+  <Section>
+    <h2>Реквизиты для оплаты</h2>
+    <FlexRow>
+      <Card>
+        <Button
+          href="https://www.tinkoff.ru/rm/r_rxnDHTaIJY.OjhoALQbCt/uRZ1X49890"
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="button-link"
+        >
+          <Icon name="credit-card" /> Оплатить онлайн
+        </Button>
+      </Card>
+      <Card>
+        <Button
+          href="/requisites.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="button-link"
+        >
+          <Icon name="file-text" /> Реквизиты для перевода
         </Button>
       </Card>
     </FlexRow>
