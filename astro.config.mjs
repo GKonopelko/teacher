@@ -21,5 +21,5 @@ export default defineConfig({
     },
   },
   integrations: [react()],
-  output: 'server',
+  output: 'static',
 });
