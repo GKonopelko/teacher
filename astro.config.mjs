@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import { resolve } from 'path';
+import react from '@astrojs/react';
 
 export default defineConfig({
   site: 'https://grigori.konopelko.com/',
@@ -19,4 +20,6 @@ export default defineConfig({
       entrypoint: 'astro/assets/services/sharp',
     },
   },
+  integrations: [react()],
+  output: 'server',
 });

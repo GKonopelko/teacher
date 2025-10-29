@@ -2,7 +2,6 @@
 import Header from '../components/ui/Header.astro';
 import Footer from '../components/ui/Footer.astro';
 import favicon from '@assets/images/parrotsvg.svg';
-import '../styles/global.css';
 import Analytics from '../components/analytics/Analytics.astro';
 import ScrollAnimations from '../components/scripts/ScrollAnimations.astro';
 
@@ -90,7 +89,7 @@ const faqStructuredData =
     <link rel="preconnect" href="https://grigori.konopelko.com" />
     <link rel="dns-prefetch" href="https://grigori.konopelko.com" />
 
-    <!-- Аналитика загружается как обычно -->
+    <!-- Аналитика -->
     <Analytics />
 
     <meta name="yandex-verification" content="7cd2bf4f92125340" />
@@ -108,9 +107,8 @@ const faqStructuredData =
       )
     }
 
-    <!-- Критический CSS для ускорения первоначальной отрисовки -->
+    <!-- Критический CSS -->
     <style>
-      /* Критические стили layout */
       .body-wrapper {
         background: var(--background-white);
         min-height: 100vh;
@@ -130,7 +128,6 @@ const faqStructuredData =
         gap: 1rem;
       }
 
-      /* Обеспечиваем видимость критического контента */
       .hero h1 {
         opacity: 1;
         font-family: var(--font-heading);
@@ -142,12 +139,10 @@ const faqStructuredData =
         opacity: 1;
         border-radius: 50%;
         object-fit: cover;
-        /* Фиксируем размеры для предотвращения CLS */
         width: 400px;
         height: 400px;
       }
 
-      /* Базовые стили заголовков */
       h1,
       h2,
       h3 {
@@ -159,7 +154,6 @@ const faqStructuredData =
         margin: 0.5em 0;
       }
 
-      /* Адаптивность */
       @media (max-width: 48rem) {
         .body-wrapper {
           padding: 0 1rem;
@@ -190,14 +184,8 @@ const faqStructuredData =
       }
     </style>
 
-    <!-- Отложенная загрузка основного CSS -->
-    <link
-      rel="preload"
-      href="/_astro/about.DtA7KAfS.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript><link rel="stylesheet" href="/_astro/about.DtA7KAfS.css" /></noscript>
+    <!-- Основной CSS -->
+    <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
   <body>
     <div class="body-wrapper">
