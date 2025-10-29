@@ -4,6 +4,7 @@ import Footer from '../components/ui/Footer.astro';
 import favicon from '@assets/images/parrotsvg.svg';
 import Analytics from '../components/analytics/Analytics.astro';
 import ScrollAnimations from '../components/scripts/ScrollAnimations.astro';
+import '../styles/global.css';
 
 export interface Props {
   title: string;
@@ -183,9 +184,6 @@ const faqStructuredData =
         }
       }
     </style>
-
-    <!-- Основной CSS -->
-    <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
   <body>
     <div class="body-wrapper">
