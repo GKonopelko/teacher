@@ -1,26 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/ui/Section.astro';
-
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
-
-function parseQuestions(markdownContent: string) {
-  const questions: Array<{ question: string; answer: string }> = [];
-  const sections = markdownContent.split('## ').slice(1);
-
-  for (const section of sections) {
-    const lines = section.split('\n');
-    const question = lines[0].trim();
-    const answer = lines.slice(1).join('\n').trim();
-
-    if (question && answer) {
-      questions.push({ question, answer });
-    }
-  }
-
-  return questions;
-}
+import { parseQuestions } from '../lib/markdown';
 
 const faqCategories = await getCollection('faq');
 const sortedCategories = faqCategories.sort(
@@ -49,25 +32,32 @@ const canonicalUrl = 'https://grigori.konopelko.com/faq/';
       <h1>Ответы на часто задаваемые вопросы по изучению финского языка</h1>
     </div>
   </Section>
+
   {
-    categoriesWithQuestions.map((category, index) => (
-      <Section background={index % 2 === 0 ? 'white' : 'light'} class="faq-category">
-        <h2>{category.data.title}</h2>
-        <div class="faq-items">
-          {category.questions.map((item) => (
-            <details class="faq-item">
-              <summary class="faq-question">
-                <span class="faq-question-text">{item.question}</span>
-                <span class="faq-icon">+</span>
-              </summary>
-              <div class="faq-answer">
-                <div set:html={item.answer} />
-              </div>
-            </details>
-          ))}
-        </div>
-      </Section>
-    ))
+    categoriesWithQuestions.map((category, index) => {
+      const background = index % 2 === 0 ? 'white' : 'light';
+      return (
+        <Section background={background} class="faq-category">
+          <h2>{category.data.title}</h2>
+          {category.data.description && (
+            <p class="category-description">{category.data.description}</p>
+          )}
+          <div class="faq-items">
+            {category.questions.map((item) => (
+              <details class="faq-item">
+                <summary class="faq-question">
+                  <span class="faq-question-text">{item.question}</span>
+                  <span class="faq-icon">+</span>
+                </summary>
+                <div class="faq-answer">
+                  <Fragment set:html={item.answer} />
+                </div>
+              </details>
+            ))}
+          </div>
+        </Section>
+      );
+    })
   }
 
   <Section>
@@ -103,7 +93,7 @@ const canonicalUrl = 'https://grigori.konopelko.com/faq/';
 
   .faq-question {
     display: flex;
-    justify-content: between;
+    justify-content: space-between;
     align-items: center;
     padding: 1.25rem;
     cursor: pointer;
@@ -159,7 +149,27 @@ const canonicalUrl = 'https://grigori.konopelko.com/faq/';
     border-radius: var(--border-radius) var(--border-radius) 0 0;
   }
 
-  /* Адаптивность */
+  .faq-answer ul,
+  .faq-answer ol {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .faq-answer li {
+    margin: 0.25rem 0;
+    line-height: 1.5;
+  }
+
+  .faq-answer strong {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .faq-answer p {
+    margin: 0.75rem 0;
+    line-height: 1.6;
+  }
+
   @media (max-width: 768px) {
     .faq-question {
       padding: 1rem;

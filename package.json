@@ -29,13 +29,14 @@
   },
   "dependencies": {
     "astro": "^5.14.0",
-    "marked": "^16.4.0",
+    "marked": "^16.4.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/react": "^4.4.1",
+    "@types/marked": "^5.0.2",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
     "@typescript-eslint/eslint-plugin": "^8.45.0",
