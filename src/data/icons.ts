@@ -28,6 +28,12 @@ export const ICONS = {
     </svg>
   `,
 
+  max: `
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 12a9 9 0 0 1-9 9c-1.5 0-2.9-.4-4.2-1L3 21l1.9-4.8A9 9 0 1 1 21 12z"/>
+  </svg>
+`,
+
   // === ЦЕЛИ И ПРЕИМУЩЕСТВА ===
   target: `
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
