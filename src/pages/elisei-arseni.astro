@@ -1,0 +1,116 @@
+---
+import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
+import Icon from '../components/ui/Icon.astro';
+import Section from '../components/ui/Section.astro';
+import FlexRow from '../components/ui/FlexRow.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = 'Елисей и Арсений';
+const pageDescription =
+  'Персональная страница учеников Елисея и Арсения с материалами для занятий финским языком';
+const canonicalUrl = 'https://grigori.konopelko.com/students/sever/';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} canonicalUrl={canonicalUrl}>
+  <Section>
+    <div class="student-header">
+      <h1>Елисей и Арсений</h1>
+    </div>
+  </Section>
+
+  <Card variant="wide">
+    <h3>Расписание занятий</h3>
+    <div class="schedule-times">
+      <p>Среда, 19:00-20:00 МСК</p>
+      <p>Суббота, 19:30-21:30 МСК</p>
+    </div>
+  </Card>
+
+  <FlexRow>
+    <Card>
+      <h3>Онлайн-урок</h3>
+      <Button
+        href="https://meet.jit.si/%D0%A4%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9%D1%8F%D0%B7%D1%8B%D0%BA"
+        target="_blank"
+        variant="primary"
+      >
+        <Icon name="video" />Подключение
+      </Button>
+    </Card>
+
+    <Card>
+      <h3>Елисей</h3>
+      <Button
+        href="https://docs.google.com/document/d/12u8Yt0B_DlSkKH_70yPzQYliWDxeZa27XEwo2hY692g/edit?usp=drive_link"
+        target="_blank"
+        variant="primary"
+      >
+        <Icon name="bookOpen" />
+        Конспект
+      </Button>
+    </Card>
+    <Card>
+      <h3>Арсений</h3>
+      <Button
+        href="https://docs.google.com/document/d/18-CTgCMymgvTr701GM1MwdhZS553H7mUfCPaiPqlTxs/edit?usp=drive_link"
+        target="_blank"
+        variant="primary"
+      >
+        <Icon name="bookOpen" />
+        Конспект
+      </Button>
+    </Card>
+    <Card>
+      <h3>Материалы</h3>
+      <Button
+        href="https://drive.google.com/drive/folders/1RG1lEX85Qf3K-WfhR2hV-W1oTApwqrTM?usp=sharing"
+        target="_blank"
+        variant="primary"
+      >
+        <Icon name="bookOpen" /> Открыть
+      </Button>
+    </Card>
+  </FlexRow>
+
+  <Section>
+    <h2>Полезные ресурсы</h2>
+    <FlexRow>
+      <Card>
+        <h3>Формы склонения слов</h3>
+        <Button
+          href="https://fi.wiktionary.org/wiki/Wikisanakirja:Etusivu"
+          target="_blank"
+          variant="button-link"
+        >
+          Wikisanakirja
+        </Button>
+      </Card>
+
+      <Card>
+        <h3>Поиск форм глаголов</h3>
+        <Button href="https://www.verbix.com/find-verb/" target="_blank" variant="button-link">
+          Verbix
+        </Button>
+      </Card>
+    </FlexRow>
+  </Section>
+
+  <Section>
+    <h3>Оплата</h3>
+    <FlexRow>
+      <Card> <h4>По номеру телефона</h4> <h4>+7 911 777 0297 (Т-Банк)</h4> </Card>
+
+      <Card>
+        <Button
+          href="https://www.tinkoff.ru/rm/r_rxnDHTaIJY.OjhoALQbCt/uRZ1X49890"
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="button-link"
+        >
+          С банковской карты <Icon name="credit-card" />
+        </Button>
+      </Card>
+    </FlexRow>
+  </Section>
+</BaseLayout>

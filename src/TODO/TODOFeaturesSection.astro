@@ -1,0 +1,96 @@
+---
+import Card from '../components/ui/Card.astro';
+---
+
+<section class="features">
+  <div class="container">
+    <h2 class="mb-5">Возможности обучения</h2>
+    <div class="feature-grid">
+      <Card href="/lessons/" class="feature-card">
+        <div class="card-icon">📚</div>
+        <h3>Интерактивные уроки</h3>
+        <p>Пошаговые курсы от A1 до B2 с практическими заданиями</p>
+        <span class="card-link">Изучать →</span>
+      </Card>
+
+      <Card href="/grammar/" class="feature-card">
+        <div class="card-icon">🔍</div>
+        <h3>Грамматика</h3>
+        <p>15 падежей, спряжения глаголов, чередование согласных</p>
+        <span class="card-link">Изучать →</span>
+      </Card>
+
+      <Card href="/dictionary/" class="feature-card">
+        <div class="card-icon">📖</div>
+        <h3>Словарь</h3>
+        <p>Тематические подборки слов и выражений</p>
+        <span class="card-link">Изучать →</span>
+      </Card>
+
+      <Card href="/level-test/" class="feature-card">
+        <div class="card-icon">🎯</div>
+        <h3>Тест уровня</h3>
+        <p>Определите ваш уровень финского языка A1-C2</p>
+        <span class="card-link">Пройти тест →</span>
+      </Card>
+    </div>
+  </div>
+</section>
+
+<style>
+  .features {
+    padding: 4rem 2rem;
+    background: var(--background-light);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .feature-card {
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+  }
+
+  .feature-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-card h3 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .feature-card p {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+    .features {
+      padding: 2rem 1rem;
+    }
+
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

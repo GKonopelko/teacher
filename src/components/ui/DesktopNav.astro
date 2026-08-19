@@ -1,0 +1,40 @@
+---
+import { navigationLinks } from '../../data/navigation';
+import Button from './Button.astro';
+---
+
+<nav class="nav-desktop" aria-label="Основная навигация">
+  <div class="nav-links">
+    {
+      navigationLinks.map((link) => (
+        <Button href={link.href} variant="nav-link" size="medium">
+          {link.label}
+        </Button>
+      ))
+    }
+  </div>
+
+  <style>
+    .nav-desktop {
+      display: flex;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 1024px) {
+      .nav-links {
+        gap: 0rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-desktop {
+        display: none;
+      }
+    }
+  </style>
+</nav>

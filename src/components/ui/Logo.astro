@@ -1,0 +1,28 @@
+---
+import { Image } from 'astro:assets';
+import favicon from '@assets/images/parrotsvg.svg';
+---
+
+<div class="logo-img">
+  <Image
+    src={favicon}
+    alt="Логотип - Преподаватель финского языка"
+    width={40}
+    height={40}
+    loading="lazy"
+  />
+</div>
+
+<style>
+  .logo-img {
+    width: 2.5rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 17.5rem) {
+    .logo-img {
+      display: none;
+    }
+  }
+</style>

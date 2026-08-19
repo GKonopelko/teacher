@@ -1,0 +1,43 @@
+---
+import Card from './Card.astro';
+
+export interface Props {
+  number: number;
+  title: string;
+  description: string;
+  delay?: number;
+}
+
+const { number, title, description, delay = 0 } = Astro.props;
+---
+
+<Card delay={delay}>
+  <div class="numbered-header">
+    <div class="number-circle">{number}</div>
+    <h3>{title}</h3>
+  </div>
+  <p>{description}</p>
+</Card>
+
+<style>
+  .numbered-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .number-circle {
+    background: var(--background-white);
+    color: var(--text-primary);
+    border: 2px solid var(--text-primary);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+</style>

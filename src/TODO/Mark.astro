@@ -1,0 +1,47 @@
+---
+import Card from '../components/ui/Card.astro';
+---
+
+<Card variant="wide">
+  <h3>Последние оценки</h3>
+  <div class="grades-preview">
+    <div class="grade-item">
+      <span>22.01.2024</span>
+      <span class="grade-5">5 ★★★★★</span>
+      Отлично занимался
+      <div class="grade-item">
+        <span>18.01.2024</span>
+        <span class="grade-4">4 ★★★★☆</span>
+      </div>
+      <p>
+        <em><a href="ССЫЛКА_НА_ТАБЛИЦУ" target="_blank">Журнал</a></em>
+      </p>
+    </div>
+  </div>
+</Card>
+
+<style>
+  .grades-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .grade-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    background: var(--accent-soft);
+    border-radius: var(--border-radius);
+  }
+
+  .grade-5 {
+    color: #10b981;
+    font-weight: 600;
+  }
+  .grade-4 {
+    color: #f59e0b;
+    font-weight: 600;
+  }
+</style>

@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/sections/HeroSection.astro';
+import Section from '../components/ui/Section.astro';
+import FlexRow from '../components/ui/FlexRow.astro';
+import CTASection from '../components/sections/CTASection.astro';
+import FaqPreview from '../components/faq/FaqPreview.astro';
+import Icon from '../components/ui/Icon.astro';
+import Card from '../components/ui/Card.astro';
+import Button from '../components/ui/Button.astro';
+
+const TEACHER_INFO = {
+  name: 'Конопелько Григорий Викторович',
+  experience: '15+ лет',
+  phone: '+7 911 777 02 97',
+  email: 'grigori.konopelko@mail.ru',
+};
+
+const pageTitle = 'Репетитор финского языка | Индивидуальные уроки онлайн с Григорием Конопелько';
+const pageDescription =
+  'Профессиональный репетитор финского с 15-летним опытом. Подготовка к YKI, переезду, работе в Финляндии. Индивидуальные онлайн-уроки. Начните говорить по-фински!';
+const canonicalUrl = 'https://grigori.konopelko.com/';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Репетитор финского языка - Григорий Конопелько',
+  description: pageDescription,
+  url: canonicalUrl,
+  telephone: '+7-911-777-02-97',
+  email: 'grigori.konopelko@mail.ru',
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'RU',
+    addressLocality: 'Санкт-Петербург',
+  },
+  areaServed: ['Россия', 'Финляндия', 'СНГ'],
+  serviceType: ['Языковые курсы', 'Репетиторство'],
+  provider: {
+    '@type': 'Person',
+    name: 'Григорий Конопелько',
+    jobTitle: 'Репетитор финского языка',
+    experienceYears: '15',
+    alumniOf: {
+      '@type': 'CollegeOrUniversity',
+      name: 'СПбГУ',
+    },
+  },
+  offers: {
+    '@type': 'Offer',
+    description: 'Индивидуальные уроки финского языка онлайн',
+    price: '2500',
+    priceCurrency: 'RUB',
+  },
+};
+
+const mainQuestions = [
+  {
+    question: 'Сколько времени нужно чтобы выучить финский?',
+    answer: 'Для базового общения (уровень А2) нужно 3-6 месяцев...',
+  },
+  {
+    question: 'Возможно ли обучение с нуля?',
+    answer: 'Да, конечно! Многие мои ученики начинают с полного нуля...',
+  },
+  {
+    question: 'Сколько стоят занятия?',
+    answer: 'Индивидуальные онлайн-уроки стоят 2500 рублей за 60 минут...',
+  },
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalUrl={canonicalUrl}
+  structuredData={structuredData}
+  faqData={mainQuestions}
+>
+  <HeroSection teacherInfo={TEACHER_INFO} />
+
+  <Section>
+    <h2>Почему выбирают меня</h2>
+    <FlexRow>
+      <Card>
+        <Icon name="target" />
+        <h3>Индивидуальный подход</h3>
+        <p>
+          Учебный процесс строится под ваши цели. Бесплатные учебные материалы предоставляются в
+          соответствии с учебным планом.
+        </p>
+      </Card>
+      <Card>
+        <Icon name="video" />
+        <h3>Гибкий график онлайн</h3>
+        <p>
+          Занимайтесь из любой точки мира. Сами формируете расписание. Не тратьте время на дорогу.
+        </p>
+      </Card>
+      <Card>
+        <Icon name="award" />
+        <h3>Языковая практика с опытным преподавателем</h3>
+        <p>
+          На каждом уроке тренируем разговорную речь и восприятие на слух. Доступно объясняю
+          грамматику и тонкости языка.
+        </p>
+      </Card>
+    </FlexRow>
+  </Section>
+
+  <!-- Форматы обучения -->
+  <Section background="light">
+    <h2>Форматы и стоимость обучения</h2>
+    <FlexRow>
+      <Card>
+        <Icon name="video" />
+        <h3>Онлайн-уроки</h3>
+        <p>Удобно из любого города<br />Google Meet, Max, интерактивные материалы</p>
+        <div><strong>2500₽ / 60 мин</strong></div>
+      </Card>
+
+      <Card>
+        <Icon name="mapPin" />
+        <h3>Очно в Санкт-Петербурге</h3>
+        <p>Занятия у вас дома или в офисе<br />Индивидуальный подход и полное погружение</p>
+        <div><strong>Стоимость рассчитывается индивидуально</strong></div>
+      </Card>
+
+      <Card>
+        <Icon name="users" />
+        <h3>Занятия в паре</h3>
+        <p>Экономия до 30% для вас и друга/коллеги<br />Идеально для совместной мотивации</p>
+        <div><strong>1400₽ / 60 мин с человека</strong></div>
+      </Card>
+    </FlexRow>
+  </Section>
+
+  <!-- Методика - краткое описание с ссылкой -->
+  <Section>
+    <h2>Эффективная методика обучения</h2>
+    <p class="text-center">
+      Моя авторская методика, разработанная за 15 лет преподавания, сочетает проверенные подходы и
+      современные технологии обучения. Упор на разговорную практику и персонализацию позволяет
+      достигать быстрых результатов.
+    </p>
+
+    <FlexRow>
+      <Card>
+        <Icon name="zap" />
+        <h3>Сбалансированный подход</h3>
+        <p>
+          40% - разговорная практика, 20% - грамматика, 20% - аудирование, 20% - чтение и письмо
+        </p>
+      </Card>
+      <Card>
+        <Icon name="bookOpen" />
+        <h3>Современные материалы</h3>
+        <p>Suomen Mestari, финские СМИ, видео Yle и авторские разработки</p>
+      </Card>
+      <Card>
+        <Icon name="trendingUp" />
+        <h3>Контроль прогресса</h3>
+        <p>Регулярное тестирование и корректировка программы под ваши успехи</p>
+      </Card>
+    </FlexRow>
+    <FlexRow>
+      <Button href="/metodika/" variant="button-link" size="large">
+        <Icon name="award" />
+        Узнать подробнее о методике преподавания →
+      </Button>
+    </FlexRow>
+  </Section>
+
+  <!-- Для кого -->
+  <Section background="light">
+    <h2>Вам ко мне, если вы...</h2>
+    <FlexRow>
+      <Card>
+        <Icon name="flag" />
+        <h3>Строите карьеру или учитесь</h3>
+        <ul>
+          <li>Готовитесь к собеседованию в финскую компанию</li>
+          <li>Нужен язык для работы и делового общения</li>
+          <li>Поступаете в вуз или колледж Финляндии</li>
+        </ul>
+      </Card>
+
+      <Card>
+        <Icon name="mapPin" />
+        <h3>Переезжаете или живете в Финляндии</h3>
+        <ul>
+          <li>Хотите комфортно общаться в магазине, у врача, с соседями</li>
+          <li>Готовитесь к интервью в миграционной службе (Maahanmuuttovirasto)</li>
+          <li>Помогаете ребенку-школьнику адаптироваться и подтянуть язык</li>
+        </ul>
+      </Card>
+
+      <Card>
+        <Icon name="user" />
+        <h3>Школьник или студент</h3>
+        <ul>
+          <li>Нужно подтянуть успеваемость по финскому и английскому в школе или вузе</li>
+          <li>Готовитесь к выпускным или вступительным экзаменам</li>
+          <li>Хотите знать язык глубже школьной программы</li>
+        </ul>
+      </Card>
+    </FlexRow>
+  </Section>
+
+  <!-- Отзывы -->
+  <Section>
+    <h2>Отзывы студентов</h2>
+    <FlexRow>
+      <Card>
+        <Icon name="flag" size="sm" />
+        <p>
+          <strong>Сергей</strong> (сдал YKI на B1): <em
+            >"Занимались с Григорием интенсивно целый год, практически ежедневно. Зато и результат
+            потрясающий. Сдал YKI на уровень В1. Очень доволен!"</em
+          >
+        </p>
+      </Card>
+      <Card>
+        <Icon name="mapPin" size="sm" />
+        <p>
+          <strong>Алина</strong> (живет в Финляндии): <em
+            >"Структура уроков очень продуманная. Объясняет доступно темы, которые нужны в
+            повседневной жизни. Стала лучше понимать мужа-финна и окружающих."</em
+          >
+        </p>
+      </Card>
+      <Card>
+        <Icon name="trendingUp" size="sm" />
+        <p>
+          <strong>Мария</strong> (начала с нуля): <em>
+            "Несколько месяцев назад не знала ни слова. Начинали с алфавита, сейчас уже могу
+            поддержать беседу. Обучение комфортное и эффективное!"</em
+          >
+        </p>
+      </Card>
+    </FlexRow>
+  </Section>
+
+  <CTASection
+    badgeText="Идет набор новых учеников"
+    title="Готовы сделать первый шаг к свободному финскому?"
+    subtitle={`
+    Первый урок — это диагностика вашего уровня и подробный план обучения.
+    Запишитесь сейчас и получите подборку учебных материалов в подарок!
+  `}
+    buttonText="Начать обучение"
+    buttonHref="/contact/"
+  />
+
+  <Section background="light">
+    <FaqPreview
+      title="Часто спрашивают о финском"
+      questions={mainQuestions}
+      showMoreLink="/faq/"
+      limit={3}
+    />
+  </Section>
+</BaseLayout>

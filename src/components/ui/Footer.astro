@@ -1,0 +1,173 @@
+---
+import Button from './Button.astro';
+import Icon from './Icon.astro';
+---
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-row">
+      <div class="footer-contacts">
+        <Button href="tel:+79117770297" variant="button-link" size="medium" class="contact-button">
+          <Icon name="phone" size="sm" />
+          <span class="contact-text">Позвонить</span>
+        </Button>
+
+        <Button
+          href="mailto:grigori.konopelko@mail.ru"
+          variant="button-link"
+          size="medium"
+          class="contact-button"
+        >
+          <Icon name="email" size="sm" />
+          <span class="contact-text">Написать</span>
+        </Button>
+
+        <Button
+          href="https://t.me/GrigoriKonopelko"
+          variant="button-link"
+          size="medium"
+          class="contact-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon name="telegram" size="sm" />
+          <span class="contact-text">Telegram</span>
+        </Button>
+
+        <Button
+          href="https://max.ru/u/f9LHodD0cOIlZL05Afu8TsfFS8mVlkt1nFSApyy1oWrkJg3Yx8xqxlGuTgM"
+          variant="button-link"
+          size="medium"
+          class="contact-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon name="max" size="sm" />
+          <span class="contact-text">Max</span>
+        </Button>
+      </div>
+
+      <div class="footer-copyright">
+        <p>© Конопелько Григорий Викторович, {new Date().getFullYear()}</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 0.0625rem solid var(--border-light);
+    padding: 0.75rem 0;
+    margin-top: 3rem;
+  }
+
+  .footer-content {
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .footer-contacts {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+
+  .contact-icon {
+    font-size: var(--text-base);
+    flex-shrink: 0;
+  }
+
+  .contact-text {
+    white-space: nowrap;
+  }
+
+  .footer-copyright {
+    font-size: var(--text-sm);
+    flex-shrink: 0;
+  }
+
+  .footer-copyright p {
+    margin: 0;
+  }
+
+  @media (max-width: 64rem) {
+    .footer-row {
+      flex-direction: column;
+      gap: 0.75rem;
+      text-align: center;
+    }
+
+    .footer-contacts {
+      justify-content: center;
+      gap: 0.5rem;
+    }
+  }
+
+  @media (max-width: 48rem) {
+    .footer {
+      padding: 0.5rem 0;
+      margin-top: 2rem;
+    }
+
+    .footer-content {
+      padding: 0 1rem;
+    }
+
+    .footer-contacts {
+      gap: 0.3rem;
+    }
+
+    .contact-text {
+      display: none;
+    }
+
+    .contact-button {
+      width: 2rem !important;
+      height: 2rem !important;
+      padding: 0.5rem !important;
+    }
+  }
+
+  @media (max-width: 30rem) {
+    .footer-content {
+      padding: 0 0.5rem;
+    }
+
+    .footer-contacts {
+      gap: 0.4rem;
+    }
+
+    .contact-icon {
+      font-size: var(--text-sm);
+    }
+  }
+
+  @media (max-width: 23.4375rem) {
+    .footer-content {
+      padding: 0 0.25rem;
+    }
+
+    .footer-contacts {
+      gap: 0.25rem;
+    }
+
+    .contact-button {
+      width: 1.8rem !important;
+      height: 1.8rem !important;
+    }
+  }
+</style>

@@ -1,0 +1,194 @@
+---
+import Button from './Button.astro';
+import Logo from './Logo.astro';
+export interface Props {
+  showText?: boolean;
+}
+
+const { showText } = Astro.props;
+---
+
+<Button
+  href="/"
+  variant="button-link"
+  size="medium"
+  class="logo-home-link"
+  aria-label="На главную страницу - Преподаватель финского языка Конопелько Григорий Викторович"
+>
+  <div class="logo">
+    <Logo />
+    {
+      showText && (
+        <div class="logo-text">
+          <span class="logo-title">Преподаватель финского языка</span>
+          <span class="logo-subtitle">Конопелько Григорий Викторович</span>
+        </div>
+      )
+    }
+  </div>
+</Button>
+
+<style>
+  .logo-home-link {
+    text-decoration: none;
+    padding: 0 1rem;
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.5rem, 2vw, 0.75rem);
+    text-decoration: none;
+    color: inherit;
+    min-width: 0;
+  }
+
+  .logo-img {
+    width: clamp(2rem, 8vw, 2.5rem);
+    height: clamp(2rem, 8vw, 2.5rem);
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    flex: 1;
+    width: 100%;
+  }
+
+  .logo-title {
+    font-family: var(--font-heading);
+    font-size: clamp(0.8rem, 4vw, 1.1rem);
+    font-weight: 700;
+    color: var(--link-color);
+    line-height: 1.2;
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  .logo-subtitle {
+    font-size: clamp(0.55rem, 2.5vw, 0.75rem);
+    color: var(--link-color);
+    font-weight: 400;
+    margin-top: 0.125rem;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  .logo:hover .logo-subtitle,
+  .logo-home-link:hover .logo-subtitle {
+    color: var(--text-primary);
+  }
+
+  /* Медиазапросы в rem */
+  @media (max-width: 50rem) {
+    /* 800px */
+    .logo-title {
+      font-size: 1rem;
+    }
+    .logo-subtitle {
+      font-size: 0.7rem;
+    }
+    .logo-home-link {
+      padding: 0 0.5rem;
+    }
+  }
+
+  @media (max-width: 28.125rem) {
+    /* 450px */
+    .logo {
+      gap: 0.4rem;
+    }
+    .logo-img {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+    .logo-title {
+      font-size: 0.85rem;
+    }
+    .logo-subtitle {
+      font-size: 0.6rem;
+    }
+  }
+
+  @media (max-width: 25rem) {
+    /* 400px */
+    .logo-home-link {
+      padding: 0;
+    }
+    .logo {
+      gap: 0.3rem;
+    }
+    .logo-img {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
+    .logo-title {
+      font-size: 0.8rem;
+    }
+    .logo-subtitle {
+      font-size: 0.55rem;
+    }
+  }
+
+  @media (max-width: 21.875rem) {
+    /* 350px */
+    .logo {
+      gap: 0.25rem;
+    }
+    .logo-img {
+      width: 1.4rem;
+      height: 1.4rem;
+    }
+    .logo-title {
+      font-size: 0.75rem;
+    }
+    .logo-subtitle {
+      font-size: 0.5rem;
+    }
+  }
+
+  @media (max-width: 20rem) {
+    /* 320px */
+    .logo {
+      gap: 0.2rem;
+    }
+    .logo-img {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+    .logo-title {
+      font-size: 0.7rem;
+      max-width: 7.5rem; /* 120px */
+    }
+    .logo-subtitle {
+      font-size: 0.45rem;
+      max-width: 7.5rem; /* 120px */
+    }
+  }
+
+  @media (max-width: 18.75rem) {
+    /* 300px */
+    .logo-title {
+      font-size: 0.65rem;
+      max-width: 6.25rem; /* 100px */
+    }
+    .logo-subtitle {
+      font-size: 0.4rem;
+      max-width: 6.25rem; /* 100px */
+    }
+  }
+
+  @media (max-width: 17.5rem) {
+    /* 280px */
+    .logo-img {
+      display: none;
+    }
+    .logo {
+      gap: 0;
+    }
+  }
+</style>

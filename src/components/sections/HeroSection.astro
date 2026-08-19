@@ -1,0 +1,303 @@
+---
+import Button from '../ui/Button.astro';
+import Icon from '../ui/Icon.astro';
+
+export interface Props {
+  teacherInfo: {
+    name: string;
+    experience: string;
+    phone: string;
+    email: string;
+  };
+}
+
+const { teacherInfo } = Astro.props;
+---
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>Финский язык перестанет быть проблемой.<br />Пора говорить свободно!</h1>
+
+      <div class="hero-with-photo-stats">
+        <div class="image-circle-container">
+          <img
+            src="/images/grigori.webp"
+            alt="Григорий Конопелько - репетитор финского языка"
+            width="400"
+            height="400"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            class="teacher-photo"
+          />
+        </div>
+        <div class="stat-container">
+          <div class="stat-circle">
+            <div class="stat-circle-content">
+              <span class="stat-number">15+</span>
+              <span class="stat-label">лет преподавания</span>
+            </div>
+          </div>
+
+          <div class="stat-circle">
+            <div class="stat-circle-content">
+              <span class="stat-number">98%</span>
+              <span class="stat-label">успешной сдачи YKI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-content">
+        <p class="intro-text">
+          Здравствуйте! Меня зовут <strong>{teacherInfo.name}</strong>. <br /> Я профессиональный преподаватель
+          финского языка с опытом работы более 15 лет.
+        </p>
+      </div>
+
+      <div class="hero-benefits">
+        <p class="benefits">
+          Помогаю взрослым и детям достигать целей: от переезда в Финляндию до карьерного роста.
+          Готовлю к экзамену YKI (98% успешной сдачи), поступлению в вузы и колледжи Финляндии.
+        </p>
+        <p class="benefits">Делаю упор на практику - первые диалоги уже через 2-3 недели!</p>
+        <p class="benefits">
+          На уроках добиваюсь понимания структуры языка, а не простого заучивания правил. 80%
+          времени — это практика понимания и живого общения.
+        </p>
+      </div>
+
+      <div class="hero-buttons">
+        <Button href="/contact/" variant="primary" size="large">
+          <Icon name="calendar" size="sm" />
+          Записаться на урок
+        </Button>
+        <Button href="/about/" variant="button-link" size="large">
+          <Icon name="bookOpen" size="sm" />
+          Узнать больше
+        </Button>
+      </div>
+
+      <p class="welcome">
+        <em>Tervetuloa opiskelemaan!</em> — <em class="phrase">Добро пожаловать на занятия!</em>
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Hero секция */
+
+  .hero-content {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .hero-with-photo-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin: 1.5rem 0 0;
+    position: relative;
+  }
+
+  .stat-container {
+    display: flex;
+    justify-content: center;
+    gap: 20rem;
+    margin-top: -9rem;
+    position: relative;
+    z-index: 3;
+  }
+
+  .image-circle-container {
+    flex-shrink: 0;
+    z-index: 2;
+  }
+
+  .teacher-photo {
+    width: min(21.875rem, 50vw);
+    height: min(21.875rem, 50vw);
+    border-radius: 50%;
+    object-fit: cover;
+    border: 0.25rem solid var(--accent-light);
+    box-shadow: var(--shadow);
+  }
+
+  .stat-circle {
+    width: min(8.125rem, 13vw);
+    height: min(8.125rem, 13vw);
+    border-radius: 50%;
+    border: 0.1875rem solid var(--accent-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .stat-circle-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .stat-number {
+    display: block;
+    font-size: min(1.8rem, 4vw);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-label {
+    font-size: min(0.8rem, 2vw);
+    line-height: 1.2;
+    max-width: 5rem;
+    word-wrap: break-word;
+    hyphens: auto;
+    padding: 0 0.25rem;
+  }
+
+  .intro-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .hero-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .benefits {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .welcome {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin: 0;
+    hyphens: auto;
+  }
+
+  /* Адаптивность */
+  @media (max-width: 48rem) {
+    .stat-container {
+      gap: 8rem;
+      margin-top: -2rem;
+    }
+
+    .stat-circle {
+      width: min(7.5rem, 24vw);
+      height: min(7.5rem, 24vw);
+    }
+
+    .hero-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-buttons > * {
+      width: 100%;
+      max-width: 18.75rem;
+    }
+  }
+
+  /* На маленьких экранах */
+  @media (max-width: 30rem) {
+    .teacher-photo {
+      width: min(18.75rem, 60vw);
+      height: min(18.75rem, 60vw);
+    }
+
+    .stat-container {
+      gap: 7rem;
+      margin-top: -2rem;
+    }
+
+    .stat-circle {
+      width: min(6.25rem, 30vw);
+      height: min(6.25rem, 30vw);
+    }
+
+    .stat-number {
+      font-size: min(1.5rem, 5vw);
+    }
+
+    .stat-label {
+      font-size: min(0.7rem, 2.5vw);
+    }
+
+    .intro-text {
+      font-size: 1.1rem;
+    }
+
+    .benefits {
+      font-size: 1rem;
+    }
+  }
+
+  /* Очень маленькие экраны */
+  @media (max-width: 23.4375rem) {
+    .hero-container {
+      padding: 0 0.5rem;
+    }
+
+    .teacher-photo {
+      width: min(15.625rem, 70vw);
+      height: min(15.625rem, 70vw);
+    }
+
+    .stat-container {
+      gap: 2rem;
+      margin-top: -1rem;
+    }
+
+    .stat-circle {
+      width: min(5.625rem, 35vw);
+      height: min(5.625rem, 35vw);
+    }
+
+    .stat-number {
+      font-size: min(1.3rem, 6vw);
+    }
+
+    .stat-label {
+      font-size: min(0.65rem, 3vw);
+      max-width: 4.375rem;
+    }
+  }
+
+  .phrase {
+    white-space: nowrap;
+  }
+
+  @media (max-width: 20rem) {
+    .phrase {
+      white-space: normal;
+    }
+  }
+</style>
