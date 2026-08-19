@@ -6,7 +6,7 @@ import Section from '../components/ui/Section.astro';
 import FlexRow from '../components/ui/FlexRow.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const pageTitle = 'Семён';
+const pageTitle = 'Семён и Александр';
 const pageDescription =
   'Персональная страница ученика Семёна с материалами для занятий финским языком';
 const canonicalUrl = 'https://grigori.konopelko.com/students/sever/';
@@ -15,29 +15,27 @@ const canonicalUrl = 'https://grigori.konopelko.com/students/sever/';
 <BaseLayout title={pageTitle} description={pageDescription} canonicalUrl={canonicalUrl}>
   <Section>
     <div class="student-header">
-      <h1>Семён</h1>
+      <h1>Семён и Александр</h1>
     </div>
   </Section>
 
-  <Card variant="wide">
-    <h3>Расписание занятий</h3>
-    <div class="schedule-times">
-      <p>Понедельник, 14:00-15:00 МСК</p>
-      <p>Четверг, 15:00-16:00 МСК</p>
-    </div>
-  </Card>
+  <Section>
+    <h2>Расписание занятий</h2>
+    <FlexRow>
+      <Card>
+        <h3>Cемен  </h3>
+        Понедельник, 19:00-20:00 МСК
+      </Card>
+       <Card>
+        <h3>Александр  </h3>
+        Вторник, 18:00-21:00 МСК
+      </Card>
 
+    </FlexRow>
+  </Section>
+<Section>
+    <h2>Материалы</h2>
   <FlexRow>
-    <Card>
-      <h3>Онлайн-урок</h3>
-      <Button
-        href="https://teams.live.com/meet/9320789861792?p=EPANocIkqs0Ax39xFu"
-        target="_blank"
-        variant="primary"
-      >
-        <Icon name="video" />Подключение к уроку
-      </Button>
-    </Card>
 
     <Card>
       <h3>Учебные материалы</h3>
@@ -50,9 +48,20 @@ const canonicalUrl = 'https://grigori.konopelko.com/students/sever/';
       </Button>
     </Card>
     <Card>
-      <h3>Конспект урока</h3>
+      <h3>Конспект Семен</h3>
       <Button
-        href="https://docs.google.com/document/d/1qd8bLmCBvLtCDI_yALhF2_fMzn0_8VHFxeq29lKMtpI/edit?usp=sharing"
+        href="https://docs.google.com/document/d/1qd8bLmCBvLtCDI_yALhF2_fMzn0_8VHFxeq29lKMtpI/edit?usp=drive_link"
+        target="_blank"
+        variant="primary"
+      >
+        <Icon name="bookOpen" />
+        Открыть конспект
+      </Button>
+    </Card>
+     <Card>
+      <h3>Конспект Александр</h3>
+      <Button
+        href="https://docs.google.com/document/d/1GMr1H6Nw7m2bacFglhdnS66WBbssZi7b8nm0_wHDs4I/edit?usp=sharing"
         target="_blank"
         variant="primary"
       >
@@ -61,7 +70,7 @@ const canonicalUrl = 'https://grigori.konopelko.com/students/sever/';
       </Button>
     </Card>
   </FlexRow>
-
+</Section>
   <Section>
     <h2>Полезные ресурсы</h2>
     <FlexRow>
@@ -86,26 +95,16 @@ const canonicalUrl = 'https://grigori.konopelko.com/students/sever/';
   </Section>
 
   <Section>
-    <h2>Реквизиты для оплаты</h2>
+    <h2>Оплата</h2>
     <FlexRow>
       <Card>
         <Button
-          href="https://www.tinkoff.ru/rm/r_rxnDHTaIJY.OjhoALQbCt/uRZ1X49890"
+          href="https://docs.google.com/spreadsheets/d/1gPkRkdxTkyor3rjnBpX-xLfaOcaJZs7WoT0aUvLX-L8/edit?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           variant="button-link"
         >
-          <Icon name="credit-card" /> Оплатить онлайн
-        </Button>
-      </Card>
-      <Card>
-        <Button
-          href="/requisites.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          variant="button-link"
-        >
-          <Icon name="file-text" /> Реквизиты для перевода
+          <Icon name="file-text" /> Состояние оплаты
         </Button>
       </Card>
     </FlexRow>
