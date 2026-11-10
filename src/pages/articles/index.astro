@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/ui/Section.astro';
+import Card from '../../components/ui/Card.astro';
+import Button from '../../components/ui/Button.astro';
+import Icon from '../../components/ui/Icon.astro';
+
+// 1. Получаем все статьи из созданной коллекции и сортируем по параметру order
+const allArticles = await getCollection('articles');
+const sortedArticles = [...allArticles].sort((a, b) => (a.data.order || 100) - (b.data.order || 100));
+
+// 2. Настройки метаданных для поисковых роботов (SEO)
+const pageTitle = 'Полезные статьи по изучению финского языка | Григорий Конопелько';
+const pageDescription = 'Авторские разборы, методики и практические советы по преодолению языкового барьера, подготовке к экзамену YKI и помощи школьникам в Финляндии.';
+const canonicalUrl = 'https://konopelko.com';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} canonicalUrl={canonicalUrl}>
+  
+  <!-- Главный заголовок страницы без обертки в Card -->
+  <Section background="light">
+    <h1>Полезные материалы</h1>
+    <p>
+      Практические советы филолога для взрослых и родителей школьников, обучающихся в Финляндии.
+    </p>
+  </Section>
+
+  <!-- Вывод списка статей в виде широких карточек -->
+  <Section>
+    {sortedArticles.map(article => (
+      <Card variant="wide">
+        <Icon name="bookOpen" />
+        <h3>{article.data.title}</h3>
+        <p>
+          {article.data.description || 'Нажмите, чтобы прочитать подробный разбор темы...'}
+        </p>
+        <Button href={`/articles/${article.slug}/`} size="medium">
+          Читать статью →
+        </Button>
+      </Card>
+    ))}
+  </Section>
+
+</BaseLayout>

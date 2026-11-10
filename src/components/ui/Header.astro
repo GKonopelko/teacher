@@ -33,7 +33,7 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
     initMobileMenu({
       buttonId: 'headerBurger',
       menuId: 'mobileMenu',
-      breakpoint: 48, // 768px в rem
+      breakpoint: 64, // 1024px в rem
       onOpen: () => {
         if (typeof window !== 'undefined' && window.gtag) {
           window.gtag('event', 'menu_open', {
@@ -65,14 +65,14 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
     max-width: 75rem;
     margin: 0 auto;
     padding: 0.5rem 0;
-    gap: 2rem;
+    gap: 0rem;
   }
 
   .header-left {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 3rem;
+    gap: 2rem;
     flex: 1;
     min-width: 0;
   }
@@ -83,7 +83,7 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
     flex-shrink: 0;
   }
 
-  @media (max-width: 64rem) {
+  @media (30rem <= width <= 64rem) {
     .header-container {
       padding: 0;
       gap: 1rem;
@@ -93,13 +93,7 @@ const { buttonId = 'headerBurger', menuId = 'mobileMenu' } = Astro.props;
     }
   }
 
-  @media (max-width: 48rem) {
-    .header-container {
-      gap: 0;
-    }
-  }
-
-  @media (max-width: 30rem) {
+  @media (width <= 30rem) {
     .header-left {
       gap: 0.5rem;
     }

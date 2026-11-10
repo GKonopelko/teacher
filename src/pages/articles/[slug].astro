@@ -1,0 +1,61 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/ui/Section.astro';
+import Card from '../../components/ui/Card.astro';
+import Button from '../../components/ui/Button.astro';
+
+// 1. Генерируем пути для всех файлов Markdown из коллекции articles
+export async function getStaticPaths() {
+  const articleEntries = await getCollection('articles');
+  return articleEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+// 2. Получаем данные текущей статьи
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const pageTitle = entry.data.title;
+const pageDescription = entry.data.description || 'Полезные материалы по изучению финского языка';
+// Исправлена опечатка в формировании URL (добавлен слэш перед entry.slug)
+const canonicalUrl = `https://konopelko.com{entry.slug}/`;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} canonicalUrl={canonicalUrl}>
+  
+  <!-- Кнопка возврата к списку статей -->
+  <Section>
+    <Button href="/articles/" size="small" variant="secondary">
+      ← Назад к статьям
+    </Button>
+  </Section>
+
+  <!-- Контентная область статьи на базе широкой карточки -->
+  <Section>
+    <Card variant="wide">
+      <h1>{entry.data.title}</h1>
+      
+      <!-- Класс prose автоматически подхватит и отформатирует текст из Markdown -->
+      <div class="prose">
+        <Content />
+      </div>
+    </Card>
+  </Section>
+
+  <!-- Блок призыва к действию (CTA) в подвале статьи -->
+  <Section background="light">
+    <Card variant="wide">
+      <h3>Не получается справиться со школьной программой самостоятельно?</h3>
+      <p>
+        Обращайтесь, вместе посмотрим ваши учебники и поищем решение.
+      </p>
+      <Button href="/contact/" size="medium">
+        Пишите / звоните.
+      </Button>
+    </Card>
+  </Section>
+
+</BaseLayout>
