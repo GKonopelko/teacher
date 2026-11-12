@@ -23,6 +23,18 @@ import Icon from './Icon.astro';
         </Button>
 
         <Button
+          href="https://wa.me/79117770297"
+          variant="button-link"
+          size="medium"
+          class="contact-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon name="whatsapp" size="sm" />
+          <span class="contact-text">WhatsApp</span>
+        </Button>
+
+        <Button
           href="https://t.me/GrigoriKonopelko"
           variant="button-link"
           size="medium"
@@ -70,13 +82,13 @@ import Icon from './Icon.astro';
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
   }
 
   .footer-contacts {
     display: flex;
-    gap: 0.4rem;
-    flex-wrap: wrap;
+    gap: 0.1rem;
+    flex-wrap: nowrap;
   }
 
   .contact-button {
@@ -113,7 +125,7 @@ import Icon from './Icon.astro';
 
     .footer-contacts {
       justify-content: center;
-      gap: 0.5rem;
+      gap: 0.2rem;
     }
   }
 
@@ -128,7 +140,7 @@ import Icon from './Icon.astro';
     }
 
     .footer-contacts {
-      gap: 0.3rem;
+      gap: 0.1rem;
     }
 
     .contact-text {
@@ -148,7 +160,7 @@ import Icon from './Icon.astro';
     }
 
     .footer-contacts {
-      gap: 0.4rem;
+      gap: 0.2rem;
     }
 
     .contact-icon {
